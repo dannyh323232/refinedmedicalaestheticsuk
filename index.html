@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refined Medical Aesthetics | Nurse-Led Aesthetic Clinic</title>
+  <meta name="description" content="Nurse-led aesthetic excellence in Seaton Delaval. Anti-wrinkle injections, dermal fillers, skin boosters and more.">
+  <link rel="canonical" href="https://refinedcorrect.netlify.app/">
+  <meta name="keywords" content="aesthetic clinic, medical aesthetics, anti-wrinkle injections, dermal fillers, skin boosters, Seaton Delaval, Whitley Bay, nurse-led clinic, lip fillers, microneedling, beauty treatments">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --color-gold: #C9A962;
+      --color-gold-dark: #B8984F;
+      --color-cream: #FAF8F5;
+      --color-cream-dark: #F5F0E8;
+      --color-charcoal: #2D2D2D;
+      --color-charcoal-light: #3D3D3D;
+      --color-text: #4A4A4A;
+      --color-text-light: #6B6B6B;
+      --color-white: #FFFFFF;
+      --color-pink: #F5E6E0;
+      --color-whatsapp: #25D366;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    
+    body { 
+      font-family: var(--font-sans); 
+      color: var(--color-text); 
+      background: var(--color-cream); 
+      line-height: 1.6; 
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    
+    /* Popup Styles */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .popup {
+      background: var(--color-cream);
+      border-radius: 20px;
+      max-width: 400px;
+      width: 100%;
+      padding: 35px 30px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    
+    .popup-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--color-charcoal);
+      opacity: 0.5;
+    }
+    
+    .popup-badge {
+      display: inline-block;
+      background: var(--color-charcoal);
+      color: var(--color-gold);
+      padding: 8px 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    
+    .popup h2 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--color-charcoal);
+      margin-bottom: 5px;
+    }
+    
+    .popup h2 span {
+      color: var(--color-gold);
+      font-style: italic;
+    }
+    
+    .popup-subtitle {
+      font-size: 1rem;
+      color: var(--color-text-light);
+      margin-bottom: 15px;
+    }
+    
+    .popup-text {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+    
+    .popup-input {
+      width: 100%;
+      padding: 15px 20px;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-bottom: 15px;
+      background: var(--color-white);
+    }
+    
+    .popup-input:focus {
+      outline: none;
+      border-color: var(--color-gold);
+    }
+    
+    .instagram-follow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    
+    .instagram-follow svg {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .instagram-text {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    
+    .instagram-required {
+      font-size: 0.75rem;
+      color: var(--color-text-light);
+      margin-bottom: 20px;
+    }
+    
+    .popup-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--color-charcoal);
+      color: var(--color-white);
+      border: none;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .popup-btn:hover {
+      background: var(--color-gold);
+      color: var(--color-charcoal);
+    }
+    
+    .popup-rating {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .popup-rating svg {
+      color: var(--color-gold);
+    }
+    
+    .popup-rating span {
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+    }
+    
+    .klarna-banner {
+      background: var(--color-pink);
+      text-align: center;
+      padding: 12px 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-charcoal);
+      letter-spacing: 0.5px;
+    }
+    
+    .header {
+      background: var(--color-cream);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .logo img {
+      height: 45px;
+      width: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .logo-text .refined {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--color-charcoal);
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+    
+    .logo-text .medical {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    
+    .menu-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    
+    .menu-btn span {
+      width: 24px;
+      height: 2px;
+      background: var(--color-charcoal);
+    }
+    
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--color-white);
+      z-index: 1000;
+      padding: 80px 30px 30px;
+      transition: right 0.4s ease;
+      box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-menu.active { right: 0; }
+    
+    .mobile-menu-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--color-charcoal);
+    }
+    
+    .mobile-menu a {
+      display: block;
+      padding: 15px 0;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      color: var(--color-charcoal);
+    }
+    
+    .mobile-menu .book-now-btn {
+      background: var(--color-gold);
+      color: var(--color-charcoal);
+      text-align: center;
+      margin-top: 20px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+    
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+    
+    .menu-overlay.active { opacity: 1; visibility: visible; }
+    
+    /* Hero Section - Matching refinedmedicalaesthetics.uk */
+    .hero {
+      background: var(--color-cream);
+      padding: 40px 20px;
+      min-height: auto;
+    }
+    
+    .hero-top-labels {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 20px;
+    }
+    
+    .hero-top-labels span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--color-gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    
+    .hero-content-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .hero-text {
+      order: 2;
+    }
+    
+    .hero-image {
+      order: 1;
+      position: relative;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .hero-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--color-charcoal);
+      color: var(--color-gold);
+      padding: 10px 15px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 4px;
+    }
+    
+    .hero-nmc-badge {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      background: rgba(255,255,255,0.95);
+      padding: 10px 15px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .hero-nmc-badge .nmc-icon {
+      width: 30px;
+      height: 30px;
+      background: var(--color-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--color-charcoal);
+    }
+    
+    .hero-nmc-badge .nmc-text {
+      font-size: 0.7rem;
+      line-height: 1.3;
+    }
+    
+    .hero-nmc-badge .nmc-text strong {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--color-charcoal);
+    }
+    
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--color-charcoal);
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+    
+    .hero h1 span {
+      color: var(--color-gold);
+      font-style: italic;
+    }
+    
+    .hero p {
+      font-size: 1rem;
+      color: var(--color-text-light);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+    
+    .hero-offer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--color-charcoal);
+      color: var(--color-white);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      margin-bottom: 25px;
+    }
+    
+    .hero-offer-badge .offer-icon {
+      width: 24px;
+      height: 24px;
+      background: var(--color-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--color-charcoal);
+    }
+    
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 16px 30px;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      border-radius: 8px;
+    }
+    
+    .btn-dark {
+      background: var(--color-charcoal);
+      color: var(--color-white);
+    }
+    
+    .btn-dark:hover {
+      background: var(--color-gold);
+      color: var(--color-charcoal);
+    }
+    
+    .btn-gold {
+      background: var(--color-gold);
+      color: var(--color-charcoal);
+    }
+    
+    .btn-gold:hover {
+      background: var(--color-gold-dark);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--color-charcoal);
+      border: 1px solid var(--color-charcoal);
+    }
+    
+    .btn-outline:hover {
+      background: var(--color-charcoal);
+      color: var(--color-white);
+    }
+    
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    
+    .hero-stat {
+      background: var(--color-white);
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .hero-stat-icon {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+    
+    .hero-stat-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--color-charcoal);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .hero-stat-subtitle {
+      font-size: 0.7rem;
+      color: var(--color-text-light);
+    }
+    
+    .section {
+      padding: 60px 20px;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--color-gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    
+    .section h2 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--color-charcoal);
+      margin-bottom: 15px;
+    }
+    
+    .section h2 span {
+      color: var(--color-gold);
+      font-style: italic;
+    }
+    
+    .section p {
+      font-size: 1rem;
+      color: var(--color-text-light);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    
+    .about-section {
+      background: var(--color-cream);
+    }
+    
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .about-image {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .about-text h3 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--color-charcoal);
+      margin-bottom: 15px;
+    }
+    
+    .about-text p {
+      font-size: 1rem;
+      color: var(--color-text);
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+    
+    .treatments-section {
+      background: var(--color-charcoal);
+    }
+    
+    .treatments-section .section-label {
+      color: var(--color-gold);
+    }
+    
+    .treatments-section h2 {
+      color: var(--color-white);
+    }
+    
+    .treatments-section p {
+      color: rgba(255,255,255,0.7);
+    }
+    
+    .treatment-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .treatment-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s, background 0.3s;
+      cursor: pointer;
+    }
+    
+    .treatment-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.1);
+    }
+    
+    .treatment-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 15px;
+    }
+    
+    .treatment-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    .treatment-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--color-white);
+      margin-bottom: 8px;
+    }
+    
+    .treatment-card .price {
+      font-size: 0.9rem;
+      color: var(--color-gold);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    
+    .treatment-card p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 15px;
+    }
+    
+    .treatment-card .btn-outline {
+      color: var(--color-white);
+      border-color: rgba(255,255,255,0.5);
+      padding: 12px 20px;
+      font-size: 0.7rem;
+    }
+    
+    .treatment-card .btn-outline:hover {
+      background: var(--color-white);
+      color: var(--color-charcoal);
+    }
+    
+    .gallery-section {
+      background: var(--color-cream);
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .gallery-item {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    .cta-section {
+      background: var(--color-cream-dark);
+      text-align: center;
+    }
+    
+    .cta-section h2 {
+      margin-bottom: 15px;
+    }
+    
+    .cta-section p {
+      margin-bottom: 25px;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .btn-whatsapp {
+      background: var(--color-whatsapp);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .btn-whatsapp:hover {
+      background: #1da851;
+    }
+    
+    .footer {
+      background: var(--color-charcoal);
+      padding: 50px 20px 30px;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .footer-logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    
+    .footer-logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .footer-logo-text .refined {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--color-white);
+    }
+    
+    .footer-logo-text .medical {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    
+    .footer p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+    
+    .footer h4 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--color-white);
+      margin-bottom: 15px;
+    }
+    
+    .footer-links {
+      margin-bottom: 30px;
+    }
+    
+    .footer-links a {
+      display: block;
+      padding: 8px 0;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+    }
+    
+    .footer-links a:hover {
+      color: var(--color-gold);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      text-align: center;
+    }
+    
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 10px;
+    }
+    
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 55px;
+      height: 55px;
+      background: var(--color-whatsapp);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 100;
+    }
+    
+    .whatsapp-float svg {
+      width: 28px;
+      height: 28px;
+      color: white;
+    }
+    
+    .hidden { display: none !important; }
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "Refined Medical Aesthetics",
+  "description": "Nurse-led aesthetic clinic in Seaton Delaval offering anti-wrinkle injections, dermal fillers, skin boosters and more.",
+  "url": "https://refinedcorrect.netlify.app/",
+  "telephone": "+447583321635",
+  "email": "Refinedmedicalaesthetics3@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Double Row, Seaton Delaval",
+    "addressLocality": "Whitley Bay",
+    "postalCode": "NE25 0PP",
+    "addressCountry": "GB"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "55.123",
+    "longitude": "-1.512"
+  },
+  "openingHours": [
+    "Mo-Fr 09:00-19:00",
+    "Sa 09:00-17:00"
+  ],
+  "priceRange": "££",
+  "image": "https://refinedcorrect.netlify.app/images/logo-main.jpg",
+  "founder": {
+    "@type": "Person",
+    "name": "Nurse Rachel"
+  },
+  "sameAs": [
+    "https://instagram.com/refined_rachel"
+  ]
+}
+</script>
+</head>
+<body>
+  <!-- Welcome Popup -->
+  <div class="popup-overlay" id="welcomePopup">
+    <div class="popup">
+      <button class="popup-close" onclick="closePopup()">&times;</button>
+      <div class="popup-badge">EXCLUSIVE VIP OFFER</div>
+      <h2>Unlock <span>10% Off</span></h2>
+      <p class="popup-subtitle">Your First Treatment</p>
+      <p class="popup-text">Join our VIP list for exclusive offers, skincare tips, and be the first to know about new treatments.</p>
+      <input type="email" class="popup-input" placeholder="Enter your email address">
+      <a href="https://instagram.com/refined_rachel" target="_blank" class="instagram-follow">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <span class="instagram-text">Follow @refined_rachel</span>
+      </a>
+      <p class="instagram-required">Required to claim your discount</p>
+      <button class="popup-btn" onclick="closePopup()">CLAIM MY 10% OFF</button>
+      <div class="popup-rating">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span>Trusted by 500+ clients</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="klarna-banner">Pay with Klarna</div>
+  
+  <header class="header">
+    <a href="./index.html" class="logo">
+      <img src="./images/logo-main.jpg" alt="Refined Medical Aesthetics">
+      <div class="logo-text">
+        <span class="refined">Refined</span>
+        <span class="medical">Medical Aesthetics</span>
+      </div>
+    </a>
+    <button class="menu-btn" onclick="openMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+  
+  <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="closeMenu()">&times;</button>
+    <a href="./index.html">Home</a>
+    <a href="./about.html">About</a>
+    <a href="./treatments.html">Treatments</a>
+    <a href="./gallery.html">Gallery</a>
+    <a href="./testimonials.html">Testimonials</a>
+    <a href="./contact.html">Contact</a>
+    <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="book-now-btn" target="_blank">Book Now</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-top-labels">
+      <span>NURSE-LED CLINIC</span>
+      <span>SEATON DELAVAL, WHITLEY BAY</span>
+    </div>
+    
+    <div class="hero-content-wrapper">
+      <div class="hero-text">
+        <h1>Where Beauty <span>Meets Expertise</span></h1>
+        <p>Welcome to Refined Medical Aesthetics, where Nurse Rachel combines clinical excellence with an artistic touch to enhance your natural beauty.</p>
+        
+        <div class="hero-offer-badge">
+          <span class="offer-icon">%</span>
+          <span>10% OFF New clients — sign up for our exclusive offer</span>
+        </div>
+        
+        <div class="hero-buttons">
+          <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-dark" target="_blank">FREE CONSULTATION</a>
+          <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-gold" target="_blank">BOOK NOW</a>
+          <a href="./treatments.html" class="btn btn-outline">VIEW TREATMENTS</a>
+        </div>
+        
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-icon">+</div>
+            <div class="hero-stat-title">NMC Registered</div>
+            <div class="hero-stat-subtitle">Fully Qualified</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-icon">★</div>
+            <div class="hero-stat-title">5★ Rated</div>
+            <div class="hero-stat-subtitle">By Our Clients</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-icon">+</div>
+            <div class="hero-stat-title">1000+ Treatments</div>
+            <div class="hero-stat-subtitle">Performed</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-icon">£</div>
+            <div class="hero-stat-title">Free Consultations</div>
+            <div class="hero-stat-subtitle">Book Today</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-image">
+        <img src="./images/rachel-hero-new.jpg" alt="Nurse Rachel">
+        <div class="hero-badge">10% OFF NEW CLIENTS</div>
+        <div class="hero-nmc-badge">
+          <div class="nmc-icon">+</div>
+          <div class="nmc-text">
+            <strong>REGISTERED NURSE</strong>
+            NMC Verified
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about-section">
+    <div class="section-header">
+      <p class="section-label">ABOUT US</p>
+      <h2>Meet Your <span>Aesthetic Nurse</span></h2>
+    </div>
+    <div class="about-content">
+      <div class="about-image">
+        <img src="./images/rachel-about-new.jpg" alt="Nurse Rachel">
+      </div>
+      <div class="about-text">
+        <h3>Hello, I'm Rachel</h3>
+        <p>I'm a registered nurse with a passion for helping people feel confident in their own skin. With years of experience in medical aesthetics, I founded Refined Medical Aesthetics to provide a safe, welcoming space where clients can achieve their aesthetic goals.</p>
+        <p>My approach combines clinical expertise with an artistic eye, ensuring every treatment is tailored to enhance your natural features while maintaining a refreshed, authentic look.</p>
+        <a href="./about.html" class="btn btn-outline">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Treatments Section -->
+  <section class="section treatments-section">
+    <div class="section-header">
+      <p class="section-label">OUR SERVICES</p>
+      <h2>Treatment <span>Menu</span></h2>
+      <p>Explore our comprehensive range of aesthetic treatments, each performed with clinical precision and an artistic approach.</p>
+    </div>
+    <div class="treatment-cards">
+      <div class="treatment-card" onclick="window.location.href='./treatments.html'">
+        <div class="treatment-icon">
+          <img src="./images/icons/icon-anti-wrinkle.png" alt="Anti-Wrinkle">
+        </div>
+        <h3>Anti-Wrinkle Injections</h3>
+        <p class="price">from £150</p>
+        <p>Smooth fine lines and wrinkles for a refreshed appearance.</p>
+        <span class="btn btn-outline">View Details</span>
+      </div>
+      <div class="treatment-card" onclick="window.location.href='./treatments.html'">
+        <div class="treatment-icon">
+          <img src="./images/icons/icon-dermal-filler.png" alt="Dermal Fillers">
+        </div>
+        <h3>Dermal Fillers</h3>
+        <p class="price">from £150</p>
+        <p>Restore volume and enhance your natural contours.</p>
+        <span class="btn btn-outline">View Details</span>
+      </div>
+      <div class="treatment-card" onclick="window.location.href='./treatments.html'">
+        <div class="treatment-icon">
+          <img src="./images/icons/icon-skin-boosters.png" alt="Skin Boosters">
+        </div>
+        <h3>Skin Boosters</h3>
+        <p class="price">from £110</p>
+        <p>Hydrate and revitalise your skin from within.</p>
+        <span class="btn btn-outline">View Details</span>
+      </div>
+      <div class="treatment-card" onclick="window.location.href='./treatments.html'">
+        <div class="treatment-icon">
+          <img src="./images/icons/icon-microneedling.png" alt="Microneedling">
+        </div>
+        <h3>Microneedling</h3>
+        <p class="price">from £80</p>
+        <p>Stimulate collagen for smoother, firmer skin.</p>
+        <span class="btn btn-outline">View Details</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="section gallery-section">
+    <div class="section-header">
+      <p class="section-label">GALLERY</p>
+      <h2>Real <span>Results</span></h2>
+      <p>See the transformations achieved by Nurse Rachel.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="./images/gallery/client-01.jpg" alt="Client Result"></div>
+      <div class="gallery-item"><img src="./images/gallery/client-02.jpg" alt="Client Result"></div>
+      <div class="gallery-item"><img src="./images/gallery/client-03.jpg" alt="Client Result"></div>
+      <div class="gallery-item"><img src="./images/gallery/client-04.jpg" alt="Client Result"></div>
+    </div>
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="./gallery.html" class="btn btn-outline">View All Results</a>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section">
+    <p class="section-label">YOUR JOURNEY BEGINS HERE</p>
+    <h2>Ready to Discover Your <span>Most Confident Self?</span></h2>
+    <p>Book a complimentary consultation with Nurse Rachel and take the first step.</p>
+    <div class="cta-buttons">
+      <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-dark" target="_blank">BOOK CONSULTATION</a>
+      <a href="https://wa.me/447583321635" class="btn btn-whatsapp">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        SEND A MESSAGE
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="./images/logo-main.jpg" alt="Refined Medical Aesthetics">
+      <div class="footer-logo-text">
+        <span class="refined">Refined</span>
+        <span class="medical">Medical Aesthetics</span>
+      </div>
+    </div>
+    
+    <p>Nurse-led aesthetic excellence in Seaton Delaval. Enhancing your natural beauty with precision and care.</p>
+    
+    <h4>Quick Links</h4>
+    <div class="footer-links">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./treatments.html">Treatments</a>
+      <a href="./gallery.html">Gallery</a>
+      <a href="./testimonials.html">Testimonials</a>
+      <a href="./contact.html">Contact</a>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Refined Medical Aesthetics. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/447583321635" class="whatsapp-float">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script>
+    // Popup functions
+    function closePopup() {
+      document.getElementById('welcomePopup').classList.add('hidden');
+      localStorage.setItem('popupClosed', 'true');
+    }
+    
+    // Check if popup was previously closed
+    if (localStorage.getItem('popupClosed') === 'true') {
+      document.getElementById('welcomePopup').classList.add('hidden');
+    }
+    
+    // Menu functions
+    function openMenu() {
+      document.getElementById('mobileMenu').classList.add('active');
+      document.getElementById('menuOverlay').classList.add('active');
+    }
+    
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('active');
+      document.getElementById('menuOverlay').classList.remove('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Treatments | Refined Medical Aesthetics</title>
+  <meta name="description" content="Explore our range of aesthetic treatments including anti-wrinkle injections, dermal fillers, skin boosters, microneedling and more.">
+  <link rel="canonical" href="https://refinedcorrect.netlify.app/treatments">
+  <meta name="keywords" content="anti-wrinkle injections, dermal fillers, skin boosters, microneedling, lip fillers, facials, fat dissolving, vitamin injections, polynucleotides, aesthetic treatments, beauty treatments">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --color-gold: #C9A962;
+      --color-gold-dark: #B8984F;
+      --color-cream: #FAF8F5;
+      --color-cream-dark: #F5F0E8;
+      --color-charcoal: #2D2D2D;
+      --color-charcoal-light: #3D3D3D;
+      --color-text: #4A4A4A;
+      --color-text-light: #6B6B6B;
+      --color-white: #FFFFFF;
+      --color-pink: #F5E6E0;
+      --color-whatsapp: #25D366;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    
+    body { 
+      font-family: var(--font-sans); 
+      color: var(--color-text); 
+      background: var(--color-cream); 
+      line-height: 1.6; 
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    
+    .klarna-banner {
+      background: var(--color-pink);
+      text-align: center;
+      padding: 12px 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-charcoal);
+      letter-spacing: 0.5px;
+    }
+    
+    .header {
+      background: var(--color-cream);
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .logo img {
+      height: 45px;
+      width: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .logo-text .refined {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--color-charcoal);
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+    
+    .logo-text .medical {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    
+    .menu-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    
+    .menu-btn span {
+      width: 24px;
+      height: 2px;
+      background: var(--color-charcoal);
+    }
+    
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--color-white);
+      z-index: 1000;
+      padding: 80px 30px 30px;
+      transition: right 0.4s ease;
+      box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-menu.active { right: 0; }
+    
+    .mobile-menu-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--color-charcoal);
+    }
+    
+    .mobile-menu a {
+      display: block;
+      padding: 15px 0;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      color: var(--color-charcoal);
+    }
+    
+    .mobile-menu .book-now-btn {
+      background: var(--color-gold);
+      color: var(--color-charcoal);
+      text-align: center;
+      margin-top: 20px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+    
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+    
+    .menu-overlay.active { opacity: 1; visibility: visible; }
+    
+    .page-header {
+      padding: 60px 20px 40px;
+      background: var(--color-charcoal);
+      text-align: center;
+    }
+    
+    .page-header .label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--color-gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    
+    .page-header h1 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: var(--color-white);
+    }
+    
+    .page-header h1 span {
+      color: var(--color-gold);
+      font-style: italic;
+    }
+    
+    .page-header p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 20px;
+      line-height: 1.7;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .treatments-section {
+      padding: 60px 20px;
+      background: var(--color-cream);
+    }
+    
+    .treatment-card {
+      background: var(--color-white);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .treatment-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    }
+    
+    .treatment-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .treatment-icon {
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+    }
+    
+    .treatment-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    .treatment-title {
+      flex: 1;
+    }
+    
+    .treatment-title h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--color-charcoal);
+      margin-bottom: 5px;
+    }
+    
+    .treatment-title .price {
+      font-size: 1rem;
+      color: var(--color-gold);
+      font-weight: 600;
+    }
+    
+    .treatment-arrow {
+      width: 40px;
+      height: 40px;
+      background: var(--color-cream);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    
+    .treatment-card:hover .treatment-arrow {
+      background: var(--color-gold);
+    }
+    
+    .treatment-arrow svg {
+      width: 20px;
+      height: 20px;
+      color: var(--color-charcoal);
+    }
+    
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 18px 25px;
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+    
+    .btn-gold {
+      background: var(--color-gold);
+      color: var(--color-charcoal);
+    }
+    
+    .btn-gold:hover {
+      background: var(--color-gold-dark);
+    }
+    
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .modal {
+      background: var(--color-white);
+      width: 100%;
+      max-height: 85vh;
+      border-radius: 20px 20px 0 0;
+      padding: 30px 25px;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+      overflow-y: auto;
+    }
+    
+    .modal-overlay.active .modal {
+      transform: translateY(0);
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--color-charcoal);
+    }
+    
+    .modal-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .modal-icon {
+      width: 50px;
+      height: 50px;
+    }
+    
+    .modal-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    .modal-title h2 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--color-charcoal);
+      margin-bottom: 5px;
+    }
+    
+    .modal-title .price {
+      font-size: 1rem;
+      color: var(--color-gold);
+      font-weight: 600;
+    }
+    
+    .modal-description {
+      font-size: 0.95rem;
+      color: var(--color-text);
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+    
+    .modal-options h3 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-charcoal);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    
+    .option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .option:last-child {
+      border-bottom: none;
+    }
+    
+    .option-name {
+      font-size: 0.95rem;
+      color: var(--color-text);
+    }
+    
+    .option-duration {
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+    }
+    
+    .option-price {
+      font-size: 1rem;
+      color: var(--color-gold);
+      font-weight: 600;
+    }
+    
+    .modal .btn {
+      margin-top: 20px;
+    }
+    
+    .footer {
+      background: var(--color-charcoal);
+      padding: 50px 20px 30px;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .footer-logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    
+    .footer-logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .footer-logo-text .refined {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--color-white);
+    }
+    
+    .footer-logo-text .medical {
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--color-gold);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    
+    .footer p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+    
+    .footer h4 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--color-white);
+      margin-bottom: 15px;
+    }
+    
+    .footer-links {
+      margin-bottom: 30px;
+    }
+    
+    .footer-links a {
+      display: block;
+      padding: 8px 0;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+    }
+    
+    .footer-links a:hover {
+      color: var(--color-gold);
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      text-align: center;
+    }
+    
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 10px;
+    }
+    
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 55px;
+      height: 55px;
+      background: var(--color-whatsapp);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 100;
+    }
+    
+    .whatsapp-float svg {
+      width: 28px;
+      height: 28px;
+      color: white;
+    }
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+</head>
+<body>
+  <div class="klarna-banner">Pay with Klarna</div>
+  
+  <header class="header">
+    <a href="./index.html" class="logo">
+      <img src="./images/logo-main.jpg" alt="Refined Medical Aesthetics">
+      <div class="logo-text">
+        <span class="refined">Refined</span>
+        <span class="medical">Medical Aesthetics</span>
+      </div>
+    </a>
+    <button class="menu-btn" onclick="openMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+  
+  <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" onclick="closeMenu()">&times;</button>
+    <a href="./index.html">Home</a>
+    <a href="./about.html">About</a>
+    <a href="./treatments.html">Treatments</a>
+    <a href="./gallery.html">Gallery</a>
+    <a href="./testimonials.html">Testimonials</a>
+    <a href="./contact.html">Contact</a>
+    <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="book-now-btn" target="_blank">Book Now</a>
+  </nav>
+
+  <div class="page-header">
+    <p class="label">OUR SERVICES</p>
+    <h1>Treatment <span>Menu</span></h1>
+    <p>Explore our comprehensive range of aesthetic treatments, each performed with clinical precision and an artistic approach.</p>
+  </div>
+
+  <section class="treatments-section">
+    <!-- Anti-Wrinkle Injections -->
+    <div class="treatment-card" onclick="openModal('anti-wrinkle')">
+      <div class="treatment-header">
+        <div class="treatment-icon">
+          <img src="./images/icons/icon-anti-wrinkle.png" alt="Anti-Wrinkle">
+        </div>
+        <div class="treatment-title">
+          <h3>Anti-Wrinkle Injections</h3>
+          <p class="price">from £150</p>
+        </div>
+        <div class="treatment-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advanced Anti-Wrinkle -->
+    <div class="treatment-card" onclick="openModal('advanced-anti-wrinkle')">
+      <div class="treatment-header">
+        <div class="treatment-icon">
+          <img src="./images/icons/icon-anti-wrinkle.png" alt="Advanced Anti-Wrinkle">
+        </div>
+        <div class="treatment-title">
+          <h3>Advanced Anti-Wrinkle</h3>
+          <p class="price">from £150</p>
+        </div>
+        <div class="treatment-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dermal Fillers -->
+    <div class="treatment-card" onclick="openModal('dermal-fillers')">
+      <div class="treatment-header">
+        <div class="treatment-icon">
+          <img src="./images/icons/icon-dermal-filler.png" alt="Dermal Fillers">
+        </div>
+        <div class="treatment-title">
+          <h3>Dermal Fillers</h3>
+          <p class="price">from £150</p>
+        </div>
+        <div class="treatment-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skin Boosters -->
+    <div class="treatment-card" onclick="openModal('skin-boosters')">
+      <div class="treatment-header">
+        <div class="treatment-icon">
+          <img src="./images/icons/icon-skin-boosters.png" alt="Skin Boosters">
+        </div>
+        <div class="treatment-title">
+          <h3>Skin Boosters</h3>
+          <p class="price">from £110</p>
+        </div>
+        <div class="treatment-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Polynucleotides -->
+    <div class="treatment-card" onclick="openModal('polynucleotides')">
+      <div class="treatment-header">
+        <div class="treatment-icon">
+          <img src="./images/icons/icon-profilo.png" alt="Polynucleotides">
+        </div>
+        <div class="treatment-title">
+          <h3>Polynucleotides</h3>
+          <p class="price">from £185</p>
+        </div>
+        <div class="treatment-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skin Treatments -->
+    <div class="treatment-card" onclick="openModal('skin-treatments')">
+      <div class="treatment-header">
+        <div class="treatment-icon">
+          <img src="./images/icons/icon-microneedling.png" alt="Skin Treatments">
+        </div>
+        <div class="treatment-title">
+          <h3>Skin Treatments</h3>
+          <p class="price">from £80</p>
+        </div>
+        <div class="treatment-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Microneedling -->
+    <div class="treatment-card" onclick="openModal('microneedling')">
+      <div class="treatment-header">
+        <div class="treatment-icon">
+          <img src="./images/icons/icon-microneedling.png" alt="Microneedling">
+        </div>
+        <div class="treatment-title">
+          <h3>Microneedling</h3>
+          <p class="price">from £80</p>
+        </div>
+        <div class="treatment-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Facials -->
+    <div class="treatment-card" onclick="openModal('facials')">
+      <div class="treatment-header">
+        <div class="treatment-icon">
+          <img src="./images/icons/icon-led-facial.png" alt="Facials">
+        </div>
+        <div class="treatment-title">
+          <h3>Facials</h3>
+          <p class="price">from £30</p>
+        </div>
+        <div class="treatment-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fat Dissolving -->
+    <div class="treatment-card" onclick="openModal('fat-dissolving')">
+      <div class="treatment-header">
+        <div class="treatment-icon">
+          <img src="./images/icons/icon-fat-dissolve.png" alt="Fat Dissolving">
+        </div>
+        <div class="treatment-title">
+          <h3>Fat Dissolving</h3>
+          <p class="price">from £80</p>
+        </div>
+        <div class="treatment-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vitamin Injections -->
+    <div class="treatment-card" onclick="openModal('vitamin')">
+      <div class="treatment-header">
+        <div class="treatment-icon">
+          <img src="./images/icons/icon-growth-factors.png" alt="Vitamin Injections">
+        </div>
+        <div class="treatment-title">
+          <h3>Vitamin Injections</h3>
+          <p class="price">from £30</p>
+        </div>
+        <div class="treatment-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Consultation -->
+    <div class="treatment-card" onclick="openModal('consultation')">
+      <div class="treatment-header">
+        <div class="treatment-icon">
+          <img src="./images/icons/icon-consultation.png" alt="Consultation">
+        </div>
+        <div class="treatment-title">
+          <h3>Consultation</h3>
+          <p class="price">FREE</p>
+        </div>
+        <div class="treatment-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-gold" target="_blank">BOOK TREATMENT</a>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal" id="modalContent" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="./images/logo-main.jpg" alt="Refined Medical Aesthetics">
+      <div class="footer-logo-text">
+        <span class="refined">Refined</span>
+        <span class="medical">Medical Aesthetics</span>
+      </div>
+    </div>
+    
+    <p>Nurse-led aesthetic excellence in Seaton Delaval. Enhancing your natural beauty with precision and care.</p>
+    
+    <h4>Quick Links</h4>
+    <div class="footer-links">
+      <a href="./index.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./treatments.html">Treatments</a>
+      <a href="./gallery.html">Gallery</a>
+      <a href="./testimonials.html">Testimonials</a>
+      <a href="./contact.html">Contact</a>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Refined Medical Aesthetics. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/447583321635" class="whatsapp-float">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script>
+    function openMenu() {
+      document.getElementById('mobileMenu').classList.add('active');
+      document.getElementById('menuOverlay').classList.add('active');
+    }
+    
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('active');
+      document.getElementById('menuOverlay').classList.remove('active');
+    }
+    
+    const treatmentData = {
+      'anti-wrinkle': {
+        title: 'Anti-Wrinkle Injections',
+        price: 'from £150',
+        icon: './images/icons/icon-anti-wrinkle.png',
+        description: 'Our anti-wrinkle treatments use premium botulinum toxin to relax facial muscles, smoothing fine lines and wrinkles for a refreshed, youthful appearance.',
+        options: [
+          { name: 'Consultation', price: 'FREE', duration: '10 minutes' },
+          { name: 'One Area', price: '£190', duration: '30 minutes' },
+          { name: 'Two Areas', price: '£210', duration: '30 minutes' },
+          { name: 'Three Areas', price: '£250', duration: '45 minutes' }
+        ]
+      },
+      'advanced-anti-wrinkle': {
+        title: 'Advanced Anti-Wrinkle',
+        price: 'from £150',
+        icon: './images/icons/icon-anti-wrinkle.png',
+        description: 'Specialised anti-wrinkle treatments for specific areas and concerns.',
+        options: [
+          { name: 'Brow Lift', price: '£150', duration: '30 minutes' },
+          { name: 'DOA Downturned Smile', price: '£150', duration: '30 minutes' },
+          { name: 'Gummy Smile Injections', price: '£150', duration: '30 minutes' },
+          { name: 'Lip Flip', price: '£150', duration: '30 minutes' },
+          { name: 'Masseter (Jaw Slimming)', price: '£220', duration: '30 minutes' },
+          { name: 'Neck Lift', price: '£250', duration: '30 minutes' },
+          { name: 'Over Sweating (Underarms, Hands or Feet)', price: '£375', duration: '30 minutes' },
+          { name: 'Pixie Nose Tip Lift', price: '£150', duration: '30 minutes' },
+          { name: 'Smokers Lines Injections', price: '£150', duration: '30 minutes' },
+          { name: 'Soften Upper Lip Lines', price: '£150', duration: '30 minutes' }
+        ]
+      },
+      'dermal-fillers': {
+        title: 'Dermal Fillers',
+        price: 'from £150',
+        icon: './images/icons/icon-dermal-filler.png',
+        description: 'Restore volume and enhance your natural contours with our premium dermal filler treatments.',
+        options: [
+          { name: 'Cheek Enhancement', price: '£250', duration: '45 minutes' },
+          { name: 'Chin Enhancement 1ml', price: '£250', duration: '45 minutes' },
+          { name: 'Chin Enhancement 2ml', price: '£320', duration: '60 minutes' },
+          { name: 'Jaw Enhancement 1ml', price: '£250', duration: '45 minutes' },
+          { name: 'Jaw Enhancement 2ml', price: '£320', duration: '60 minutes' },
+          { name: 'Lip Filler', price: 'from £150', duration: '30 minutes' },
+          { name: 'Marionettes', price: '£190', duration: '30 minutes' },
+          { name: 'Nasolabial Fold Treatment', price: '£190', duration: '30 minutes' },
+          { name: 'Non-surgical Rhinoplasty', price: '£310', duration: '60 minutes' },
+          { name: 'Perform Fossa Treatment', price: '£170', duration: '40 minutes' },
+          { name: 'Perioral Lines', price: '£190', duration: '30 minutes' },
+          { name: 'Pre-jowel Treatment', price: '£200', duration: '45 minutes' },
+          { name: 'Premium Lip Filler', price: 'from £170', duration: '30 minutes' },
+          { name: 'Tear Trough (Under Eye)', price: '£300', duration: '45 minutes' },
+          { name: 'Temple Filler', price: '£250', duration: '45 minutes' }
+        ]
+      },
+      'skin-boosters': {
+        title: 'Skin Boosters',
+        price: 'from £110',
+        icon: './images/icons/icon-skin-boosters.png',
+        description: 'Hydrate and revitalise your skin from within with our skin booster treatments.',
+        options: [
+          { name: 'Redensity 1 Treatment', price: '£159', duration: '30 minutes' },
+          { name: 'Redensity 3 Treatments', price: '£390', duration: '45 minutes' },
+          { name: 'Skin Boosters 1 Treatment', price: '£130', duration: '30 minutes' },
+          { name: 'Skin Boosters 3 Treatments', price: '£300', duration: '45 minutes' },
+          { name: 'Under Eye Skin Boosters', price: '£110', duration: '30 minutes' }
+        ]
+      },
+      'polynucleotides': {
+        title: 'Polynucleotides',
+        price: 'from £185',
+        icon: './images/icons/icon-profilo.png',
+        description: 'Advanced skin regeneration treatment using polynucleotides to stimulate collagen and elastin production.',
+        options: [
+          { name: '1 Treatment', price: '£185', duration: '30 minutes' },
+          { name: '3 Treatment Package', price: '£500', duration: '60 minutes' }
+        ]
+      },
+      'skin-treatments': {
+        title: 'Skin Treatments',
+        price: 'from £80',
+        icon: './images/icons/icon-microneedling.png',
+        description: 'Comprehensive skin treatments to address various concerns and improve skin quality.',
+        options: [
+          { name: 'Bio Re Peel', price: '£80', duration: '30 minutes' },
+          { name: 'Bio Re Peel 4 Treatments', price: '£200', duration: '30 minutes' },
+          { name: 'Derma 2.0', price: '£80', duration: '30 minutes' },
+          { name: 'Derma Bio', price: '£100', duration: '30 minutes' },
+          { name: 'Derma Restorer', price: '£100', duration: '30 minutes' },
+          { name: 'Eye Bags Treatment', price: '£100', duration: '30 minutes' },
+          { name: 'Hand Skin Booster', price: '£180', duration: '30 minutes' },
+          { name: 'Hyperpigmentation Dark Spots', price: '£80', duration: '30 minutes' },
+          { name: 'Meso Full Face Derma Exomes', price: '£150', duration: '30 minutes' }
+        ]
+      },
+      'microneedling': {
+        title: 'Microneedling',
+        price: 'from £80',
+        icon: './images/icons/icon-microneedling.png',
+        description: 'Stimulate collagen production and improve skin texture with our advanced microneedling treatments.',
+        options: [
+          { name: 'Microneedling', price: '£80', duration: '30 minutes' },
+          { name: 'Microneedling 3 Treatments', price: '£200', duration: '50 minutes' },
+          { name: 'Microneedling Skin Booster', price: '£100', duration: '30 minutes' },
+          { name: 'Microneedling with Exomes', price: '£150', duration: '30 minutes' }
+        ]
+      },
+      'facials': {
+        title: 'Facials',
+        price: 'from £30',
+        icon: './images/icons/icon-led-facial.png',
+        description: 'Relaxing and rejuvenating facial treatments tailored to your skin needs.',
+        options: [
+          { name: 'Carboxy Facial', price: '£60', duration: '30 minutes' },
+          { name: 'Collagen Lift', price: '£120', duration: '30 minutes' },
+          { name: 'Dermaplaning Premium', price: '£70', duration: '30 minutes' },
+          { name: 'Dermaplaning Standard', price: '£30', duration: '30 minutes' },
+          { name: 'Microdermabrasion', price: '£100', duration: '30 minutes' },
+          { name: 'Oncology Facial', price: '£50', duration: '30 minutes' },
+          { name: 'WB Co Facial', price: '£30', duration: '30 minutes' }
+        ]
+      },
+      'fat-dissolving': {
+        title: 'Fat Dissolving',
+        price: 'from £80',
+        icon: './images/icons/icon-fat-dissolve.png',
+        description: 'Non-surgical fat reduction treatment to contour and sculpt your body.',
+        options: [
+          { name: 'Filler Dissolving', price: 'from £80', duration: '30 minutes' }
+        ]
+      },
+      'vitamin': {
+        title: 'Vitamin Injections',
+        price: 'from £30',
+        icon: './images/icons/icon-growth-factors.png',
+        description: 'Vitamin injections to boost energy levels and overall wellbeing.',
+        options: [
+          { name: 'B12 Injection', price: '£30', duration: '30 minutes' }
+        ]
+      },
+      'consultation': {
+        title: 'Consultation',
+        price: 'FREE',
+        icon: './images/icons/icon-consultation.png',
+        description: 'Book a complimentary consultation with Nurse Rachel to discuss your aesthetic goals.',
+        options: [
+          { name: 'Initial Consultation', price: 'FREE', duration: '10 minutes' }
+        ]
+      }
+    };
+    
+    function openModal(treatment) {
+      const data = treatmentData[treatment];
+      if (!data) return;
+      
+      let optionsHtml = data.options.map(opt => 
+        `<div class="option">
+          <div>
+            <div class="option-name">${opt.name}</div>
+            <div class="option-duration">${opt.duration}</div>
+          </div>
+          <div class="option-price">${opt.price}</div>
+        </div>`
+      ).join('');
+      
+      document.getElementById('modalBody').innerHTML = `
+        <div class="modal-header">
+          <div class="modal-icon">
+            <img src="${data.icon}" alt="${data.title}">
+          </div>
+          <div class="modal-title">
+            <h2>${data.title}</h2>
+            <p class="price">${data.price}</p>
+          </div>
+        </div>
+        <p class="modal-description">${data.description}</p>
+        <div class="modal-options">
+          <h3>Pricing</h3>
+          ${optionsHtml}
+        </div>
+        <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-gold" target="_blank">BOOK THIS TREATMENT</a>
+      `;
+      
+      document.getElementById('modalOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal(event) {
+      if (!event || event.target === document.getElementById('modalOverlay')) {
+        document.getElementById('modalOverlay').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+  </script>
+</body>
+</html>
