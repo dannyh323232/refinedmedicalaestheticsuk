@@ -648,6 +648,141 @@
       line-height: 1.5;
     }
 
+    .concern-section {
+      background: var(--color-white);
+      padding: 28px 20px 10px;
+    }
+
+    .concern-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+    }
+
+    .concern-card {
+      background: #0E0E0E;
+      border-radius: 16px;
+      padding: 14px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .concern-card img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      margin: 0 auto 10px;
+      border-radius: 10px;
+    }
+
+    .concern-card span {
+      font-size: 0.72rem;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #D6ECF4;
+      font-weight: 600;
+      line-height: 1.4;
+      display: block;
+    }
+
+    .credentials-section {
+      background: var(--color-cream-dark);
+    }
+
+    .credentials-grid {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .credentials-card {
+      background: var(--color-white);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .credentials-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .credentials-card-content {
+      padding: 16px;
+    }
+
+    .credentials-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--color-charcoal);
+      margin-bottom: 8px;
+    }
+
+    .credentials-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+      max-width: none;
+    }
+
+    .wbco-section {
+      background: var(--color-white);
+    }
+
+    .wbco-layout {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      align-items: stretch;
+    }
+
+    .wbco-feature {
+      background: var(--color-cream-dark);
+      border-radius: 20px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .wbco-feature img {
+      border-radius: 14px;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      width: 100%;
+      max-height: none;
+    }
+
+    .wbco-feature h3 {
+      font-family: var(--font-serif);
+      color: var(--color-charcoal);
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .wbco-feature p {
+      margin: 0;
+      max-width: none;
+      font-size: 0.92rem;
+      color: var(--color-text-light);
+    }
+
+    .wbco-feature .btn {
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
     .section {
       padding: 60px 20px;
     }
@@ -766,6 +901,15 @@
     .treatment-icon {
       width: 56px;
       height: 56px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .treatment-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .treatment-card h3 {
@@ -1128,6 +1272,8 @@
       /* Sections */
       .section { padding: 80px 60px; }
       .section-header { max-width: 700px; margin-left: auto; margin-right: auto; }
+      .concern-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+      .wbco-layout { grid-template-columns: 1.1fr 1fr 1fr; }
 
       /* About */
       .about-content {
@@ -1355,11 +1501,11 @@
 
       <div class="hero-media">
         <div class="hero-media-frame">
-          <img src="./images/rachel-hero-new.webp" alt="Nurse Rachel">
+          <img src="./images/custom/procedure-cheek-injection.jpg" alt="Nurse Rachel performing advanced injectable treatment" loading="eager">
         </div>
         <div class="hero-tag-card">
-          <span>Google Reviews</span>
-          <strong>5★ Rated</strong>
+          <span>Clinic Standard</span>
+          <strong>Real Treatment Room</strong>
         </div>
         <div class="hero-nmc-card">
           <div class="nmc-icon">NMC</div>
@@ -1394,6 +1540,35 @@
     </div>
   </section>
 
+  <section class="concern-section">
+    <div class="concern-grid">
+      <article class="concern-card">
+        <img src="./images/custom/icon-forehead-lines.jpg" alt="Forehead and frown line concern icon" loading="lazy">
+        <span>Forehead &amp; frown lines</span>
+      </article>
+      <article class="concern-card">
+        <img src="./images/custom/icon-lip-enhancement.jpg" alt="Lip enhancement concern icon" loading="lazy">
+        <span>Lip shape &amp; hydration</span>
+      </article>
+      <article class="concern-card">
+        <img src="./images/custom/icon-cheek-lift.jpg" alt="Cheek lift and structure icon" loading="lazy">
+        <span>Cheek lift &amp; contour</span>
+      </article>
+      <article class="concern-card">
+        <img src="./images/custom/icon-jawline-contour.jpg" alt="Jawline contour concern icon" loading="lazy">
+        <span>Jawline definition</span>
+      </article>
+      <article class="concern-card">
+        <img src="./images/custom/icon-neck-rejuvenation.jpg" alt="Neck rejuvenation concern icon" loading="lazy">
+        <span>Neck rejuvenation</span>
+      </article>
+      <article class="concern-card">
+        <img src="./images/custom/icon-skin-pen.jpg" alt="Skin texture and glow icon" loading="lazy">
+        <span>Skin texture &amp; glow</span>
+      </article>
+    </div>
+  </section>
+
   <section class="section about-section">
     <div class="section-header">
       <p class="section-label">ABOUT US</p>
@@ -1401,14 +1576,45 @@
     </div>
     <div class="about-content">
       <div class="about-image">
-        <img src="./images/rachel-about-new.webp" alt="Nurse Rachel">
+        <img src="./images/custom/rachel-in-clinic-procedure.jpg" alt="Nurse Rachel consulting and treating a client" loading="lazy">
       </div>
       <div class="about-text">
         <h3>Hello, I'm Rachel</h3>
-        <p>I'm a registered nurse with a passion for helping people feel confident in their own skin. With years of experience in medical aesthetics, I founded Refined Medical Aesthetics to provide a safe, welcoming space where clients can achieve their aesthetic goals.</p>
+        <p>I'm an NMC-registered nurse with NHS experience and a passion for helping people feel confident in their own skin. I founded Refined Medical Aesthetics to provide a safe, welcoming clinic where every treatment starts with honest consultation and tailored planning.</p>
         <p>My approach combines clinical expertise with an artistic eye, ensuring every treatment is tailored to enhance your natural features while maintaining a refreshed, authentic look.</p>
         <a href="./about.html" class="btn btn-outline">Learn More</a>
       </div>
+    </div>
+  </section>
+
+  <section class="section credentials-section">
+    <div class="section-header">
+      <p class="section-label">WHY CLIENTS TRUST REFINED</p>
+      <h2>Clinical standards with a <span>luxury feel</span></h2>
+      <p>Inside the clinic, every treatment is supported by accredited training, medical-grade products and a calm client experience.</p>
+    </div>
+    <div class="credentials-grid">
+      <article class="credentials-card">
+        <img src="./images/custom/certificate-wall.jpg" alt="Framed aesthetic training certificates in clinic" loading="lazy">
+        <div class="credentials-card-content">
+          <h3>Accredited training</h3>
+          <p>Continuous advanced training across injectables, skin health and complication management keeps treatments precise and safety-led.</p>
+        </div>
+      </article>
+      <article class="credentials-card">
+        <img src="./images/custom/clinic-product-display.jpg" alt="Medical-grade products used in clinic" loading="lazy">
+        <div class="credentials-card-content">
+          <h3>Premium product portfolio</h3>
+          <p>Using trusted professional brands allows treatment plans that stay natural-looking while targeting your main concerns.</p>
+        </div>
+      </article>
+      <article class="credentials-card">
+        <img src="./images/custom/clinic-exterior-refined.jpg" alt="Refined Medical Aesthetics clinic exterior in Seaton Delaval" loading="lazy">
+        <div class="credentials-card-content">
+          <h3>Private Seaton Delaval clinic</h3>
+          <p>A discreet, welcoming space near Whitley Bay where consultations are unrushed and aftercare support is built in.</p>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -1421,7 +1627,7 @@
     <div class="treatment-cards">
       <div class="treatment-card" onclick="window.location.href='./treatments.html'">
         <div class="treatment-icon">
-          <img src="./images/icons/icon-anti-wrinkle.webp" alt="Anti-Wrinkle">
+          <img src="./images/custom/icon-forehead-lines.jpg" alt="Anti-wrinkle treatment icon" loading="lazy">
         </div>
         <h3>Anti-Wrinkle Injections</h3>
         <p class="price">from £150</p>
@@ -1435,7 +1641,7 @@
       </div>
       <div class="treatment-card" onclick="window.location.href='./treatments.html'">
         <div class="treatment-icon">
-          <img src="./images/icons/icon-dermal-filler.webp" alt="Dermal Fillers">
+          <img src="./images/custom/icon-lip-enhancement.jpg" alt="Dermal filler treatment icon" loading="lazy">
         </div>
         <h3>Dermal Fillers</h3>
         <p class="price">from £150</p>
@@ -1449,7 +1655,7 @@
       </div>
       <div class="treatment-card" onclick="window.location.href='./treatments.html'">
         <div class="treatment-icon">
-          <img src="./images/icons/icon-skin-boosters.webp" alt="Skin Boosters">
+          <img src="./images/custom/icon-polynucleotide.jpg" alt="Skin booster treatment icon" loading="lazy">
         </div>
         <h3>Skin Boosters</h3>
         <p class="price">from £110</p>
@@ -1463,7 +1669,7 @@
       </div>
       <div class="treatment-card" onclick="window.location.href='./treatments.html'">
         <div class="treatment-icon">
-          <img src="./images/icons/icon-microneedling.webp" alt="Microneedling">
+          <img src="./images/custom/icon-skin-pen.jpg" alt="Microneedling treatment icon" loading="lazy">
         </div>
         <h3>Microneedling</h3>
         <p class="price">from £80</p>
@@ -1485,10 +1691,12 @@
       <p>See the transformations achieved by Nurse Rachel.</p>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="./images/gallery/client-01.webp" alt="Client Result"></div>
-      <div class="gallery-item"><img src="./images/gallery/client-02.webp" alt="Client Result"></div>
-      <div class="gallery-item"><img src="./images/gallery/client-03.webp" alt="Client Result"></div>
-      <div class="gallery-item"><img src="./images/gallery/client-04.webp" alt="Client Result"></div>
+      <div class="gallery-item"><img src="./images/custom/procedure-closeup-forehead.jpg" alt="Injectable treatment in progress" loading="lazy"></div>
+      <div class="gallery-item"><img src="./images/custom/rachel-in-clinic-procedure.jpg" alt="Nurse Rachel treating client" loading="lazy"></div>
+      <div class="gallery-item"><img src="./images/custom/lip-result-natural-01.jpg" alt="Natural lip enhancement result" loading="lazy"></div>
+      <div class="gallery-item"><img src="./images/custom/lip-result-natural-02.jpg" alt="Natural lip filler result" loading="lazy"></div>
+      <div class="gallery-item"><img src="./images/custom/certificate-wall.jpg" alt="Clinic qualification certificates" loading="lazy"></div>
+      <div class="gallery-item"><img src="./images/custom/clinic-exterior-refined.jpg" alt="Refined clinic exterior" loading="lazy"></div>
     </div>
     <div style="text-align: center; margin-top: 30px;">
       <a href="./gallery.html" class="btn btn-outline">View All Results</a>
@@ -1517,6 +1725,34 @@
     </div>
     <div style="text-align:center; margin-top:30px;">
       <a href="./testimonials.html" class="btn btn-outline">Read Every Review</a>
+    </div>
+  </section>
+
+  <section class="section wbco-section" id="wbco-retail">
+    <div class="section-header">
+      <p class="section-label">SKIN &amp; BROW RETAIL</p>
+      <h2>Shop our favourite <span>WBco picks</span></h2>
+      <p>Take your in-clinic results further with professional homecare favourites we genuinely use and recommend.</p>
+    </div>
+    <div class="wbco-layout">
+      <article class="wbco-feature">
+        <img src="./images/custom/wbco-balancing-cleanser.jpg" alt="WBco Balancing Cleanser bottle" loading="lazy">
+        <h3>WBco Balancing Cleanser</h3>
+        <p>A gentle daily cleanser for balanced, fresh-feeling skin. Great as a staple in your morning and evening routine.</p>
+        <a href="https://www.westbarnco.com/collections/products?srsltid=AfmBOopCRh8q2rR8U9xXcp0dNgIQ4UKBkoafiXZwK0KW1CvP1FPHXHm-" class="btn btn-dark" target="_blank">Shop WBco Products</a>
+      </article>
+      <article class="wbco-feature">
+        <img src="./images/custom/clinic-shelf-wbco-skincare.jpg" alt="WBco and skincare products in clinic" loading="lazy">
+        <h3>Clinic approved routine support</h3>
+        <p>Not sure where to start? We can guide you toward a simple homecare stack based on your goals during consultation.</p>
+        <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-outline" target="_blank">Book a Skin Consultation</a>
+      </article>
+      <article class="wbco-feature">
+        <img src="./images/custom/clinic-product-display.jpg" alt="Professional injectable and skincare products" loading="lazy">
+        <h3>Shopify connection next</h3>
+        <p>We’re preparing a direct checkout flow so you can browse recommended products from this site and complete purchases seamlessly.</p>
+        <a href="./contact.html" class="btn btn-gold">Join Retail Waitlist</a>
+      </article>
     </div>
   </section>
 
@@ -1554,6 +1790,7 @@
           <a href="./treatments.html">Treatments</a>
           <a href="./gallery.html">Gallery</a>
           <a href="./testimonials.html">Testimonials</a>
+          <a href="#wbco-retail">WBco Retail</a>
           <a href="./contact.html">Contact</a>
         </div>
       </div>
