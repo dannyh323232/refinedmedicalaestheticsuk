@@ -348,21 +348,41 @@
 
     .menu-overlay.active { opacity: 1; visibility: visible; }
 
-    /* Hero Section - Matching refinedmedicalaesthetics.uk */
+    /* Hero Section */
     .hero {
-      background: var(--color-cream);
-      padding: 40px 20px;
-      min-height: auto;
+      padding: clamp(40px, 6vw, 110px) clamp(20px, 8vw, 120px) clamp(30px, 5vw, 90px);
+      background: linear-gradient(135deg, var(--color-cream) 0%, #FFFFFF 65%);
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-top-labels {
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 20% -10% -25% auto;
+      width: 60%;
+      background: radial-gradient(circle at 30% 30%, rgba(201,169,98,0.25), transparent 70%);
+      z-index: 0;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: clamp(30px, 5vw, 80px);
+      max-width: 1200px;
+      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: center;
+    }
+
+    .hero-copy {
       display: flex;
       flex-direction: column;
-      gap: 5px;
-      margin-bottom: 20px;
+      gap: clamp(18px, 4vw, 30px);
     }
 
-    .hero-top-labels span {
+    .hero-eyebrow {
       font-size: 0.7rem;
       font-weight: 600;
       color: var(--color-gold);
@@ -370,84 +390,12 @@
       text-transform: uppercase;
     }
 
-    .hero-content-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .hero-text {
-      order: 2;
-    }
-
-    .hero-image {
-      order: 1;
-      position: relative;
-    }
-
-    .hero-image img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-    }
-
-    .hero-badge {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: var(--color-charcoal);
-      color: var(--color-gold);
-      padding: 10px 15px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      border-radius: 4px;
-    }
-
-    .hero-nmc-badge {
-      position: absolute;
-      bottom: 15px;
-      left: 15px;
-      background: rgba(255,255,255,0.95);
-      padding: 10px 15px;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .hero-nmc-badge .nmc-icon {
-      width: 30px;
-      height: 30px;
-      background: var(--color-gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--color-charcoal);
-    }
-
-    .hero-nmc-badge .nmc-text {
-      font-size: 0.7rem;
-      line-height: 1.3;
-    }
-
-    .hero-nmc-badge .nmc-text strong {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--color-charcoal);
-    }
-
     .hero h1 {
       font-family: var(--font-serif);
-      font-size: 2.2rem;
+      font-size: clamp(2.2rem, 6vw, 4rem);
       font-weight: 400;
       color: var(--color-charcoal);
-      margin-bottom: 15px;
-      line-height: 1.2;
+      line-height: 1.1;
     }
 
     .hero h1 span {
@@ -458,44 +406,75 @@
     .hero p {
       font-size: 1rem;
       color: var(--color-text-light);
-      margin-bottom: 20px;
-      line-height: 1.7;
+      line-height: 1.8;
+      max-width: 540px;
     }
 
-    .hero-offer-badge {
-      display: inline-flex;
-      align-items: center;
+    .hero-pill-group {
+      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
+    }
+
+    .hero-pill-group span {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.1);
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--color-text);
+      background: var(--color-white);
+    }
+
+    .hero-offer-card {
       background: var(--color-charcoal);
       color: var(--color-white);
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      margin-bottom: 25px;
+      border-radius: 14px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
 
-    .hero-offer-badge .offer-icon {
-      width: 24px;
-      height: 24px;
+    .hero-offer-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       background: var(--color-gold);
-      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.7rem;
       font-weight: 700;
       color: var(--color-charcoal);
     }
+
+    .hero-offer-card strong {
+      display: block;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+    }
+
+    .hero-offer-card small {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .hero-offer-card p { margin: 0; font-size: 0.85rem; color: rgba(255,255,255,0.8); }
 
     .hero-buttons {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-bottom: 30px;
     }
 
     .btn {
-      display: inline-block;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
       padding: 16px 30px;
       text-align: center;
       font-size: 0.75rem;
@@ -505,69 +484,168 @@
       border: none;
       cursor: pointer;
       transition: all 0.3s;
-      border-radius: 8px;
+      border-radius: 999px;
     }
 
-    .btn-dark {
-      background: var(--color-charcoal);
-      color: var(--color-white);
-    }
+    .btn-dark { background: var(--color-charcoal); color: var(--color-white); }
+    .btn-dark:hover { background: var(--color-gold); color: var(--color-charcoal); }
+    .btn-gold { background: var(--color-gold); color: var(--color-charcoal); }
+    .btn-gold:hover { background: var(--color-gold-dark); }
+    .btn-outline { background: transparent; color: var(--color-charcoal); border: 1px solid var(--color-charcoal); }
+    .btn-outline:hover { background: var(--color-charcoal); color: var(--color-white); }
 
-    .btn-dark:hover {
-      background: var(--color-gold);
-      color: var(--color-charcoal);
-    }
-
-    .btn-gold {
-      background: var(--color-gold);
-      color: var(--color-charcoal);
-    }
-
-    .btn-gold:hover {
-      background: var(--color-gold-dark);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--color-charcoal);
-      border: 1px solid var(--color-charcoal);
-    }
-
-    .btn-outline:hover {
-      background: var(--color-charcoal);
-      color: var(--color-white);
-    }
-
-    .hero-stats {
+    .hero-proof-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
     }
 
-    .hero-stat {
+    .hero-proof {
+      padding: 14px;
+      border-radius: 12px;
       background: var(--color-white);
-      padding: 15px;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      text-align: left;
     }
 
-    .hero-stat-icon {
-      font-size: 1.5rem;
-      margin-bottom: 5px;
-    }
-
-    .hero-stat-title {
-      font-size: 0.75rem;
-      font-weight: 600;
+    .hero-proof strong {
+      display: block;
+      font-size: 0.95rem;
       color: var(--color-charcoal);
-      text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
-    .hero-stat-subtitle {
+    .hero-proof span {
       font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
       color: var(--color-text-light);
+    }
+
+    .hero-media {
+      position: relative;
+      padding: clamp(6px, 1vw, 16px);
+    }
+
+    .hero-media-frame {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+      border: 8px solid var(--color-white);
+    }
+
+    .hero-media img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-tag-card,
+    .hero-nmc-card {
+      position: absolute;
+      background: var(--color-white);
+      border-radius: 16px;
+      padding: 16px;
+      min-width: 180px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    }
+
+    .hero-tag-card {
+      top: 10%;
+      right: -5%;
+      text-align: left;
+    }
+
+    .hero-tag-card span {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.65rem;
+      color: var(--color-text-light);
+      margin-bottom: 6px;
+    }
+
+    .hero-tag-card strong {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--color-charcoal);
+    }
+
+    .hero-nmc-card {
+      bottom: 0;
+      left: -3%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-nmc-card .nmc-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--color-charcoal);
+    }
+
+    .hero-nmc-card p {
+      font-size: 0.8rem;
+      line-height: 1.4;
+      color: var(--color-text);
+      margin: 0;
+    }
+
+    .hero-nmc-card strong {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--color-charcoal);
+    }
+
+    .trust-section {
+      background: var(--color-cream-dark);
+      padding: 30px clamp(20px, 6vw, 80px);
+      border-top: 1px solid rgba(0,0,0,0.04);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .trust-strip {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+    }
+
+    .trust-card {
+      background: var(--color-white);
+      border-radius: 16px;
+      padding: 18px 20px;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .trust-card small {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      color: var(--color-text-light);
+      text-transform: uppercase;
+    }
+
+    .trust-card strong {
+      font-size: 1.2rem;
+      color: var(--color-charcoal);
+    }
+
+    .trust-card span {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      line-height: 1.5;
     }
 
     .section {
@@ -663,59 +741,70 @@
 
     .treatment-cards {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
     .treatment-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 25px;
-      text-align: center;
-      transition: transform 0.3s, background 0.3s;
-      cursor: pointer;
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.3s ease, background 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
     .treatment-card:hover {
-      transform: translateY(-5px);
-      background: rgba(255,255,255,0.1);
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.15);
     }
 
     .treatment-icon {
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 15px;
-    }
-
-    .treatment-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+      width: 56px;
+      height: 56px;
     }
 
     .treatment-card h3 {
       font-family: var(--font-serif);
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       color: var(--color-white);
-      margin-bottom: 8px;
     }
 
     .treatment-card .price {
       font-size: 0.9rem;
       color: var(--color-gold);
       font-weight: 600;
-      margin-bottom: 12px;
     }
 
-    .treatment-card p {
+    .treatment-summary {
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 15px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+    }
+
+    .treatment-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .treatment-tags span {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25);
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
     }
 
     .treatment-card .btn-outline {
+      margin-top: auto;
+      align-self: flex-start;
       color: var(--color-white);
       border-color: rgba(255,255,255,0.5);
       padding: 12px 20px;
@@ -790,82 +879,131 @@
       background: #1da851;
     }
 
+    .testimonials-preview {
+      background: var(--color-cream);
+      padding: 70px 20px;
+    }
+
+    .testimonial-track {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .testimonial-chip {
+      background: var(--color-white);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .testimonial-chip p {
+      color: var(--color-text);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .testimonial-chip footer {
+      border-top: 1px solid rgba(0,0,0,0.05);
+      padding-top: 12px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--color-gold);
+    }
+
     .footer {
       background: var(--color-charcoal);
-      padding: 50px 20px 30px;
+      padding: 60px 20px 30px;
     }
 
-    .footer-logo {
+    .footer-grid {
+      display: grid;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+    }
+
+    .footer-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
+      gap: 14px;
     }
 
-    .footer-logo img {
-      width: 50px;
-      height: 50px;
+    .footer-brand img {
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
     }
 
-    .footer-logo-text {
+    .footer-brand-text {
       display: flex;
       flex-direction: column;
+      line-height: 1.1;
     }
 
-    .footer-logo-text .refined {
+    .footer-brand-text .refined {
       font-family: var(--font-serif);
       font-size: 1.8rem;
       color: var(--color-white);
     }
 
-    .footer-logo-text .medical {
+    .footer-brand-text .medical {
       font-size: 0.65rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--color-gold);
       letter-spacing: 3px;
       text-transform: uppercase;
     }
 
-    .footer p {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.7;
-      margin-bottom: 30px;
-    }
-
-    .footer h4 {
+    .footer-column h4 {
       font-family: var(--font-serif);
       font-size: 1.2rem;
       color: var(--color-white);
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
-    .footer-links {
-      margin-bottom: 30px;
-    }
-
-    .footer-links a {
-      display: block;
-      padding: 8px 0;
+    .footer-column p,
+    .footer-column a,
+    .footer-column li {
       font-size: 0.9rem;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
     }
 
-    .footer-links a:hover {
+    .footer-column ul { list-style: none; padding: 0; margin: 0; }
+
+    .footer-column a { display: block; padding: 4px 0; }
+    .footer-column a:hover { color: var(--color-gold); }
+
+    .footer-contact li { display: flex; gap: 10px; align-items: baseline; }
+    .footer-contact li strong {
+      min-width: 60px;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
       color: var(--color-gold);
+      text-transform: uppercase;
     }
+
+    .footer-contact li a { color: rgba(255,255,255,0.8); }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(255,255,255,0.12);
       padding-top: 20px;
       text-align: center;
     }
 
     .footer-bottom p {
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 10px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
     }
 
     .whatsapp-float {
@@ -930,6 +1068,13 @@
     html[data-theme="dark"] .popup-rating span { color: #857D74; }
     @media (min-width: 768px) { html[data-theme="dark"] .mobile-menu { background: transparent; } }
 
+    @media (max-width: 600px) {
+      .hero-offer-card { flex-direction: column; align-items: flex-start; }
+      .hero-tag-card,
+      .hero-nmc-card { position: static; margin-top: 15px; }
+      .hero-media { padding: 0; }
+    }
+
     /* ── Desktop Styles ── */
     @media (min-width: 768px) {
       /* Nav */
@@ -976,19 +1121,9 @@
       .header { padding: 15px 60px; }
 
       /* Hero */
-      .hero { padding: 60px; }
-      .hero-content-wrapper {
-        flex-direction: row;
-        align-items: center;
-        gap: 60px;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      .hero-text { order: 1; flex: 1; }
-      .hero-image { order: 2; flex: 1; }
-      .hero h1 { font-size: 3.5rem; }
       .hero-buttons { flex-direction: row; flex-wrap: wrap; }
-      .hero-stats { grid-template-columns: repeat(4, 1fr); }
+      .hero-proof-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .hero-tag-card { right: -10%; }
 
       /* Sections */
       .section { padding: 80px 60px; }
@@ -1005,27 +1140,21 @@
       .about-image { flex: 1; }
       .about-text { flex: 1; }
 
-      /* Treatments */
-      .treatment-cards { grid-template-columns: repeat(2, 1fr); }
-
       /* Gallery */
       .gallery-grid { grid-template-columns: repeat(4, 1fr); }
 
       /* CTA */
       .cta-buttons { flex-direction: row; max-width: 600px; }
 
+      .testimonial-track { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
       /* Footer */
-      .footer {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 10px 80px;
-        padding: 60px 80px;
+      .footer-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
       }
-      .footer-logo { grid-column: 1; grid-row: 1; }
-      .footer > p { grid-column: 1; grid-row: 2; margin-bottom: 0; }
-      .footer h4 { grid-column: 2; grid-row: 1; }
-      .footer-links { grid-column: 2; grid-row: 2; margin-bottom: 0; }
-      .footer-bottom { grid-column: 1 / -1; }
+      .footer-column:first-child {
+        grid-column: span 2;
+      }
     }
   </style>
 
@@ -1177,19 +1306,25 @@
   <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
 
   <section class="hero">
-    <div class="hero-top-labels">
-      <span>NURSE-LED CLINIC</span>
-      <span>SEATON DELAVAL, WHITLEY BAY</span>
-    </div>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Nurse-led clinic • Seaton Delaval &amp; Whitley Bay</p>
+        <h1>Confidence-first <span>Medical Aesthetics</span></h1>
+        <p>Welcome to Refined Medical Aesthetics, where Nurse Rachel combines NHS clinical training with an artistic touch so you look refreshed — never overdone.</p>
 
-    <div class="hero-content-wrapper">
-      <div class="hero-text">
-        <h1>Nurse-Led <span>Medical Aesthetics</span></h1>
-        <p>Welcome to Refined Medical Aesthetics, where Nurse Rachel combines clinical excellence with an artistic touch to enhance your natural beauty.</p>
+        <div class="hero-pill-group">
+          <span>NMC Registered</span>
+          <span>5★ Google Rated</span>
+          <span>Skin &amp; Injectable Specialist</span>
+        </div>
 
-        <div class="hero-offer-badge">
-          <span class="offer-icon">%</span>
-          <span>10% OFF New clients — sign up for our exclusive offer</span>
+        <div class="hero-offer-card">
+          <div class="hero-offer-card-icon">%</div>
+          <div>
+            <small>New client welcome</small>
+            <strong>10% off your first visit</strong>
+            <p>Join our VIP list to unlock the offer and insider skincare tips.</p>
+          </div>
         </div>
 
         <div class="hero-buttons">
@@ -1198,41 +1333,64 @@
           <a href="./treatments.html" class="btn btn-outline">VIEW TREATMENTS</a>
         </div>
 
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="hero-stat-icon">+</div>
-            <div class="hero-stat-title">NMC Registered</div>
-            <div class="hero-stat-subtitle">Fully Qualified</div>
+        <div class="hero-proof-grid">
+          <div class="hero-proof">
+            <strong>1000+</strong>
+            <span>Treatments delivered</span>
           </div>
-          <div class="hero-stat">
-            <div class="hero-stat-icon">★</div>
-            <div class="hero-stat-title">5★ Rated</div>
-            <div class="hero-stat-subtitle">By Our Clients</div>
+          <div class="hero-proof">
+            <strong>Clinical-grade</strong>
+            <span>Prescription skincare</span>
           </div>
-          <div class="hero-stat">
-            <div class="hero-stat-icon">+</div>
-            <div class="hero-stat-title">1000+ Treatments</div>
-            <div class="hero-stat-subtitle">Performed</div>
+          <div class="hero-proof">
+            <strong>Complimentary</strong>
+            <span>Consultations &amp; reviews</span>
           </div>
-          <div class="hero-stat">
-            <div class="hero-stat-icon">£</div>
-            <div class="hero-stat-title">Free Consultations</div>
-            <div class="hero-stat-subtitle">Book Today</div>
+          <div class="hero-proof">
+            <strong>Klarna</strong>
+            <span>Flexible payments</span>
           </div>
         </div>
       </div>
 
-      <div class="hero-image">
-        <img src="./images/rachel-hero-new.webp" alt="Nurse Rachel">
-        <div class="hero-badge">10% OFF NEW CLIENTS</div>
-        <div class="hero-nmc-badge">
-          <div class="nmc-icon">+</div>
-          <div class="nmc-text">
-            <strong>REGISTERED NURSE</strong>
-            NMC Verified
-          </div>
+      <div class="hero-media">
+        <div class="hero-media-frame">
+          <img src="./images/rachel-hero-new.webp" alt="Nurse Rachel">
+        </div>
+        <div class="hero-tag-card">
+          <span>Google Reviews</span>
+          <strong>5★ Rated</strong>
+        </div>
+        <div class="hero-nmc-card">
+          <div class="nmc-icon">NMC</div>
+          <p><strong>Registered Nurse</strong> Clinical safety &amp; guidance at every step</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="trust-section">
+    <div class="trust-strip">
+      <article class="trust-card">
+        <small>Professional</small>
+        <strong>NMC &amp; CPSA Compliant</strong>
+        <span>Advanced nurse prescriber oversight</span>
+      </article>
+      <article class="trust-card">
+        <small>Payment options</small>
+        <strong>Klarna &amp; Card Accepted</strong>
+        <span>Split treatments into manageable plans</span>
+      </article>
+      <article class="trust-card">
+        <small>Client love</small>
+        <strong>500+ 5★ Reviews</strong>
+        <span>Natural, nurse-led results</span>
+      </article>
+      <article class="trust-card">
+        <small>Care pathway</small>
+        <strong>Consult • Treat • Review</strong>
+        <span>Follow-up support included</span>
+      </article>
     </div>
   </section>
 
@@ -1267,7 +1425,12 @@
         </div>
         <h3>Anti-Wrinkle Injections</h3>
         <p class="price">from £150</p>
-        <p>Smooth fine lines and wrinkles for a refreshed appearance.</p>
+        <p class="treatment-summary">Target expressive lines with prescription toxin and soft, movement-friendly dosing tailored by Nurse Rachel.</p>
+        <div class="treatment-tags">
+          <span>Forehead</span>
+          <span>Frown</span>
+          <span>Crow's feet</span>
+        </div>
         <span class="btn btn-outline">View Details</span>
       </div>
       <div class="treatment-card" onclick="window.location.href='./treatments.html'">
@@ -1276,7 +1439,12 @@
         </div>
         <h3>Dermal Fillers</h3>
         <p class="price">from £150</p>
-        <p>Restore volume and enhance your natural contours.</p>
+        <p class="treatment-summary">Blend structure and softness with advanced contouring for cheeks, lips, jawline and lower-face balancing.</p>
+        <div class="treatment-tags">
+          <span>Lips</span>
+          <span>Cheeks</span>
+          <span>Profile</span>
+        </div>
         <span class="btn btn-outline">View Details</span>
       </div>
       <div class="treatment-card" onclick="window.location.href='./treatments.html'">
@@ -1285,7 +1453,12 @@
         </div>
         <h3>Skin Boosters</h3>
         <p class="price">from £110</p>
-        <p>Hydrate and revitalise your skin from within.</p>
+        <p class="treatment-summary">Profhilo and Seventy Hyal protocols for glowier texture, hydration and long-term skin health.</p>
+        <div class="treatment-tags">
+          <span>Glow</span>
+          <span>Hydration</span>
+          <span>Neck &amp; décolletage</span>
+        </div>
         <span class="btn btn-outline">View Details</span>
       </div>
       <div class="treatment-card" onclick="window.location.href='./treatments.html'">
@@ -1294,7 +1467,12 @@
         </div>
         <h3>Microneedling</h3>
         <p class="price">from £80</p>
-        <p>Stimulate collagen for smoother, firmer skin.</p>
+        <p class="treatment-summary">Collagen induction paired with medical-grade serums to reduce scarring, pores and dullness.</p>
+        <div class="treatment-tags">
+          <span>Texture</span>
+          <span>Scarring</span>
+          <span>Brightening</span>
+        </div>
         <span class="btn btn-outline">View Details</span>
       </div>
     </div>
@@ -1317,6 +1495,31 @@
     </div>
   </section>
 
+  <section class="testimonials-preview">
+    <div class="section-header">
+      <p class="section-label">TESTIMONIALS</p>
+      <h2>Client words with <span>heart</span></h2>
+      <p>Short, scroll-friendly highlights so social proof lands before visitors head to the full reviews page.</p>
+    </div>
+    <div class="testimonial-track">
+      <article class="testimonial-chip">
+        <p>“Rachel made me feel completely at ease for my first anti-wrinkle appointment. Subtle, soft and exactly what I asked for.”</p>
+        <footer>Emma · Anti-wrinkle</footer>
+      </article>
+      <article class="testimonial-chip">
+        <p>“I travel from Tynemouth because I trust Rachel’s medical background — she’ll tell you when something isn’t right for your face.”</p>
+        <footer>Sarah · Dermal fillers</footer>
+      </article>
+      <article class="testimonial-chip">
+        <p>“Skin boosters with Rachel have transformed my glow. The follow-up care and WhatsApp check-ins are unmatched.”</p>
+        <footer>Lauren · Skin boosters</footer>
+      </article>
+    </div>
+    <div style="text-align:center; margin-top:30px;">
+      <a href="./testimonials.html" class="btn btn-outline">Read Every Review</a>
+    </div>
+  </section>
+
   <section class="section cta-section">
     <p class="section-label">YOUR JOURNEY BEGINS HERE</p>
     <h2>Ready to Discover Your <span>Most Confident Self?</span></h2>
@@ -1331,28 +1534,53 @@
   </section>
 
   <footer class="footer">
-    <div class="footer-logo">
-      <img src="./images/logo-main.webp" alt="Refined Medical Aesthetics">
-      <div class="footer-logo-text">
-        <span class="refined">Refined</span>
-        <span class="medical">Medical Aesthetics</span>
+    <div class="footer-grid">
+      <div class="footer-column">
+        <div class="footer-brand">
+          <img src="./images/logo-main.webp" alt="Refined Medical Aesthetics">
+          <div class="footer-brand-text">
+            <span class="refined">Refined</span>
+            <span class="medical">Medical Aesthetics</span>
+          </div>
+        </div>
+        <p>Nurse-led medical aesthetics studio in Seaton Delaval near Whitley Bay. We blend clinical rigour with skin-first artistry for calm, confidence-building results.</p>
       </div>
-    </div>
 
-    <p>Nurse-led medical aesthetics in Seaton Delaval near Whitley Bay, focused on safe, natural-looking results.</p>
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <div class="footer-links">
+          <a href="./index.html">Home</a>
+          <a href="./about.html">About</a>
+          <a href="./treatments.html">Treatments</a>
+          <a href="./gallery.html">Gallery</a>
+          <a href="./testimonials.html">Testimonials</a>
+          <a href="./contact.html">Contact</a>
+        </div>
+      </div>
 
-    <h4>Quick Links</h4>
-    <div class="footer-links">
-      <a href="./index.html">Home</a>
-      <a href="./about.html">About</a>
-      <a href="./treatments.html">Treatments</a>
-      <a href="./gallery.html">Gallery</a>
-      <a href="./testimonials.html">Testimonials</a>
-      <a href="./contact.html">Contact</a>
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li><strong>Visit</strong><span>Double Row, Seaton Delaval, NE25 0PP</span></li>
+          <li><strong>Call</strong><a href="tel:+447583321635">+44 7583 321 635</a></li>
+          <li><strong>Email</strong><a href="mailto:Refinedmedicalaesthetics3@gmail.com">Refinedmedicalaesthetics3@gmail.com</a></li>
+          <li><strong>WhatsApp</strong><a href="https://wa.me/447583321635">Chat instantly</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Clinic Hours</h4>
+        <ul>
+          <li>Mon–Fri · 09:00 – 19:00</li>
+          <li>Saturday · 09:00 – 17:00</li>
+          <li>Evening appointments available on request.</li>
+        </ul>
+      </div>
     </div>
 
     <div class="footer-bottom">
       <p>&copy; 2026 Refined Medical Aesthetics. All rights reserved.</p>
+      <p>Website by Daniel &amp; Rachel · Refined Medical Aesthetics</p>
     </div>
   </footer>
 
