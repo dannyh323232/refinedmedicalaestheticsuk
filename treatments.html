@@ -640,7 +640,7 @@
       </div>
     </a>
     <nav class="mobile-menu" id="mobileMenu">
-      <button class="mobile-menu-close" onclick="closeMenu()">&times;</button>
+      <button class="mobile-menu-close" onclick="closeMenu()" aria-label="Close menu">&times;</button>
       <a href="./index.html">Home</a>
       <a href="./about.html">About</a>
       <a href="./treatments.html">Treatments</a>
@@ -878,253 +878,53 @@
   </a>
 
   <script>
-    function toggleTheme() { var html = document.documentElement; var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; html.setAttribute('data-theme', next); try { localStorage.setItem('theme', next); } catch(e) {} }
-    document.querySelector('.theme-toggle').addEventListener('click', toggleTheme);
+    function toggleTheme() {
+      var html = document.documentElement;
+      var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    }
+
+    var themeToggle = document.querySelector('.theme-toggle');
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+
     function openMenu() {
-      document.getElementById('mobileMenu').classList.add('active');
-      document.getElementById('menuOverlay').classList.add('active');
+      var menu = document.getElementById('mobileMenu');
+      var overlay = document.getElementById('menuOverlay');
+      var btn = document.querySelector('.menu-btn');
+      if (!menu || !overlay) return;
+      menu.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      if (btn) btn.setAttribute('aria-expanded', 'true');
     }
+
     function closeMenu() {
-      document.getElementById('mobileMenu').classList.remove('active');
-      document.getElementById('menuOverlay').classList.remove('active');
+      var menu = document.getElementById('mobileMenu');
+      var overlay = document.getElementById('menuOverlay');
+      var btn = document.querySelector('.menu-btn');
+      if (!menu || !overlay) return;
+      menu.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+      if (btn) btn.setAttribute('aria-expanded', 'false');
     }
-    document.querySelectorAll('#mobileMenu a').forEach(function(link){
+
+    document.querySelectorAll('#mobileMenu a').forEach(function(link) {
       link.addEventListener('click', closeMenu);
     });
-    window.addEventListener('resize', function(){
+
+    var menuOverlay = document.getElementById('menuOverlay');
+    if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+
+    window.addEventListener('resize', function() {
       if (window.innerWidth >= 992) closeMenu();
     });
 
-
-    const treatmentData = {
-      'anti-wrinkle': {
-        title: 'Anti-Wrinkle Injections',
-        price: 'from £150',
-        icon: './images/icons/icon-anti-wrinkle.webp',
-        description: 'Our anti-wrinkle treatments use premium botulinum toxin to relax facial muscles, smoothing fine lines and wrinkles for a refreshed, youthful appearance.',
-        options: [
-          { name: 'Consultation', price: 'FREE', duration: '10 minutes' },
-          { name: 'One Area', price: '£190', duration: '30 minutes' },
-          { name: 'Two Areas', price: '£210', duration: '30 minutes' },
-          { name: 'Three Areas', price: '£250', duration: '45 minutes' }
-        ]
-      },
-      'advanced-anti-wrinkle': {
-        title: 'Advanced Anti-Wrinkle',
-        price: 'from £150',
-        icon: './images/icons/icon-anti-wrinkle.webp',
-        description: 'Specialised anti-wrinkle treatments for specific areas and concerns.',
-        options: [
-          { name: 'Brow Lift', price: '£150', duration: '30 minutes' },
-          { name: 'DOA Downturned Smile', price: '£150', duration: '30 minutes' },
-          { name: 'Gummy Smile Injections', price: '£150', duration: '30 minutes' },
-          { name: 'Lip Flip', price: '£150', duration: '30 minutes' },
-          { name: 'Masseter (Jaw Slimming)', price: '£220', duration: '30 minutes' },
-          { name: 'Neck Lift', price: '£250', duration: '30 minutes' },
-          { name: 'Over Sweating (Underarms, Hands or Feet)', price: '£375', duration: '30 minutes' },
-          { name: 'Pixie Nose Tip Lift', price: '£150', duration: '30 minutes' },
-          { name: 'Smokers Lines Injections', price: '£150', duration: '30 minutes' },
-          { name: 'Soften Upper Lip Lines', price: '£150', duration: '30 minutes' }
-        ]
-      },
-      'dermal-fillers': {
-        title: 'Dermal Fillers',
-        price: 'from £150',
-        icon: './images/icons/icon-dermal-filler.webp',
-        description: 'Restore volume and enhance your natural contours with our premium dermal filler treatments.',
-        options: [
-          { name: 'Cheek Enhancement', price: '£250', duration: '45 minutes' },
-          { name: 'Chin Enhancement 1ml', price: '£250', duration: '45 minutes' },
-          { name: 'Chin Enhancement 2ml', price: '£320', duration: '60 minutes' },
-          { name: 'Jaw Enhancement 1ml', price: '£250', duration: '45 minutes' },
-          { name: 'Jaw Enhancement 2ml', price: '£320', duration: '60 minutes' },
-          { name: 'Lip Filler', price: 'from £150', duration: '30 minutes' },
-          { name: 'Marionettes', price: '£190', duration: '30 minutes' },
-          { name: 'Nasolabial Fold Treatment', price: '£190', duration: '30 minutes' },
-          { name: 'Non-surgical Rhinoplasty', price: '£310', duration: '60 minutes' },
-          { name: 'Perform Fossa Treatment', price: '£170', duration: '40 minutes' },
-          { name: 'Perioral Lines', price: '£190', duration: '30 minutes' },
-          { name: 'Pre-jowel Treatment', price: '£200', duration: '45 minutes' },
-          { name: 'Premium Lip Filler', price: 'from £170', duration: '30 minutes' },
-          { name: 'Tear Trough (Under Eye)', price: '£300', duration: '45 minutes' },
-          { name: 'Temple Filler', price: '£250', duration: '45 minutes' }
-        ]
-      },
-      'skin-boosters': {
-        title: 'Skin Boosters',
-        price: 'from £110',
-        icon: './images/icons/icon-skin-boosters.webp',
-        description: 'Hydrate and revitalise your skin from within with our skin booster treatments.',
-        options: [
-          { name: 'Redensity 1 Treatment', price: '£159', duration: '30 minutes' },
-          { name: 'Redensity 3 Treatments', price: '£390', duration: '45 minutes' },
-          { name: 'Skin Boosters 1 Treatment', price: '£130', duration: '30 minutes' },
-          { name: 'Skin Boosters 3 Treatments', price: '£300', duration: '45 minutes' },
-          { name: 'Under Eye Skin Boosters', price: '£110', duration: '30 minutes' }
-        ]
-      },
-      'polynucleotides': {
-        title: 'Polynucleotides',
-        price: 'from £185',
-        icon: './images/icons/icon-profilo.webp',
-        description: 'Advanced skin regeneration treatment using polynucleotides to stimulate collagen and elastin production.',
-        options: [
-          { name: '1 Treatment', price: '£185', duration: '30 minutes' },
-          { name: '3 Treatment Package', price: '£500', duration: '60 minutes' }
-        ]
-      },
-      'skin-treatments': {
-        title: 'Skin Treatments',
-        price: 'from £80',
-        icon: './images/icons/icon-microneedling.webp',
-        description: 'Comprehensive skin treatments to address various concerns and improve skin quality.',
-        options: [
-          { name: 'Bio Re Peel', price: '£80', duration: '30 minutes' },
-          { name: 'Bio Re Peel 4 Treatments', price: '£200', duration: '30 minutes' },
-          { name: 'Derma 2.0', price: '£80', duration: '30 minutes' },
-          { name: 'Derma Bio', price: '£100', duration: '30 minutes' },
-          { name: 'Derma Restorer', price: '£100', duration: '30 minutes' },
-          { name: 'Eye Bags Treatment', price: '£100', duration: '30 minutes' },
-          { name: 'Hand Skin Booster', price: '£180', duration: '30 minutes' },
-          { name: 'Hyperpigmentation Dark Spots', price: '£80', duration: '30 minutes' },
-          { name: 'Meso Full Face Derma Exomes', price: '£150', duration: '30 minutes' }
-        ]
-      },
-      'microneedling': {
-        title: 'Microneedling',
-        price: 'from £80',
-        icon: './images/icons/icon-microneedling.webp',
-        description: 'Stimulate collagen production and improve skin texture with our advanced microneedling treatments.',
-        options: [
-          { name: 'Microneedling', price: '£80', duration: '30 minutes' },
-          { name: 'Microneedling 3 Treatments', price: '£200', duration: '50 minutes' },
-          { name: 'Microneedling Skin Booster', price: '£100', duration: '30 minutes' },
-          { name: 'Microneedling with Exomes', price: '£150', duration: '30 minutes' }
-        ]
-      },
-      'facials': {
-        title: 'Facials',
-        price: 'from £30',
-        icon: './images/icons/icon-led-facial.webp',
-        description: 'Relaxing and rejuvenating facial treatments tailored to your skin needs.',
-        options: [
-          { name: 'Carboxy Facial', price: '£60', duration: '30 minutes' },
-          { name: 'Collagen Lift', price: '£120', duration: '30 minutes' },
-          { name: 'Dermaplaning Premium', price: '£70', duration: '30 minutes' },
-          { name: 'Dermaplaning Standard', price: '£30', duration: '30 minutes' },
-          { name: 'Microdermabrasion', price: '£100', duration: '30 minutes' },
-          { name: 'Oncology Facial', price: '£50', duration: '30 minutes' },
-          { name: 'WB Co Facial', price: '£30', duration: '30 minutes' }
-        ]
-      },
-      'fat-dissolving': {
-        title: 'Fat Dissolving',
-        price: 'from £80',
-        icon: './images/icons/icon-fat-dissolve.webp',
-        description: 'Non-surgical fat reduction treatment to contour and sculpt your body.',
-        options: [
-          { name: 'Filler Dissolving', price: 'from £80', duration: '30 minutes' }
-        ]
-      },
-      'vitamin': {
-        title: 'Vitamin Injections',
-        price: 'from £30',
-        icon: './images/icons/icon-growth-factors.webp',
-        description: 'Vitamin injections to boost energy levels and overall wellbeing.',
-        options: [
-          { name: 'B12 Injection', price: '£30', duration: '30 minutes' }
-        ]
-      },
-      'consultation': {
-        title: 'Consultation',
-        price: 'FREE',
-        icon: './images/icons/icon-consultation.webp',
-        description: 'Book a complimentary consultation with Nurse Rachel to discuss your aesthetic goals.',
-        options: [
-          { name: 'Initial Consultation', price: 'FREE', duration: '10 minutes' }
-        ]
-      }
-    };
-
-    function openModal(treatment) {
-      const data = treatmentData[treatment];
-      if (!data) return;
-
-      let optionsHtml = data.options.map(opt =>
-        `<div class="option">
-          <div>
-            <div class="option-name">${opt.name}</div>
-            <div class="option-duration">${opt.duration}</div>
-          </div>
-          <div class="option-price">${opt.price}</div>
-        </div>`
-      ).join('');
-
-      document.getElementById('modalBody').innerHTML = `
-        <div class="modal-header">
-          <div class="modal-icon">
-            <img src="${data.icon}" alt="${data.title}">
-          </div>
-          <div class="modal-title">
-            <h2>${data.title}</h2>
-            <p class="price">${data.price}</p>
-          </div>
-        </div>
-        <p class="modal-description">${data.description}</p>
-        <div class="modal-options">
-          <h3>Pricing</h3>
-          ${optionsHtml}
-        </div>
-        <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-gold" target="_blank" rel="noopener noreferrer">BOOK THIS TREATMENT</a>
-      `;
-
-      document.getElementById('modalOverlay').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
-    }
-
-    function closeModal(event) {
-      if (!event || event.target === document.getElementById('modalOverlay')) {
-        document.getElementById('modalOverlay').classList.remove('active');
-        document.body.style.overflow = '';
-    if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
-      }
-    }
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') closeMenu();
+    });
   </script>
-
-<script>
-(function(){
-  var menu = document.getElementById('mobileMenu');
-  var overlay = document.getElementById('menuOverlay');
-  var openBtn = document.querySelector('.menu-btn');
-  var closeBtn = document.querySelector('.mobile-menu-close');
-  if (!menu || !overlay || !openBtn) return;
-
-  function openMenuSafe(){
-    menu.classList.add('active');
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
-  }
-
-  function closeMenuSafe(){
-    menu.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-    if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
-  }
-
-  window.openMenu = openMenuSafe;
-  window.closeMenu = closeMenuSafe;
-
-  openBtn.addEventListener('click', openMenuSafe);
-  if (closeBtn) closeBtn.addEventListener('click', closeMenuSafe);
-  overlay.addEventListener('click', closeMenuSafe);
-  menu.querySelectorAll('a').forEach(function(link){
-    link.addEventListener('click', closeMenuSafe);
-  });
-})();
-</script>
 
 </body>
 </html>

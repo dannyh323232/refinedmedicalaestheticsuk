@@ -194,7 +194,7 @@
       <div class="logo-text"><span class="refined">Refined</span><span class="medical">Medical Aesthetics</span></div>
     </a>
     <nav class="mobile-menu" id="mobileMenu">
-      <button class="mobile-menu-close" onclick="closeMenu()">&times;</button>
+      <button class="mobile-menu-close" onclick="closeMenu()" aria-label="Close menu">&times;</button>
       <a href="./index.html">Home</a><a href="./about.html">About</a><a href="./treatments.html">Treatments</a><a href="./gallery.html">Gallery</a><a href="./testimonials.html">Testimonials</a><a href="./wbco.html">WBco Shop</a><a href="./contact.html">Contact</a>
       <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="book-now-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
     </nav>
@@ -280,52 +280,53 @@
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
   <script>
-    function toggleTheme() { var html = document.documentElement; var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; html.setAttribute('data-theme', next); try { localStorage.setItem('theme', next); } catch(e) {} }
-    document.querySelector('.theme-toggle').addEventListener('click', toggleTheme);
-    function openMenu() { document.getElementById('mobileMenu').classList.add('active'); document.getElementById('menuOverlay').classList.add('active'); document.body.style.overflow = 'hidden'; var btn = document.querySelector('.menu-btn'); if (btn) btn.setAttribute('aria-expanded', 'true'); }
-    function closeMenu() { document.getElementById('mobileMenu').classList.remove('active'); document.getElementById('menuOverlay').classList.remove('active'); document.body.style.overflow = ''; var btn = document.querySelector('.menu-btn'); if (btn) btn.setAttribute('aria-expanded', 'false'); }
-    document.querySelectorAll('#mobileMenu a').forEach(function(link){
+    function toggleTheme() {
+      var html = document.documentElement;
+      var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    }
+
+    var themeToggle = document.querySelector('.theme-toggle');
+    if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+
+    function openMenu() {
+      var menu = document.getElementById('mobileMenu');
+      var overlay = document.getElementById('menuOverlay');
+      var btn = document.querySelector('.menu-btn');
+      if (!menu || !overlay) return;
+      menu.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      if (btn) btn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenu() {
+      var menu = document.getElementById('mobileMenu');
+      var overlay = document.getElementById('menuOverlay');
+      var btn = document.querySelector('.menu-btn');
+      if (!menu || !overlay) return;
+      menu.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+
+    document.querySelectorAll('#mobileMenu a').forEach(function(link) {
       link.addEventListener('click', closeMenu);
     });
-    window.addEventListener('resize', function(){
+
+    var menuOverlay = document.getElementById('menuOverlay');
+    if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+
+    window.addEventListener('resize', function() {
       if (window.innerWidth >= 992) closeMenu();
     });
 
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') closeMenu();
+    });
   </script>
-
-<script>
-(function(){
-  var menu = document.getElementById('mobileMenu');
-  var overlay = document.getElementById('menuOverlay');
-  var openBtn = document.querySelector('.menu-btn');
-  var closeBtn = document.querySelector('.mobile-menu-close');
-  if (!menu || !overlay || !openBtn) return;
-
-  function openMenuSafe(){
-    menu.classList.add('active');
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
-  }
-
-  function closeMenuSafe(){
-    menu.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-    if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
-  }
-
-  window.openMenu = openMenuSafe;
-  window.closeMenu = closeMenuSafe;
-
-  openBtn.addEventListener('click', openMenuSafe);
-  if (closeBtn) closeBtn.addEventListener('click', closeMenuSafe);
-  overlay.addEventListener('click', closeMenuSafe);
-  menu.querySelectorAll('a').forEach(function(link){
-    link.addEventListener('click', closeMenuSafe);
-  });
-})();
-</script>
 
 </body>
 </html>
