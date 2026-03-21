@@ -28,7 +28,7 @@
     img { max-width: 100%; height: auto; display: block; }
     a { text-decoration: none; color: inherit; }
     .klarna-banner { background: var(--color-pink); text-align: center; padding: 12px 20px; font-size: 0.85rem; font-weight: 500; color: var(--color-charcoal); }
-    .header { background: var(--color-cream); padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .header { background: var(--color-cream); padding: 15px 20px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 2000; border-bottom: 1px solid rgba(0,0,0,0.05); }
     .logo { display: flex; align-items: center; gap: 12px; }
     .logo img { height: 45px; width: 45px; border-radius: 50%; object-fit: cover; }
     .logo-text { display: flex; flex-direction: column; }
@@ -36,12 +36,12 @@
     .logo-text .medical { font-size: 0.65rem; font-weight: 500; color: var(--color-gold); letter-spacing: 3px; text-transform: uppercase; margin-top: 2px; }
     .menu-btn { background: none; border: none; cursor: pointer; padding: 10px; display: flex; flex-direction: column; gap: 5px; }
     .menu-btn span { width: 24px; height: 2px; background: var(--color-charcoal); }
-    .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh; background: var(--color-white); z-index: 1000; padding: 80px 30px 30px; transition: right 0.4s ease; box-shadow: -5px 0 30px rgba(0,0,0,0.1); }
+    .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh; background: var(--color-white); z-index: 2100; padding: 80px 30px 30px; transition: right 0.4s ease; box-shadow: -5px 0 30px rgba(0,0,0,0.1); }
     .mobile-menu.active { right: 0; }
     .mobile-menu-close { position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 2rem; cursor: pointer; color: var(--color-charcoal); }
     .mobile-menu a { display: block; padding: 15px 0; font-size: 1.1rem; font-weight: 500; border-bottom: 1px solid rgba(0,0,0,0.05); color: var(--color-charcoal); }
     .mobile-menu .book-now-btn { background: var(--color-gold); color: var(--color-charcoal); text-align: center; margin-top: 20px; border-radius: 8px; font-weight: 600; }
-    .menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s; }
+    .menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1500; opacity: 0; visibility: hidden; transition: all 0.3s; }
     .menu-overlay.active { opacity: 1; visibility: visible; }
     .page-header { padding: 60px 20px 40px; background: var(--color-charcoal); text-align: center; }
     .page-header .label { font-size: 0.7rem; font-weight: 600; color: var(--color-gold); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px; }
@@ -72,7 +72,7 @@
     .footer-links a:hover { color: var(--color-gold); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; }
     .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 10px; }
-    .whatsapp-float { position: fixed; bottom: 20px; left: 20px; width: 55px; height: 55px; background: var(--color-whatsapp); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 100; }
+    .whatsapp-float { position: fixed; bottom: 20px; left: 20px; width: 55px; height: 55px; background: var(--color-whatsapp); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 2000; }
     .whatsapp-float svg { width: 28px; height: 28px; color: white; }
     .header-actions { display: flex; align-items: center; gap: 8px; }
     .theme-toggle { background: none; border: none; cursor: pointer; padding: 8px; display: flex; align-items: center; justify-content: center; color: var(--color-charcoal); border-radius: 6px; transition: background 0.2s; }
