@@ -61,16 +61,27 @@
     .page-header h1 { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 400; color: var(--color-white); }
     .page-header h1 span { color: var(--color-gold); font-style: italic; }
     .page-header p { font-size: 1rem; color: rgba(255,255,255,0.7); margin-top: 20px; max-width: 500px; margin-left: auto; margin-right: auto; }
-    .about-section { padding: 60px 20px; background: var(--color-cream); }
-    .about-image { border-radius: 12px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
-    .about-image img { width: 100%; height: auto; object-fit: cover; }
+    .about-section { padding: 60px 20px; background: var(--color-cream); max-width: 1200px; margin: 0 auto; }
+    .about-image { border-radius: 18px; overflow: hidden; margin-bottom: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+    .about-image img, .about-image video { width: 100%; height: auto; object-fit: cover; display: block; }
     .about-content h2 { font-family: var(--font-serif); font-size: 2rem; color: var(--color-charcoal); margin-bottom: 20px; }
     .about-content h2 span { color: var(--color-gold); font-style: italic; }
     .about-content p { font-size: 1rem; color: var(--color-text); line-height: 1.8; margin-bottom: 20px; }
-    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 40px 0; }
-    .stat { background: var(--color-white); padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
-    .stat-number { font-family: var(--font-serif); font-size: 2rem; color: var(--color-gold); font-weight: 500; }
-    .stat-label { font-size: 0.7rem; color: var(--color-text-light); letter-spacing: 1px; text-transform: uppercase; }
+    .wbco-grid { display: grid; gap: 24px; }
+    .wbco-intro { display: grid; gap: 24px; }
+    .wbco-benefits { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 24px 0; }
+    .wbco-benefit { background: var(--color-white); padding: 18px; border-radius: 14px; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
+    .wbco-benefit strong { display: block; font-size: 0.88rem; color: var(--color-charcoal); margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
+    .wbco-benefit span { font-size: 0.92rem; color: var(--color-text-light); line-height: 1.5; }
+    .wbco-media-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .wbco-card { background: var(--color-white); border-radius: 16px; overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
+    .wbco-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+    .wbco-card-body { padding: 14px; }
+    .wbco-card-body strong { display: block; color: var(--color-charcoal); margin-bottom: 6px; }
+    .wbco-card-body p { margin: 0; font-size: 0.92rem; color: var(--color-text-light); line-height: 1.5; }
+    .wbco-video-wrap { border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.1); background: #000; }
+    .wbco-video-wrap video { width: 100%; display: block; }
+    .wbco-note { margin-top: 16px; padding: 14px 16px; border-radius: 12px; background: var(--color-white); box-shadow: 0 2px 15px rgba(0,0,0,0.05); font-size: 0.92rem; color: var(--color-text-light); }
     .btn { display: block; width: 100%; max-width: 400px; margin: 30px auto 0; padding: 18px 25px; text-align: center; font-size: 0.8rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; border-radius: 8px; }
     .btn-gold { background: var(--color-gold); color: var(--color-charcoal); }
     .btn-gold:hover { background: var(--color-gold-dark); }
@@ -127,21 +138,10 @@
       .page-header { padding: 80px 60px 60px; }
       .page-header h1 { font-size: 3.5rem; }
 
-      /* About layout: image left, content right */
-      .about-section {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 60px;
-        row-gap: 40px;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 80px 60px;
-        align-items: start;
-      }
-      .about-image { grid-column: 1; grid-row: 1 / 3; margin-bottom: 0; }
-      .about-content { grid-column: 2; grid-row: 1; }
-      .about-section > .btn { grid-column: 2; grid-row: 2; width: auto; margin: 0; }
-      .stats { grid-template-columns: repeat(4, 1fr); }
+      .about-section { padding: 80px 60px; }
+      .wbco-intro { grid-template-columns: 1.05fr 0.95fr; align-items: center; }
+      .wbco-grid { gap: 32px; }
+      .wbco-media-grid { grid-template-columns: repeat(4, 1fr); }
       .mobile-menu { flex: 1; justify-content: flex-end; }
       html[data-theme="dark"] .mobile-menu { background: transparent; }
 
@@ -190,22 +190,60 @@
     <p>Clinic-picked WBco products with Refined Shopify checkout and Rachel-led in-clinic support.</p>
   </div>
   <section class="about-section" id="wbco-retail-page">
-    <div class="about-image"><img src="./images/custom/wbco-medical-grade-products.jpg" alt="WBco medical grade products in clinic display"></div>
-    <div class="about-content">
-      <p style="margin:0 0 12px;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-gold-dark);">WBco × Refined collaboration</p>
-      <h2>Clinic-picked <span>WBco homecare essentials</span></h2>
-      <p>We stock selected WBco products in clinic to support your skin journey between appointments.</p>
-      <p>Shop through our Shopify storefront, then use your consultation to get clear guidance from Rachel on what fits your routine and goals.</p>
-      <div class="stats">
-        <div class="stat"><div class="stat-number">WBco</div><div class="stat-label">MEDICAL GRADE</div></div>
-        <div class="stat"><div class="stat-number">NMC</div><div class="stat-label">REGISTERED</div></div>
-        <div class="stat"><div class="stat-number">Safe</div><div class="stat-label">PRACTICE</div></div>
-        <div class="stat"><div class="stat-number">Shopify</div><div class="stat-label">CHECKOUT</div></div>
+    <div class="wbco-grid">
+      <div class="wbco-intro">
+        <div class="about-content">
+          <p style="margin:0 0 12px;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-gold-dark);">WBco × Refined collaboration</p>
+          <h2>Clinic-picked <span>WBco homecare essentials</span></h2>
+          <p>We stock selected WBco products in clinic to support your skin journey between appointments, with Rachel helping clients keep homecare realistic, manageable, and worth using consistently.</p>
+          <p>Shop through our Shopify storefront, then use your consultation to get clear guidance on what fits your routine, your goals, and the treatments you are having in clinic.</p>
+          <div class="wbco-benefits">
+            <div class="wbco-benefit"><strong>Clinic-picked</strong><span>Products selected to support in-clinic treatment plans and day-to-day skin confidence.</span></div>
+            <div class="wbco-benefit"><strong>Rachel-guided</strong><span>Ask what actually suits you instead of guessing from a crowded skincare shelf.</span></div>
+            <div class="wbco-benefit"><strong>Simple routine</strong><span>Keep homecare practical and easy to stick to between appointments.</span></div>
+            <div class="wbco-benefit"><strong>Shopify checkout</strong><span>A cleaner mobile buying path when you are ready to shop.</span></div>
+          </div>
+          <a href="https://refined-aesthetics-9619.myshopify.com/collections/medical-grade-essentials" class="btn btn-gold" target="_blank" rel="noopener">SHOP MEDICAL GRADE ON SHOPIFY</a>
+          <p class="wbco-note"><strong>Simple homecare journey:</strong> browse the clinic-picked range, ask Rachel what is suitable for you, then build a routine you can actually stick to. Homecare recommendations are tailored during consultation.</p>
+        </div>
+        <div class="wbco-video-wrap">
+          <video controls playsinline preload="metadata" poster="./images/custom/wbco-product-feature.jpg">
+            <source src="./images/custom/wbco-shelf-video.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
-      <p><strong>NMC registered nurse-led clinic</strong> · Consultation-led treatment planning, aftercare support, and realistic homecare advice.</p>
-      <p style="margin-top:12px;padding:14px 16px;border-radius:12px;background:var(--color-white);box-shadow:0 2px 15px rgba(0,0,0,0.05);"><strong>Simple homecare journey:</strong><br>1. Browse the clinic-picked range<br>2. Ask Rachel what is suitable for you<br>3. Build a routine you can actually stick to</p>
+
+      <div class="wbco-media-grid">
+        <article class="wbco-card">
+          <img src="./images/custom/wbco-product-feature.jpg" alt="WBco balancing cleanser product">
+          <div class="wbco-card-body">
+            <strong>Featured product</strong>
+            <p>A cleaner product-led visual for the WBco offer and Shopify journey.</p>
+          </div>
+        </article>
+        <article class="wbco-card">
+          <img src="./images/custom/wbco-balancing-cleanser-product-retail.webp" alt="WBco balancing cleanser retail product">
+          <div class="wbco-card-body">
+            <strong>Retail-ready display</strong>
+            <p>Show clients exactly what is available through the clinic-picked range.</p>
+          </div>
+        </article>
+        <article class="wbco-card">
+          <img src="./images/custom/clinic-shelf-wbco-skincare.jpg" alt="WBco skincare shelf in clinic">
+          <div class="wbco-card-body">
+            <strong>In-clinic selection</strong>
+            <p>Reinforces that the range is part of the real clinic journey, not random add-ons.</p>
+          </div>
+        </article>
+        <article class="wbco-card">
+          <img src="./images/custom/wbco-medical-grade-products.jpg" alt="WBco product line-up">
+          <div class="wbco-card-body">
+            <strong>Browse the range</strong>
+            <p>Use the product gallery to make the page feel more like a genuine shop landing page.</p>
+          </div>
+        </article>
+      </div>
     </div>
-    <a href="https://refined-aesthetics-9619.myshopify.com/collections/medical-grade-essentials" class="btn btn-gold" target="_blank" rel="noopener">SHOP MEDICAL GRADE ON SHOPIFY</a>
   </section>
   <footer class="footer">
     <div class="footer-logo">
