@@ -10,13 +10,13 @@
   <meta property="og:url" content="https://refinedmedicalaesthetics.uk/">
   <meta property="og:title" content="Refined Medical Aesthetics | Nurse-Led Aesthetic Clinic in Seaton Delaval &amp; Whitley Bay">
   <meta property="og:description" content="Nurse-led aesthetic clinic in Seaton Delaval near Whitley Bay offering anti-wrinkle treatment, dermal fillers and skin boosters.">
-  <meta property="og:image" content="https://refinedmedicalaesthetics.uk/images/rachel-hero.jpg">
+  <meta property="og:image" content="https://refinedmedicalaesthetics.uk/images/rachel-hero-new.jpg">
   <meta property="og:site_name" content="Refined Medical Aesthetics">
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Refined Medical Aesthetics | Nurse-Led Aesthetic Clinic">
   <meta name="twitter:description" content="Nurse-led aesthetic clinic in Seaton Delaval near Whitley Bay offering anti-wrinkle treatment, dermal fillers and skin boosters.">
-  <meta name="twitter:image" content="https://refinedmedicalaesthetics.uk/images/rachel-hero.jpg">
+  <meta name="twitter:image" content="https://refinedmedicalaesthetics.uk/images/rachel-hero-new.jpg">
 
   <script>(function(){try{if(localStorage.getItem('theme-v2')!=='set'){localStorage.removeItem('theme');localStorage.setItem('theme-v2','set');}if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -783,6 +783,31 @@
       align-self: flex-start;
     }
 
+    .wbco-collab-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 8px 14px;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      background: rgba(193, 155, 99, 0.12);
+      color: var(--color-charcoal);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .wbco-feature-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-gold-dark);
+      margin: 0;
+    }
+
     .section {
       padding: 60px 20px;
     }
@@ -1213,15 +1238,37 @@
     @media (min-width: 992px) { html[data-theme="dark"] .mobile-menu { background: transparent; } }
 
     @media (max-width: 600px) {
-      .hero-offer-card { flex-direction: column; align-items: flex-start; }
+      .hero-offer-card {
+        flex-direction: row;
+        align-items: center;
+        padding: 16px;
+        gap: 12px;
+      }
+      .hero-offer-card-icon {
+        flex: 0 0 44px;
+        width: 44px;
+        height: 44px;
+      }
       .hero-tag-card,
-      .hero-nmc-card { position: static; margin-top: 15px; }
+      .hero-nmc-card {
+        position: static;
+        margin-top: 15px;
+        min-width: 0;
+      }
       .hero-media { padding: 0; }
+      .whatsapp-float {
+        width: 48px;
+        height: 48px;
+        right: 16px;
+        bottom: 16px;
+        left: auto;
+      }
+      .whatsapp-float svg {
+        width: 22px;
+        height: 22px;
+      }
     }
 
-    
-    
-    /* Hero mobile Rachel-first */
     @media (max-width: 991px) {
       .menu-btn { display: flex !important; }
       .mobile-menu-close { display: block !important; }
@@ -1231,7 +1278,12 @@
         display: flex;
         flex-direction: column;
       }
-      .hero-media { order: -1; }
+      .hero-copy { order: 0; }
+      .hero-media {
+        order: 1;
+        width: 100%;
+      }
+      .hero-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     /* ── Desktop Styles ── */
@@ -1374,7 +1426,7 @@
   "priceRange": "££",
   "currenciesAccepted": "GBP",
   "paymentAccepted": "Cash, Credit Card, Klarna",
-  "image": "https://refinedmedicalaesthetics.uk/images/rachel-hero.jpg",
+  "image": "https://refinedmedicalaesthetics.uk/images/rachel-hero-new.jpg",
   "logo": "https://refinedmedicalaesthetics.uk/images/logo-main.jpg",
   "founder": {
     "@type": "Person",
@@ -1449,14 +1501,14 @@
       <a href="./testimonials.html">Testimonials</a>
       <a href="./wbco.html">WBco Shop</a>
       <a href="./contact.html">Contact</a>
-      <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="book-now-btn" target="_blank">Book Now</a>
+      <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="book-now-btn" target="_blank" rel="noopener noreferrer">Book Now</a>
     </nav>
     <div class="header-actions">
       <button class="theme-toggle" aria-label="Toggle dark mode">
         <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <button class="menu-btn" onclick="openMenu()">
+      <button class="menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" onclick="openMenu()">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -1467,9 +1519,9 @@
   <section class="hero">
     <div class="hero-grid">
       <div class="hero-copy">
-        <p class="hero-eyebrow">Nurse-led clinic • Seaton Delaval &amp; Whitley Bay</p>
-        <h1>Confidence-first <span>Medical Aesthetics</span></h1>
-        <p>Welcome to Refined Medical Aesthetics, where Nurse Rachel combines NHS clinical training with an artistic touch so you look refreshed — never overdone.</p>
+        <p class="hero-eyebrow">Meet Nurse Rachel • Seaton Delaval &amp; Whitley Bay</p>
+        <h1>Nurse Rachel for <span>natural-looking confidence</span></h1>
+        <p>NMC-registered Nurse Rachel leads every consultation and treatment plan, combining NHS clinical training with a calm, natural-results approach so you feel refreshed — never overdone.</p>
 
         <div class="hero-pill-group">
           <span>NMC Registered</span>
@@ -1487,8 +1539,8 @@
         </div>
 
         <div class="hero-buttons">
-          <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-dark" target="_blank">FREE CONSULTATION</a>
-          <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-gold" target="_blank">BOOK NOW</a>
+          <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-dark" target="_blank" rel="noopener noreferrer">FREE CONSULTATION</a>
+          <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-gold" target="_blank" rel="noopener noreferrer">BOOK NOW</a>
           <a href="./treatments.html" class="btn btn-outline">VIEW TREATMENTS</a>
         </div>
 
@@ -1498,8 +1550,8 @@
             <span>Treatments delivered</span>
           </div>
           <div class="hero-proof">
-            <strong>Clinical-grade</strong>
-            <span>Prescription skincare</span>
+            <strong>Rachel-led</strong>
+            <span>Every plan starts with her consultation</span>
           </div>
           <div class="hero-proof">
             <strong>Complimentary</strong>
@@ -1683,22 +1735,25 @@
 
   <section class="section wbco-section" id="wbco-retail">
     <div class="section-header">
+      <div class="wbco-collab-pill">WBco × Refined collaboration</div>
       <p class="section-label">SKIN &amp; BROW RETAIL</p>
-      <h2>Shop WBco via our <span>Shopify store</span></h2>
-      <p>Professional brow and skincare retail, recommended in clinic and now available via our Shopify checkout.</p>
+      <h2>Shop the WBco × <span>Refined edit</span></h2>
+      <p>Professional brow and skincare retail, selected in clinic by Rachel and routed through Refined's Shopify checkout for a cleaner mobile buying path.</p>
     </div>
     <div class="wbco-layout">
       <article class="wbco-feature">
         <img src="./images/custom/wbco-medical-grade-products.jpg" alt="WBco medical grade products in clinic" loading="lazy">
+        <p class="wbco-feature-eyebrow">Shopify checkout via Refined</p>
         <h3>WBco medical grade essentials</h3>
         <p>Clinic-selected medical grade skincare products to support results between appointments.</p>
         <a href="https://refined-aesthetics-9619.myshopify.com/collections/medical-grade-essentials" class="btn btn-dark" target="_blank" rel="noopener">Shop on Shopify</a>
       </article>
       <article class="wbco-feature">
         <img src="./images/custom/rachel-in-clinic-procedure.jpg" alt="Nurse Rachel in clinic" loading="lazy">
+        <p class="wbco-feature-eyebrow">Rachel-led guidance</p>
         <h3>NMC registered, safety-first</h3>
         <p>Consultation-led planning with nurse-led standards and clear aftercare guidance.</p>
-        <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-outline" target="_blank">Book Consultation</a>
+        <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Book Consultation</a>
       </article>
     </div>
   </section>
@@ -1708,7 +1763,7 @@
     <h2>Ready to Discover Your <span>Most Confident Self?</span></h2>
     <p>Book a complimentary consultation with Nurse Rachel and take the first step.</p>
     <div class="cta-buttons">
-      <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-dark" target="_blank">BOOK CONSULTATION</a>
+      <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-dark" target="_blank" rel="noopener noreferrer">BOOK CONSULTATION</a>
       <a href="https://wa.me/447583321635" class="btn btn-whatsapp">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         SEND A MESSAGE
@@ -1839,7 +1894,7 @@
       link.addEventListener('click', closeMenu);
     });
     window.addEventListener('resize', function(){
-      if (window.innerWidth >= 768) closeMenu();
+      if (window.innerWidth >= 992) closeMenu();
     });
 
   </script>
@@ -1867,12 +1922,14 @@
     menu.classList.add('active');
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+    if (openBtn) openBtn.setAttribute('aria-expanded', 'true');
   }
 
   function closeMenuSafe(){
     menu.classList.remove('active');
     overlay.classList.remove('active');
     document.body.style.overflow = '';
+    if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
   }
 
   window.openMenu = openMenuSafe;
