@@ -1435,7 +1435,7 @@
       <a href="./treatments.html">Treatments</a>
       <a href="./gallery.html">Gallery</a>
       <a href="./testimonials.html">Testimonials</a>
-      <a href="#wbco-retail">Shop</a>
+      <a href="./wbco.html">Shop</a>
       <a href="./contact.html">Contact</a>
       <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="book-now-btn" target="_blank">Book Now</a>
     </nav>
@@ -1632,12 +1632,12 @@
       <p>See the transformations achieved by Nurse Rachel.</p>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="./images/custom/procedure-closeup-forehead.jpg" alt="Injectable treatment in progress" loading="lazy"></div>
-      <div class="gallery-item"><img src="./images/custom/rachel-in-clinic-procedure.jpg" alt="Nurse Rachel treating client" loading="lazy"></div>
-      <div class="gallery-item"><img src="./images/custom/lip-result-natural-01.jpg" alt="Natural lip enhancement result" loading="lazy"></div>
-      <div class="gallery-item"><img src="./images/custom/lip-result-natural-02.jpg" alt="Natural lip filler result" loading="lazy"></div>
-      <div class="gallery-item"><img src="./images/custom/certificate-wall.jpg" alt="Clinic qualification certificates" loading="lazy"></div>
-      <div class="gallery-item"><img src="./images/custom/clinic-exterior-refined.jpg" alt="Refined clinic exterior" loading="lazy"></div>
+      <div class="gallery-item"><img src="./images/custom/lip-result-natural-01.jpg" alt="Client lip enhancement result 1" loading="lazy"></div>
+      <div class="gallery-item"><img src="./images/custom/lip-result-natural-02.jpg" alt="Client lip enhancement result 2" loading="lazy"></div>
+      <div class="gallery-item"><img src="./images/custom/lip-result-natural-03.jpg" alt="Client lip enhancement result 3" loading="lazy"></div>
+      <div class="gallery-item"><img src="./images/custom/lip-result-natural-04.jpg" alt="Client lip enhancement result 4" loading="lazy"></div>
+      <div class="gallery-item"><img src="./images/gallery/client-01.webp" alt="Client result gallery image 5" loading="lazy"></div>
+      <div class="gallery-item"><img src="./images/gallery/client-02.webp" alt="Client result gallery image 6" loading="lazy"></div>
     </div>
     <div style="text-align: center; margin-top: 30px;">
       <a href="./gallery.html" class="btn btn-outline">View All Results</a>
@@ -1725,7 +1725,7 @@
           <a href="./treatments.html">Treatments</a>
           <a href="./gallery.html">Gallery</a>
           <a href="./testimonials.html">Testimonials</a>
-          <a href="#wbco-retail">WBco Retail</a>
+          <a href="./wbco.html">WBco Retail</a>
           <a href="./contact.html">Contact</a>
         </div>
       </div>
@@ -1783,6 +1783,13 @@
       document.getElementById('mobileMenu').classList.remove('active');
       document.getElementById('menuOverlay').classList.remove('active');
     }
+    document.querySelectorAll('#mobileMenu a').forEach(function(link){
+      link.addEventListener('click', closeMenu);
+    });
+    window.addEventListener('resize', function(){
+      if (window.innerWidth >= 768) closeMenu();
+    });
+
   </script>
   <script>
     // Theme toggle — isolated script block so no other error can prevent it running

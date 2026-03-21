@@ -445,6 +445,7 @@
       <a href="./treatments.html">Treatments</a>
       <a href="./gallery.html">Gallery</a>
       <a href="./testimonials.html">Testimonials</a>
+      <a href="./wbco.html">Shop</a>
       <a href="./contact.html">Contact</a>
       <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="book-now-btn" target="_blank">Book Now</a>
     </nav>
@@ -471,8 +472,8 @@
       <div class="gallery-item"><img src="./images/gallery/client-02.webp" alt="Client Result"></div>
       <div class="gallery-item"><img src="./images/gallery/client-03.webp" alt="Client Result"></div>
       <div class="gallery-item"><img src="./images/gallery/client-04.webp" alt="Client Result"></div>
-      <div class="gallery-item"><img src="./images/gallery/client-05.webp" alt="Client Result"></div>
-      <div class="gallery-item"><img src="./images/gallery/client-06.webp" alt="Client Result"></div>
+      <div class="gallery-item"><img src="./images/custom/lip-result-natural-03.jpg" alt="Client Result"></div>
+      <div class="gallery-item"><img src="./images/custom/lip-result-natural-04.jpg" alt="Client Result"></div>
       <div class="gallery-item"><img src="./images/gallery/client-08.webp" alt="Client Result"></div>
     </div>
 
@@ -497,6 +498,7 @@
       <a href="./treatments.html">Treatments</a>
       <a href="./gallery.html">Gallery</a>
       <a href="./testimonials.html">Testimonials</a>
+      <a href="./wbco.html">Shop</a>
       <a href="./contact.html">Contact</a>
     </div>
 
@@ -522,6 +524,13 @@
       document.getElementById('mobileMenu').classList.remove('active');
       document.getElementById('menuOverlay').classList.remove('active');
     }
+    document.querySelectorAll('#mobileMenu a').forEach(function(link){
+      link.addEventListener('click', closeMenu);
+    });
+    window.addEventListener('resize', function(){
+      if (window.innerWidth >= 768) closeMenu();
+    });
+
   </script>
 </body>
 </html>

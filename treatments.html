@@ -646,6 +646,7 @@
       <a href="./treatments.html">Treatments</a>
       <a href="./gallery.html">Gallery</a>
       <a href="./testimonials.html">Testimonials</a>
+      <a href="./wbco.html">Shop</a>
       <a href="./contact.html">Contact</a>
       <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="book-now-btn" target="_blank">Book Now</a>
     </nav>
@@ -861,6 +862,7 @@
       <a href="./treatments.html">Treatments</a>
       <a href="./gallery.html">Gallery</a>
       <a href="./testimonials.html">Testimonials</a>
+      <a href="./wbco.html">Shop</a>
       <a href="./contact.html">Contact</a>
     </div>
 
@@ -886,6 +888,13 @@
       document.getElementById('mobileMenu').classList.remove('active');
       document.getElementById('menuOverlay').classList.remove('active');
     }
+    document.querySelectorAll('#mobileMenu a').forEach(function(link){
+      link.addEventListener('click', closeMenu);
+    });
+    window.addEventListener('resize', function(){
+      if (window.innerWidth >= 768) closeMenu();
+    });
+
 
     const treatmentData = {
       'anti-wrinkle': {
