@@ -139,6 +139,52 @@
     html[data-theme="dark"] .contact-icon { border-color: var(--color-gold); background: transparent; }
     html[data-theme="dark"] .page-header h1 { color: #FFFFFF; }
 
+    
+    /* Mobile nav fallback */
+    @media (max-width: 991px) {
+      .menu-btn,
+      .mobile-menu-close,
+      .menu-overlay { display: none !important; }
+
+      .header {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .mobile-menu {
+        position: static !important;
+        right: auto !important;
+        width: 100% !important;
+        max-width: none !important;
+        height: auto !important;
+        background: transparent !important;
+        z-index: auto !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: 6px;
+        overflow: visible !important;
+      }
+
+      .mobile-menu a {
+        display: inline-block !important;
+        width: auto !important;
+        border-bottom: none !important;
+        padding: 8px 10px !important;
+        font-size: 0.8rem !important;
+        border-radius: 8px;
+        background: rgba(0,0,0,0.03);
+      }
+
+      .mobile-menu .book-now-btn {
+        margin-top: 0 !important;
+        padding: 8px 12px !important;
+      }
+    }
+
+
     /* ── Desktop Styles ── */
     @media (min-width: 992px) {
       .menu-btn { display: none; }
