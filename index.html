@@ -1414,14 +1414,11 @@
       <div class="popup-badge">EXCLUSIVE VIP OFFER</div>
       <h2>Unlock <span>10% Off</span></h2>
       <p class="popup-subtitle">Your First Treatment</p>
-      <p class="popup-text">Join our VIP list for exclusive offers, skincare tips, and be the first to know about new treatments. This does not include anti-wrinkle treatments.</p>
-      <input type="email" class="popup-input" placeholder="Enter your email address">
-      <a href="https://instagram.com/refined_rachel" target="_blank" class="instagram-follow">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        <span class="instagram-text">Follow @refined_rachel</span>
-      </a>
-      <p class="instagram-required">Required to claim your discount</p>
-      <button class="popup-btn" onclick="closePopup()">CLAIM MY 10% OFF</button>
+      <p class="popup-text">Join our VIP list for exclusive offers, skincare tips, and be the first to know about new treatments.</p>
+      <input type="email" id="popupEmail" class="popup-input" placeholder="Enter your email address" autocomplete="email">
+      <p class="instagram-required">Offer excludes anti-wrinkle treatments. Consultation required.</p>
+      <button class="popup-btn" onclick="submitPopupLead()">CLAIM MY 10% OFF</button>
+      <p id="popupStatus" class="instagram-required" style="display:none;"></p>
       <div class="popup-rating">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -1535,8 +1532,8 @@
     <div class="trust-strip">
       <article class="trust-card">
         <small>Professional</small>
-        <strong>NMC &amp; CPSA Compliant</strong>
-        <span>Advanced nurse prescriber oversight</span>
+        <strong>NMC Registered Nurse</strong>
+        <span>Consultation-led, safety-first care</span>
       </article>
       <article class="trust-card">
         <small>Payment options</small>
@@ -1651,8 +1648,8 @@
       <div class="gallery-item"><img src="./images/custom/lip-result-natural-02.jpg" alt="Client lip enhancement result 2" loading="lazy"></div>
       <div class="gallery-item"><img src="./images/custom/lip-result-natural-03.jpg" alt="Client lip enhancement result 3" loading="lazy"></div>
       <div class="gallery-item"><img src="./images/custom/lip-result-natural-04.jpg" alt="Client lip enhancement result 4" loading="lazy"></div>
-      <div class="gallery-item"><img src="./images/custom/lip-result-before-05.jpg" alt="Client lip enhancement before result" loading="lazy"></div>
-      <div class="gallery-item"><img src="./images/custom/lip-result-after-05.jpg" alt="Client lip enhancement after result" loading="lazy"></div>
+      <div class="gallery-item"><img src="./images/gallery/client-03.webp" alt="Client profile balancing result" loading="lazy"></div>
+      <div class="gallery-item"><img src="./images/gallery/client-04.webp" alt="Client skin quality result" loading="lazy"></div>
     </div>
     <div style="text-align: center; margin-top: 30px;">
       <a href="./gallery.html" class="btn btn-outline">View All Results</a>
@@ -1698,9 +1695,9 @@
         <a href="https://refined-aesthetics-9619.myshopify.com/collections/medical-grade-essentials" class="btn btn-dark" target="_blank" rel="noopener">Shop on Shopify</a>
       </article>
       <article class="wbco-feature">
-        <img src="./images/custom/nmc-cpsa-compliant-card.jpg" alt="NMC and CPSA compliant" loading="lazy">
-        <h3>NMC &amp; CPSA compliant</h3>
-        <p>Advanced nurse prescriber oversight with safe, compliant, consultation-led treatment planning.</p>
+        <img src="./images/custom/rachel-in-clinic-procedure.jpg" alt="Nurse Rachel in clinic" loading="lazy">
+        <h3>NMC registered, safety-first</h3>
+        <p>Consultation-led planning with nurse-led standards and clear aftercare guidance.</p>
         <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-outline" target="_blank">Book Consultation</a>
       </article>
     </div>
@@ -1783,6 +1780,39 @@
       document.getElementById('welcomePopup').classList.add('hidden');
       try { localStorage.setItem('popupClosed', 'true'); } catch(e) {}
     }
+
+    function submitPopupLead() {
+      var emailInput = document.getElementById('popupEmail');
+      var status = document.getElementById('popupStatus');
+      if (!emailInput || !status) return;
+      var email = (emailInput.value || '').trim();
+      if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+        status.style.display = 'block';
+        status.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      status.style.display = 'block';
+      status.textContent = 'Submitting...';
+
+      fetch('https://formsubmit.co/ajax/refinedmedicalaesthetics3@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          email: email,
+          _subject: 'VIP Offer Signup - Refined Medical Aesthetics',
+          source: 'Homepage popup',
+          disclaimer: 'Offer excludes anti-wrinkle treatments.'
+        })
+      }).then(function() {
+        status.textContent = 'Thanks — your VIP request has been received.';
+        emailInput.value = '';
+        setTimeout(closePopup, 1200);
+      }).catch(function() {
+        status.textContent = 'Thanks — please also DM us on Instagram to confirm your offer.';
+      });
+    }
+
     // Show promo popup unless user already dismissed it.
     try {
       if (localStorage.getItem('popupClosed') !== 'true') {
