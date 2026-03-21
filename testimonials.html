@@ -234,5 +234,38 @@
     });
 
   </script>
+
+<script>
+(function(){
+  var menu = document.getElementById('mobileMenu');
+  var overlay = document.getElementById('menuOverlay');
+  var openBtn = document.querySelector('.menu-btn');
+  var closeBtn = document.querySelector('.mobile-menu-close');
+  if (!menu || !overlay || !openBtn) return;
+
+  function openMenuSafe(){
+    menu.classList.add('active');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenuSafe(){
+    menu.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  window.openMenu = openMenuSafe;
+  window.closeMenu = closeMenuSafe;
+
+  openBtn.addEventListener('click', openMenuSafe);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenuSafe);
+  overlay.addEventListener('click', closeMenuSafe);
+  menu.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', closeMenuSafe);
+  });
+})();
+</script>
+
 </body>
 </html>
