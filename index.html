@@ -436,6 +436,12 @@
       align-items: center;
       gap: 16px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font: inherit;
+      appearance: none;
     }
 
     .hero-offer-card-icon {
@@ -1536,14 +1542,14 @@
           <span>Skin &amp; Injectable Specialist</span>
         </div>
 
-        <div class="hero-offer-card">
+        <button class="hero-offer-card" type="button" onclick="openPopup()" aria-label="Open 10 percent off popup">
           <div class="hero-offer-card-icon">%</div>
           <div>
             <small>New client welcome</small>
             <strong>10% off your first visit</strong>
             <p>Join our VIP list to unlock the offer and insider skincare tips.</p>
           </div>
-        </div>
+        </button>
 
         <div class="hero-buttons">
           <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-dark" target="_blank" rel="noopener noreferrer">FREE CONSULTATION</a>
@@ -1838,9 +1844,17 @@
 
   <script>
     // Popup functions
+    function openPopup() {
+      var popup = document.getElementById('welcomePopup');
+      if (!popup) return;
+      popup.classList.remove('hidden');
+    }
+
     function closePopup() {
-      document.getElementById('welcomePopup').classList.add('hidden');
-      try { localStorage.setItem('popupClosed', 'true'); } catch(e) {}
+      var popup = document.getElementById('welcomePopup');
+      if (!popup) return;
+      popup.classList.add('hidden');
+      try { sessionStorage.setItem('popupClosedThisSession', 'true'); } catch(e) {}
     }
 
     function submitPopupLead() {
@@ -1875,18 +1889,20 @@
       });
     }
 
-    // Show promo popup unless user already dismissed it.
+    // Show promo popup once per fresh visit/session.
     try {
-      if (localStorage.getItem('popupClosed') !== 'true') {
+      if (sessionStorage.getItem('popupClosedThisSession') !== 'true') {
         setTimeout(function(){
-          document.getElementById('welcomePopup').classList.remove('hidden');
+          openPopup();
         }, 900);
       }
     } catch(e) {
       setTimeout(function(){
-        document.getElementById('welcomePopup').classList.remove('hidden');
+        openPopup();
       }, 900);
     }
+  </script>
+
   <script>
     // Theme toggle — isolated script block so no other error can prevent it running
     function toggleTheme() {
