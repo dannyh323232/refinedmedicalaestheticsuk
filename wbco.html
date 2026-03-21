@@ -69,10 +69,10 @@
     .about-content p { font-size: 1rem; color: var(--color-text); line-height: 1.8; margin-bottom: 20px; }
     .wbco-grid { display: grid; gap: 24px; }
     .wbco-intro { display: grid; gap: 24px; }
-    .wbco-benefits { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 24px 0; }
-    .wbco-benefit { background: var(--color-white); padding: 18px; border-radius: 14px; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
-    .wbco-benefit strong { display: block; font-size: 0.88rem; color: var(--color-charcoal); margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
-    .wbco-benefit span { font-size: 0.92rem; color: var(--color-text-light); line-height: 1.5; }
+    .wbco-benefits { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 20px 0; }
+    .wbco-benefit { background: var(--color-white); padding: 16px; border-radius: 14px; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
+    .wbco-benefit strong { display: block; font-size: 0.84rem; color: var(--color-charcoal); margin-bottom: 4px; letter-spacing: 0.04em; text-transform: uppercase; }
+    .wbco-benefit span { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.45; }
     .wbco-media-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .wbco-card { background: var(--color-white); border-radius: 16px; overflow: hidden; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
     .wbco-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
@@ -141,7 +141,8 @@
       .about-section { padding: 80px 60px; }
       .wbco-intro { grid-template-columns: 1.05fr 0.95fr; align-items: center; }
       .wbco-grid { gap: 32px; }
-      .wbco-media-grid { grid-template-columns: repeat(4, 1fr); }
+      .wbco-benefits { grid-template-columns: repeat(2, 1fr); }
+      .wbco-media-grid { grid-template-columns: repeat(3, 1fr); }
       .mobile-menu { flex: 1; justify-content: flex-end; }
       html[data-theme="dark"] .mobile-menu { background: transparent; }
 
@@ -187,24 +188,19 @@
   <div class="page-header">
     <p class="label">WBCO × REFINED</p>
     <h1>WBco <span>Retail</span></h1>
-    <p>Clinic-picked WBco products with Refined Shopify checkout and Rachel-led in-clinic support.</p>
   </div>
   <section class="about-section" id="wbco-retail-page">
     <div class="wbco-grid">
       <div class="wbco-intro">
         <div class="about-content">
           <p style="margin:0 0 12px;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-gold-dark);">WBco × Refined collaboration</p>
-          <h2>Clinic-picked <span>WBco homecare essentials</span></h2>
-          <p>We stock selected WBco products in clinic to support your skin journey between appointments, with Rachel helping clients keep homecare realistic, manageable, and worth using consistently.</p>
-          <p>Shop through our Shopify storefront, then use your consultation to get clear guidance on what fits your routine, your goals, and the treatments you are having in clinic.</p>
+          <h2>Clinic-picked <span>WBco homecare</span></h2>
+          <p>Clinic-picked products, clear Rachel-led guidance, and simple Shopify checkout.</p>
           <div class="wbco-benefits">
-            <div class="wbco-benefit"><strong>Clinic-picked</strong><span>Products selected to support in-clinic treatment plans and day-to-day skin confidence.</span></div>
-            <div class="wbco-benefit"><strong>Rachel-guided</strong><span>Ask what actually suits you instead of guessing from a crowded skincare shelf.</span></div>
-            <div class="wbco-benefit"><strong>Simple routine</strong><span>Keep homecare practical and easy to stick to between appointments.</span></div>
-            <div class="wbco-benefit"><strong>Shopify checkout</strong><span>A cleaner mobile buying path when you are ready to shop.</span></div>
+            <div class="wbco-benefit"><strong>Rachel-guided</strong><span>Choose what actually suits you.</span></div>
+            <div class="wbco-benefit"><strong>Simple routine</strong><span>Easy homecare between appointments.</span></div>
           </div>
           <a href="https://refined-aesthetics-9619.myshopify.com/collections/medical-grade-essentials" class="btn btn-gold" target="_blank" rel="noopener">SHOP MEDICAL GRADE ON SHOPIFY</a>
-          <p class="wbco-note"><strong>Simple homecare journey:</strong> browse the clinic-picked range, ask Rachel what is suitable for you, then build a routine you can actually stick to. Homecare recommendations are tailored during consultation.</p>
         </div>
         <div class="wbco-video-wrap">
           <video controls playsinline preload="metadata" poster="./images/custom/wbco-product-feature.jpg">
@@ -218,28 +214,21 @@
           <img src="./images/custom/wbco-product-feature.jpg" alt="WBco balancing cleanser product">
           <div class="wbco-card-body">
             <strong>Featured product</strong>
-            <p>A cleaner product-led visual for the WBco offer and Shopify journey.</p>
-          </div>
-        </article>
-        <article class="wbco-card">
-          <img src="./images/custom/wbco-balancing-cleanser-product-retail.webp" alt="WBco balancing cleanser retail product">
-          <div class="wbco-card-body">
-            <strong>Retail-ready display</strong>
-            <p>Show clients exactly what is available through the clinic-picked range.</p>
+            <p>Cleaner product-led visual for the range.</p>
           </div>
         </article>
         <article class="wbco-card">
           <img src="./images/custom/clinic-shelf-wbco-skincare.jpg" alt="WBco skincare shelf in clinic">
           <div class="wbco-card-body">
-            <strong>In-clinic selection</strong>
-            <p>Reinforces that the range is part of the real clinic journey, not random add-ons.</p>
+            <strong>In-clinic shelf</strong>
+            <p>Shows the real clinic-picked setup.</p>
           </div>
         </article>
         <article class="wbco-card">
           <img src="./images/custom/wbco-medical-grade-products.jpg" alt="WBco product line-up">
           <div class="wbco-card-body">
-            <strong>Browse the range</strong>
-            <p>Use the product gallery to make the page feel more like a genuine shop landing page.</p>
+            <strong>Shop the range</strong>
+            <p>Browse more through Shopify.</p>
           </div>
         </article>
       </div>
