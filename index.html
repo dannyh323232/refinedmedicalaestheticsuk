@@ -1223,57 +1223,16 @@
     
     /* Hero mobile Rachel-first */
     @media (max-width: 991px) {
+      .menu-btn { display: flex !important; }
+      .mobile-menu-close { display: block !important; }
+      .mobile-menu { right: -100%; }
+      .mobile-menu.active { right: 0; }
       .hero-grid {
         display: flex;
         flex-direction: column;
       }
       .hero-media { order: -1; }
     }
-
-    /* Mobile nav fallback */
-    @media (max-width: 991px) {
-      .menu-btn,
-      .mobile-menu-close,
-      .menu-overlay { display: none !important; }
-
-      .header {
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: 10px;
-      }
-
-      .mobile-menu {
-        position: static !important;
-        right: auto !important;
-        width: 100% !important;
-        max-width: none !important;
-        height: auto !important;
-        background: transparent !important;
-        z-index: auto !important;
-        padding: 0 !important;
-        box-shadow: none !important;
-        display: flex !important;
-        flex-wrap: wrap;
-        gap: 6px;
-        overflow: visible !important;
-      }
-
-      .mobile-menu a {
-        display: inline-block !important;
-        width: auto !important;
-        border-bottom: none !important;
-        padding: 8px 10px !important;
-        font-size: 0.8rem !important;
-        border-radius: 8px;
-        background: rgba(0,0,0,0.03);
-      }
-
-      .mobile-menu .book-now-btn {
-        margin-top: 0 !important;
-        padding: 8px 12px !important;
-      }
-    }
-
 
     /* ── Desktop Styles ── */
     @media (min-width: 992px) {
@@ -1824,11 +1783,8 @@
       document.getElementById('welcomePopup').classList.add('hidden');
       try { localStorage.setItem('popupClosed', 'true'); } catch(e) {}
     }
-    try {
-      if (localStorage.getItem('popupClosed') !== 'true') {
-        document.getElementById('welcomePopup').classList.remove('hidden');
-      }
-    } catch(e) {}
+    // Keep popup disabled during build QA to avoid blocking navigation interactions.
+    document.getElementById('welcomePopup').classList.add('hidden');
 
     // Menu functions
     function openMenu() {
