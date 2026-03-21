@@ -1783,8 +1783,18 @@
       document.getElementById('welcomePopup').classList.add('hidden');
       try { localStorage.setItem('popupClosed', 'true'); } catch(e) {}
     }
-    // Keep popup disabled during build QA to avoid blocking navigation interactions.
-    document.getElementById('welcomePopup').classList.add('hidden');
+    // Show promo popup unless user already dismissed it.
+    try {
+      if (localStorage.getItem('popupClosed') !== 'true') {
+        setTimeout(function(){
+          document.getElementById('welcomePopup').classList.remove('hidden');
+        }, 900);
+      }
+    } catch(e) {
+      setTimeout(function(){
+        document.getElementById('welcomePopup').classList.remove('hidden');
+      }, 900);
+    }
 
     // Menu functions
     function openMenu() {
