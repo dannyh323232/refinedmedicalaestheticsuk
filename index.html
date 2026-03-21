@@ -70,7 +70,7 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      pointer-events: none;
+      pointer-events: auto;
     }
 
     .popup {
@@ -1282,6 +1282,13 @@
       .hero-media {
         order: 1;
         width: 100%;
+        padding: 0;
+      }
+      .hero-tag-card,
+      .hero-nmc-card {
+        position: static;
+        margin-top: 15px;
+        min-width: 0;
       }
       .hero-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
