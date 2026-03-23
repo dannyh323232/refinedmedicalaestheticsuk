@@ -82,6 +82,10 @@
     .wbco-video-wrap { border-radius: 18px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.1); background: #000; }
     .wbco-video-wrap video { width: 100%; display: block; }
     .wbco-note { margin-top: 16px; padding: 14px 16px; border-radius: 12px; background: var(--color-white); box-shadow: 0 2px 15px rgba(0,0,0,0.05); font-size: 0.92rem; color: var(--color-text-light); }
+    .wbco-cta-panel { margin-top: 28px; background: var(--color-white); border-radius: 18px; padding: 24px 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: center; }
+    .wbco-cta-panel h3 { font-family: var(--font-serif); font-size: 1.8rem; color: var(--color-charcoal); margin-bottom: 8px; }
+    .wbco-cta-panel p { margin: 0 auto; max-width: 540px; color: var(--color-text-light); }
+    .wbco-cta-actions { display: grid; gap: 12px; margin-top: 18px; }
     .btn { display: block; width: 100%; max-width: 400px; margin: 30px auto 0; padding: 18px 25px; text-align: center; font-size: 0.8rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; border-radius: 8px; }
     .btn-gold { background: var(--color-gold); color: var(--color-charcoal); }
     .btn-gold:hover { background: var(--color-gold-dark); }
@@ -148,6 +152,8 @@
       .wbco-grid { gap: 32px; }
       .wbco-benefits { grid-template-columns: repeat(2, 1fr); }
       .wbco-media-grid { grid-template-columns: repeat(3, 1fr); }
+      .wbco-cta-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); justify-content: center; }
+      .wbco-cta-actions .btn { margin-top: 0; max-width: none; }
       .mobile-menu { flex: 1; justify-content: flex-end; }
       html[data-theme="dark"] .mobile-menu { background: transparent; }
 
@@ -260,6 +266,15 @@
             <p>See the clinic-picked range available through Refined.</p>
           </div>
         </article>
+      </div>
+
+      <div class="wbco-cta-panel">
+        <h3>Want Rachel to guide your routine?</h3>
+        <p>If you are not sure which products fit your skin goals, book first for tailored advice, or shop now if you already know your staples.</p>
+        <div class="wbco-cta-actions">
+          <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-outline" target="_blank" rel="noopener noreferrer">BOOK A CONSULTATION</a>
+          <a href="https://refined-aesthetics-9619.myshopify.com/collections/medical-grade-essentials" class="btn btn-gold" target="_blank" rel="noopener">SHOP WBCO ON SHOPIFY</a>
+        </div>
       </div>
     </div>
   </section>
