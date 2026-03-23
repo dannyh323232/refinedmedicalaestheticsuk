@@ -471,6 +471,26 @@
 
     .hero-offer-card p { margin: 0; font-size: 0.85rem; color: rgba(255,255,255,0.8); }
 
+    .hero-offer-card + .hero-offer-card {
+      margin-top: 12px;
+    }
+
+    .hero-offer-card.hero-shop-card {
+      background: linear-gradient(135deg, #F6E7C7 0%, #E7C27A 100%);
+      color: var(--color-charcoal);
+    }
+
+    .hero-offer-card.hero-shop-card small,
+    .hero-offer-card.hero-shop-card p {
+      color: rgba(45,45,45,0.8);
+    }
+
+    .hero-offer-card.hero-shop-card .hero-offer-card-icon {
+      background: var(--color-charcoal);
+      color: var(--color-white);
+      font-size: 1.2rem;
+    }
+
     .hero-buttons {
       display: flex;
       flex-direction: column;
@@ -1551,6 +1571,15 @@
             <p>Join our VIP list to unlock the offer and insider skincare tips.</p>
           </div>
         </button>
+
+        <a class="hero-offer-card hero-shop-card" href="https://refined-aesthetics-9619.myshopify.com/collections/medical-grade-essentials" target="_blank" rel="noopener" aria-label="Shop the WBco x Refined edit on Shopify">
+          <div class="hero-offer-card-icon">★</div>
+          <div>
+            <small>WBco × Refined edit</small>
+            <strong>Shop Rachel’s homecare picks</strong>
+            <p>Medical-grade brow and skincare favourites with a fast mobile checkout.</p>
+          </div>
+        </a>
 
         <div class="hero-buttons">
           <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-dark" target="_blank" rel="noopener noreferrer">FREE CONSULTATION</a>
