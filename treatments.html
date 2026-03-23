@@ -926,8 +926,182 @@
       if (window.innerWidth >= 992) closeMenu();
     });
 
+    var treatmentData = {
+      'anti-wrinkle': {
+        icon: './images/icons/icon-anti-wrinkle.webp',
+        title: 'Anti-Wrinkle Injections',
+        price: 'from £150',
+        description: 'Target areas of concern with a consultation-led anti-wrinkle treatment plan designed for smooth, natural-looking results.',
+        options: [
+          { name: '1 area', duration: '30 mins', price: '£150' },
+          { name: '2 areas', duration: '30 mins', price: '£180' },
+          { name: '3 areas', duration: '30 mins', price: '£210' }
+        ]
+      },
+      'advanced-anti-wrinkle': {
+        icon: './images/icons/icon-anti-wrinkle.webp',
+        title: 'Advanced Anti-Wrinkle',
+        price: 'from £150',
+        description: 'Advanced anti-wrinkle areas are tailored during consultation depending on anatomy, treatment history, and your desired outcome.',
+        options: [
+          { name: 'Gummy smile', duration: '30 mins', price: '£150' },
+          { name: 'Pebble chin', duration: '30 mins', price: '£150' },
+          { name: 'Lip flip', duration: '30 mins', price: '£150' },
+          { name: 'DAO / downturned smile', duration: '30 mins', price: '£150' },
+          { name: 'Masseter / jaw slimming', duration: '30 mins', price: '£250' },
+          { name: 'Hyperhidrosis', duration: '45 mins', price: 'from £350' }
+        ]
+      },
+      'dermal-fillers': {
+        icon: './images/icons/icon-dermal-filler.webp',
+        title: 'Dermal Fillers',
+        price: 'from £150',
+        description: 'Restore volume, enhance balance, and soften lines with carefully placed dermal filler treatment tailored to your features.',
+        options: [
+          { name: '0.5ml lip filler', duration: '45 mins', price: '£150' },
+          { name: '1ml lip filler', duration: '45 mins', price: '£190' },
+          { name: 'Nasolabial folds', duration: '45 mins', price: 'from £190' },
+          { name: 'Marionette lines', duration: '45 mins', price: 'from £190' },
+          { name: 'Cheeks', duration: '45 mins', price: 'from £220' },
+          { name: 'Chin', duration: '45 mins', price: 'from £220' },
+          { name: 'Jawline', duration: '45 mins', price: 'from £220' }
+        ]
+      },
+      'skin-boosters': {
+        icon: './images/icons/icon-skin-boosters.webp',
+        title: 'Skin Boosters',
+        price: 'from £110',
+        description: 'Hydrate, smooth, and refresh the skin with injectable skin boosters selected to support texture, glow, and skin quality.',
+        options: [
+          { name: 'Seventy Hyal 2000', duration: '45 mins', price: '£110' },
+          { name: 'Lumi Pro', duration: '45 mins', price: '£120' },
+          { name: 'Jalupro Classic', duration: '45 mins', price: '£150' },
+          { name: 'Profhilo', duration: '45 mins', price: '£220' }
+        ]
+      },
+      'polynucleotides': {
+        icon: './images/icons/icon-profilo.webp',
+        title: 'Polynucleotides',
+        price: 'from £185',
+        description: 'Consultation-led regenerative treatment to support skin repair, texture, and overall skin quality in delicate or tired areas.',
+        options: [
+          { name: 'Eyes', duration: '45 mins', price: '£185' },
+          { name: 'Face', duration: '45 mins', price: '£210' },
+          { name: 'Face + neck', duration: '60 mins', price: '£250' }
+        ]
+      },
+      'skin-treatments': {
+        icon: './images/icons/icon-microneedling.webp',
+        title: 'Skin Treatments',
+        price: 'from £80',
+        description: 'Professional skin treatments chosen to help improve brightness, texture, and skin confidence with a tailored approach.',
+        options: [
+          { name: 'Dermaplane', duration: '45 mins', price: '£30' },
+          { name: 'Luxury dermaplane', duration: '60 mins', price: '£45' },
+          { name: 'Chemical peel', duration: '45 mins', price: '£65' },
+          { name: 'BioRePeel', duration: '45 mins', price: '£80' }
+        ]
+      },
+      'microneedling': {
+        icon: './images/icons/icon-microneedling.webp',
+        title: 'Microneedling',
+        price: 'from £80',
+        description: 'Stimulate collagen and improve the appearance of texture, acne scarring, and dull skin with professional microneedling.',
+        options: [
+          { name: 'Microneedling facial', duration: '60 mins', price: '£80' },
+          { name: 'Microneedling with mesotherapy', duration: '60 mins', price: '£110' }
+        ]
+      },
+      facials: {
+        icon: './images/icons/icon-led-facial.webp',
+        title: 'Facials',
+        price: 'from £30',
+        description: 'Relaxing, results-focused facials designed to refresh the skin and support a healthy glow.',
+        options: [
+          { name: 'LED facial', duration: '30 mins', price: '£30' },
+          { name: 'Luxury facial', duration: '60 mins', price: '£55' }
+        ]
+      },
+      'fat-dissolving': {
+        icon: './images/icons/icon-fat-dissolve.webp',
+        title: 'Fat Dissolving',
+        price: 'from £80',
+        description: 'Target stubborn pockets of fat with consultation-led fat dissolving treatment plans tailored to the area being treated.',
+        options: [
+          { name: 'Small area', duration: '45 mins', price: '£80' },
+          { name: 'Medium area', duration: '45 mins', price: '£120' },
+          { name: 'Large area', duration: '60 mins', price: '£180' }
+        ]
+      },
+      vitamin: {
+        icon: './images/icons/icon-growth-factors.webp',
+        title: 'Vitamin Injections',
+        price: 'from £30',
+        description: 'Quick vitamin injection appointments to support wellbeing and energy, depending on suitability and consultation.',
+        options: [
+          { name: 'Vitamin B12 injection', duration: '15 mins', price: '£30' },
+          { name: 'Course of 4 B12 injections', duration: '15 mins each', price: '£100' }
+        ]
+      },
+      consultation: {
+        icon: './images/icons/icon-consultation.webp',
+        title: 'Consultation',
+        price: 'FREE',
+        description: 'Start with a consultation to talk through your goals, ask questions, and get a safe, honest treatment recommendation.',
+        options: [
+          { name: 'Treatment consultation', duration: '30 mins', price: 'FREE' }
+        ]
+      }
+    };
+
+    function openModal(treatmentKey) {
+      var treatment = treatmentData[treatmentKey];
+      var overlay = document.getElementById('modalOverlay');
+      var body = document.getElementById('modalBody');
+      if (!treatment || !overlay || !body) return;
+
+      var optionsHtml = treatment.options.map(function(option) {
+        return '<div class="option">'
+          + '<div>'
+          + '<div class="option-name">' + option.name + '</div>'
+          + '<div class="option-duration">' + option.duration + '</div>'
+          + '</div>'
+          + '<div class="option-price">' + option.price + '</div>'
+          + '</div>';
+      }).join('');
+
+      body.innerHTML = ''
+        + '<div class="modal-header">'
+        + '  <div class="modal-icon"><img src="' + treatment.icon + '" alt="' + treatment.title + '"></div>'
+        + '  <div class="modal-title">'
+        + '    <h2>' + treatment.title + '</h2>'
+        + '    <div class="price">' + treatment.price + '</div>'
+        + '  </div>'
+        + '</div>'
+        + '<p class="modal-description">' + treatment.description + '</p>'
+        + '<div class="modal-options">'
+        + '  <h3>Price Guide</h3>'
+        +      optionsHtml
+        + '</div>'
+        + '<a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-gold" target="_blank" rel="noopener noreferrer">Book consultation</a>';
+
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(event) {
+      if (event && event.target && event.target !== event.currentTarget) return;
+      var overlay = document.getElementById('modalOverlay');
+      if (!overlay) return;
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
     document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') closeMenu();
+      if (event.key === 'Escape') {
+        closeMenu();
+        closeModal();
+      }
     });
   </script>
 
