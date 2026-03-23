@@ -255,6 +255,12 @@
       box-shadow: 0 2px 15px rgba(0,0,0,0.05);
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
+      touch-action: manipulation;
+    }
+
+    .treatment-card:focus-visible {
+      outline: 3px solid rgba(205, 168, 106, 0.45);
+      outline-offset: 4px;
     }
 
     .treatment-card:hover {
@@ -674,7 +680,7 @@
 
   <section class="treatments-section">
 
-    <div class="treatment-card" onclick="openModal('anti-wrinkle')">
+    <div class="treatment-card" data-treatment="anti-wrinkle" role="button" tabindex="0" aria-label="View anti-wrinkle pricing">
       <div class="treatment-header">
         <div class="treatment-icon">
           <img src="./images/icons/icon-anti-wrinkle.webp" alt="Anti-Wrinkle">
@@ -689,7 +695,7 @@
       </div>
     </div>
 
-    <div class="treatment-card" onclick="openModal('advanced-anti-wrinkle')">
+    <div class="treatment-card" data-treatment="advanced-anti-wrinkle" role="button" tabindex="0" aria-label="View advanced anti-wrinkle pricing">
       <div class="treatment-header">
         <div class="treatment-icon">
           <img src="./images/icons/icon-anti-wrinkle.webp" alt="Advanced Anti-Wrinkle">
@@ -704,7 +710,7 @@
       </div>
     </div>
 
-    <div class="treatment-card" onclick="openModal('dermal-fillers')">
+    <div class="treatment-card" data-treatment="dermal-fillers" role="button" tabindex="0" aria-label="View dermal filler pricing">
       <div class="treatment-header">
         <div class="treatment-icon">
           <img src="./images/icons/icon-dermal-filler.webp" alt="Dermal Fillers">
@@ -719,7 +725,7 @@
       </div>
     </div>
 
-    <div class="treatment-card" onclick="openModal('skin-boosters')">
+    <div class="treatment-card" data-treatment="skin-boosters" role="button" tabindex="0" aria-label="View skin booster pricing">
       <div class="treatment-header">
         <div class="treatment-icon">
           <img src="./images/icons/icon-skin-boosters.webp" alt="Skin Boosters">
@@ -734,7 +740,7 @@
       </div>
     </div>
 
-    <div class="treatment-card" onclick="openModal('polynucleotides')">
+    <div class="treatment-card" data-treatment="polynucleotides" role="button" tabindex="0" aria-label="View polynucleotide pricing">
       <div class="treatment-header">
         <div class="treatment-icon">
           <img src="./images/icons/icon-profilo.webp" alt="Polynucleotides">
@@ -749,7 +755,7 @@
       </div>
     </div>
 
-    <div class="treatment-card" onclick="openModal('skin-treatments')">
+    <div class="treatment-card" data-treatment="skin-treatments" role="button" tabindex="0" aria-label="View skin treatment pricing">
       <div class="treatment-header">
         <div class="treatment-icon">
           <img src="./images/icons/icon-microneedling.webp" alt="Skin Treatments">
@@ -764,7 +770,7 @@
       </div>
     </div>
 
-    <div class="treatment-card" onclick="openModal('microneedling')">
+    <div class="treatment-card" data-treatment="microneedling" role="button" tabindex="0" aria-label="View microneedling pricing">
       <div class="treatment-header">
         <div class="treatment-icon">
           <img src="./images/icons/icon-microneedling.webp" alt="Microneedling">
@@ -779,7 +785,7 @@
       </div>
     </div>
 
-    <div class="treatment-card" onclick="openModal('facials')">
+    <div class="treatment-card" data-treatment="facials" role="button" tabindex="0" aria-label="View facial pricing">
       <div class="treatment-header">
         <div class="treatment-icon">
           <img src="./images/icons/icon-led-facial.webp" alt="Facials">
@@ -794,7 +800,7 @@
       </div>
     </div>
 
-    <div class="treatment-card" onclick="openModal('fat-dissolving')">
+    <div class="treatment-card" data-treatment="fat-dissolving" role="button" tabindex="0" aria-label="View fat dissolving pricing">
       <div class="treatment-header">
         <div class="treatment-icon">
           <img src="./images/icons/icon-fat-dissolve.webp" alt="Fat Dissolving">
@@ -809,7 +815,7 @@
       </div>
     </div>
 
-    <div class="treatment-card" onclick="openModal('vitamin')">
+    <div class="treatment-card" data-treatment="vitamin" role="button" tabindex="0" aria-label="View vitamin injection pricing">
       <div class="treatment-header">
         <div class="treatment-icon">
           <img src="./images/icons/icon-growth-factors.webp" alt="Vitamin Injections">
@@ -824,7 +830,7 @@
       </div>
     </div>
 
-    <div class="treatment-card" onclick="openModal('consultation')">
+    <div class="treatment-card" data-treatment="consultation" role="button" tabindex="0" aria-label="View consultation pricing">
       <div class="treatment-header">
         <div class="treatment-icon">
           <img src="./images/icons/icon-consultation.webp" alt="Consultation">
@@ -842,9 +848,9 @@
     <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-gold" target="_blank" rel="noopener noreferrer">BOOK TREATMENT</a>
   </section>
 
-  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-    <div class="modal" id="modalContent" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModal()">&times;</button>
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modalContent" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="Close pricing popup">&times;</button>
       <div id="modalBody"></div>
     </div>
   </div>
@@ -1074,7 +1080,7 @@
         + '<div class="modal-header">'
         + '  <div class="modal-icon"><img src="' + treatment.icon + '" alt="' + treatment.title + '"></div>'
         + '  <div class="modal-title">'
-        + '    <h2>' + treatment.title + '</h2>'
+        + '    <h2 id="modalTitle">' + treatment.title + '</h2>'
         + '    <div class="price">' + treatment.price + '</div>'
         + '  </div>'
         + '</div>'
@@ -1087,15 +1093,40 @@
 
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
+
+      var closeBtn = overlay.querySelector('.modal-close');
+      if (closeBtn) closeBtn.focus();
     }
 
-    function closeModal(event) {
-      if (event && event.target && event.target !== event.currentTarget) return;
+    function closeModal() {
       var overlay = document.getElementById('modalOverlay');
       if (!overlay) return;
       overlay.classList.remove('active');
       document.body.style.overflow = '';
     }
+
+    document.querySelectorAll('.treatment-card[data-treatment]').forEach(function(card) {
+      card.addEventListener('click', function() {
+        openModal(card.getAttribute('data-treatment'));
+      });
+
+      card.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openModal(card.getAttribute('data-treatment'));
+        }
+      });
+    });
+
+    var modalOverlay = document.getElementById('modalOverlay');
+    if (modalOverlay) {
+      modalOverlay.addEventListener('click', function(event) {
+        if (event.target === modalOverlay) closeModal();
+      });
+    }
+
+    var modalClose = document.querySelector('.modal-close');
+    if (modalClose) modalClose.addEventListener('click', closeModal);
 
     document.addEventListener('keydown', function(event) {
       if (event.key === 'Escape') {
