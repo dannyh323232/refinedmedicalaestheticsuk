@@ -81,12 +81,12 @@
     .footer-links a:hover { color: var(--color-gold); }
     .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; }
     .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 10px; }
-    .whatsapp-float { position: fixed; left: 20px; right: auto; bottom: 20px; width: 52px; height: 52px; background: var(--color-whatsapp); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 2000; }
-    .whatsapp-float svg { width: 28px; height: 28px; color: white; }
+    .whatsapp-float { position: fixed; left: 12px; right: auto; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); width: 46px; height: 46px; background: var(--color-whatsapp); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.32); z-index: 2000; }
+    .whatsapp-float svg { width: 24px; height: 24px; color: white; }
     @media (max-width: 600px) {
       body { padding-bottom: 96px; }
-      .whatsapp-float { width: 48px; height: 48px; left: 14px; right: auto; bottom: 20px; }
-      .whatsapp-float svg { width: 22px; height: 22px; }
+      .whatsapp-float { width: 42px; height: 42px; left: 10px; right: auto; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); }
+      .whatsapp-float svg { width: 20px; height: 20px; }
     }
     .header-actions { display: flex; align-items: center; gap: 8px; }
     .theme-toggle { background: none; border: none; cursor: pointer; padding: 8px; display: flex; align-items: center; justify-content: center; color: var(--color-charcoal); border-radius: 6px; transition: background 0.2s; }
