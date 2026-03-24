@@ -460,22 +460,31 @@
       justify-content: center;
       font-weight: 700;
       color: var(--color-charcoal);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .hero-offer-card-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .hero-offer-card strong {
       display: block;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
+      font-size: 1rem;
+      letter-spacing: 0.6px;
     }
 
     .hero-offer-card small {
       text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 0.65rem;
+      letter-spacing: 2px;
+      font-size: 0.58rem;
       color: rgba(255,255,255,0.8);
     }
 
-    .hero-offer-card p { margin: 0; font-size: 0.85rem; color: rgba(255,255,255,0.8); }
+    .hero-offer-card p { margin: 0; font-size: 0.8rem; color: rgba(255,255,255,0.8); }
 
     .hero-offer-card + .hero-offer-card {
       margin-top: 12px;
@@ -1316,25 +1325,36 @@
       .hero-offer-card {
         flex-direction: row;
         align-items: center;
-        padding: 14px;
-        gap: 10px;
-        border-radius: 18px;
+        padding: 12px;
+        gap: 9px;
+        border-radius: 16px;
       }
       .hero-offer-card-icon {
-        flex: 0 0 40px;
-        width: 40px;
-        height: 40px;
+        flex: 0 0 34px;
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
       }
       .hero-buttons .btn,
       .cta-buttons .btn {
         width: 100%;
         max-width: none;
-        padding: 14px 22px;
-        font-size: 0.7rem;
-        letter-spacing: 1.6px;
+        padding: 12px 18px;
+        font-size: 0.64rem;
+        letter-spacing: 1.3px;
       }
       .hero-proof-grid {
-        gap: 10px;
+        gap: 8px;
+      }
+      .hero-proof {
+        padding: 11px;
+      }
+      .hero-proof strong {
+        font-size: 0.84rem;
+      }
+      .hero-proof span {
+        font-size: 0.63rem;
+        letter-spacing: 1.5px;
       }
       .trust-section {
         padding: 24px 20px 8px;
@@ -1651,7 +1671,7 @@
         </button>
 
         <a class="hero-offer-card hero-shop-card" href="./wbco.html" aria-label="Browse the WBco x Refined homecare shop">
-          <div class="hero-offer-card-icon">🧴</div>
+          <div class="hero-offer-card-icon"><img src="https://cdn.shopify.com/s/files/1/0791/2190/7925/files/Bog_Myrtle_lime_cleanser_as_seen_in_vogue.png?v=1774099346" alt="WBco Balancing Cleanser"></div>
           <div>
             <small>WBco × Refined edit</small>
             <strong>Shop Rachel’s homecare picks</strong>
