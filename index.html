@@ -351,7 +351,10 @@
     /* Hero Section */
     .hero {
       padding: clamp(40px, 6vw, 110px) clamp(20px, 8vw, 120px) clamp(30px, 5vw, 90px);
-      background: linear-gradient(135deg, var(--color-cream) 0%, #FFFFFF 65%);
+      background:
+        linear-gradient(90deg, rgba(250,248,245,0.98) 0%, rgba(250,248,245,0.94) 34%, rgba(250,248,245,0.72) 52%, rgba(250,248,245,0.3) 72%, rgba(250,248,245,0.12) 100%),
+        url('./images/rachel-hero-new.webp') right top / contain no-repeat,
+        linear-gradient(135deg, var(--color-cream) 0%, #FFFFFF 65%);
       position: relative;
       overflow: hidden;
     }
@@ -359,10 +362,13 @@
     .hero::after {
       content: "";
       position: absolute;
-      inset: 20% -10% -25% auto;
-      width: 60%;
-      background: radial-gradient(circle at 30% 30%, rgba(201,169,98,0.25), transparent 70%);
+      inset: 12% -8% -18% auto;
+      width: 58%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(201,169,98,0.22), transparent 68%),
+        linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(250,248,245,0.18) 42%, rgba(250,248,245,0.78) 100%);
       z-index: 0;
+      pointer-events: none;
     }
 
     .hero-grid {
@@ -550,15 +556,12 @@
 
     .hero-media {
       position: relative;
-      padding: clamp(6px, 1vw, 16px);
+      min-height: clamp(420px, 58vw, 720px);
+      pointer-events: none;
     }
 
     .hero-media-frame {
-      border-radius: 32px;
-      overflow: hidden;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.12);
-      border: 8px solid var(--color-white);
-      background: #e9e2d8;
+      display: none;
     }
 
     .hero-media img {
@@ -1267,32 +1270,33 @@
     @media (max-width: 600px) {
       .hero {
         padding: 18px 16px 24px;
+        background:
+          linear-gradient(180deg, rgba(250,248,245,0.08) 0%, rgba(250,248,245,0.28) 20%, rgba(250,248,245,0.62) 42%, rgba(250,248,245,0.92) 60%, rgba(250,248,245,1) 74%),
+          linear-gradient(90deg, rgba(250,248,245,0.92) 0%, rgba(250,248,245,0.58) 46%, rgba(250,248,245,0.12) 86%),
+          url('./images/rachel-hero-new.webp') center top / cover no-repeat,
+          linear-gradient(135deg, var(--color-cream) 0%, #FFFFFF 65%);
+      }
+      .hero::after {
+        inset: auto 0 0 0;
+        width: 100%;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(250,248,245,0.16) 28%, rgba(250,248,245,0.88) 72%, rgba(250,248,245,1) 100%);
       }
       .hero-grid {
         gap: 0;
       }
       .hero-media {
-        order: -1;
-        padding: 0;
-        margin: 0 -2px;
-      }
-      .hero-media-frame {
-        border-width: 6px;
-        border-radius: 28px;
-      }
-      .hero-media img {
-        aspect-ratio: 0.86;
-        object-position: center top;
+        display: none;
       }
       .hero-copy {
         gap: 16px;
-        margin-top: -84px;
+        margin-top: 220px;
         position: relative;
         z-index: 3;
-        background: linear-gradient(180deg, rgba(250,248,245,0.72), rgba(250,248,245,0.97) 18%, rgba(250,248,245,1) 42%);
-        border-radius: 26px 26px 0 0;
-        padding: 18px 12px 0;
-        backdrop-filter: blur(8px);
+        padding: 0;
+        background: transparent;
+        border-radius: 0;
+        backdrop-filter: none;
       }
       .hero-eyebrow {
         letter-spacing: 2px;
