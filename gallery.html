@@ -220,6 +220,15 @@
       margin-right: auto;
     }
 
+    .gallery-panel { max-width: 1160px; margin: -24px auto 0; padding: 0 20px; position: relative; z-index: 2; }
+    .gallery-card { background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,248,245,0.96)); border: 1px solid rgba(201,169,98,0.18); border-radius: 24px; box-shadow: 0 24px 50px rgba(45,45,45,0.08); padding: 24px; }
+    .gallery-card h2 { font-family: var(--font-serif); font-size: 2rem; font-weight: 400; color: var(--color-charcoal); margin-bottom: 12px; }
+    .gallery-card h2 span { color: var(--color-gold); font-style: italic; }
+    .gallery-card p { color: var(--color-text); line-height: 1.8; }
+    .gallery-points { display: grid; gap: 12px; margin-top: 20px; }
+    .gallery-point { background: rgba(201,169,98,0.08); border: 1px solid rgba(201,169,98,0.12); border-radius: 18px; padding: 16px 18px; }
+    .gallery-point strong { display: block; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-gold-dark); margin-bottom: 6px; }
+    .gallery-point span { color: var(--color-text-light); font-size: 0.95rem; }
     .gallery-section {
       padding: 40px 20px 60px;
       background: var(--color-cream);
@@ -269,12 +278,12 @@
     }
 
     .gallery-item {
-      border-radius: 10px;
+      border-radius: 16px;
       overflow: hidden;
       cursor: zoom-in;
       background: var(--color-white);
-      border: 1px solid rgba(0,0,0,0.06);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      border: 1px solid rgba(201,169,98,0.08);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
     }
 
     .gallery-item[hidden] { display: none !important; }
@@ -485,6 +494,10 @@
     html[data-theme="dark"] .mobile-menu a:hover { color: var(--color-gold); }
     html[data-theme="dark"] .mobile-menu-close { color: #E8E0D6; }
     html[data-theme="dark"] .page-header h1 { color: #FFFFFF; }
+    html[data-theme="dark"] .gallery-card { background: linear-gradient(180deg, rgba(42,42,42,0.98), rgba(26,26,26,0.98)); border-color: rgba(201,169,98,0.2); box-shadow: 0 24px 50px rgba(0,0,0,0.28); }
+    html[data-theme="dark"] .gallery-card h2 { color: #E8E0D6; }
+    html[data-theme="dark"] .gallery-point { background: #2A2A2A; }
+    html[data-theme="dark"] .gallery-point span { color: #b9b1a8; }
     html[data-theme="dark"] .gallery-tab { background: #222; color: #ddd; border-color: #3c3c3c; }
     html[data-theme="dark"] .gallery-tab.active { background: #E8D2A8; color: #1a1a1a; border-color: #E8D2A8; }
     html[data-theme="dark"] .gallery-item { background: #202020; border-color: rgba(255,255,255,0.08); }
@@ -503,6 +516,8 @@
       .page-header { padding: 80px 60px 60px; }
       .page-header h1 { font-size: 3.5rem; }
 
+      .gallery-panel { padding: 0 60px; margin-top: -34px; }
+      .gallery-card { padding: 32px; display: grid; grid-template-columns: 1.15fr 0.95fr; gap: 24px; align-items: start; }
       /* 4-column gallery grid */
       .gallery-section { padding: 60px 80px; }
       .gallery-grid { grid-template-columns: repeat(4, 1fr); gap: 15px; }
@@ -565,6 +580,20 @@
     <h1>Real <span>Results</span></h1>
     <p>See the transformations achieved by Nurse Rachel at Refined Medical Aesthetics.</p>
   </div>
+
+  <section class="gallery-panel" aria-label="Results gallery guidance">
+    <div class="gallery-card">
+      <div>
+        <h2>Results shown with <span>context</span></h2>
+        <p>This gallery is here to help you understand Rachel's style: refined, balanced and consultation-led. Every face, treatment plan and healing journey is individual, so the aim is guidance rather than promises.</p>
+      </div>
+      <div class="gallery-points">
+        <div class="gallery-point"><strong>Natural-looking outcomes</strong><span>Use the gallery to get a feel for proportion, softness and Rachel's overall aesthetic.</span></div>
+        <div class="gallery-point"><strong>Treatment planning matters</strong><span>Some results come from staged plans rather than one appointment.</span></div>
+        <div class="gallery-point"><strong>Best next step</strong><span>If a result style feels right for you, book a consultation to talk through what is suitable.</span></div>
+      </div>
+    </div>
+  </section>
 
   <section class="gallery-section">
     <div class="gallery-tabs" id="galleryTabs">

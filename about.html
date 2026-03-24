@@ -68,6 +68,13 @@
     .page-header h1 { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 400; color: var(--color-white); }
     .page-header h1 span { color: var(--color-gold); font-style: italic; }
     .page-header p { font-size: 1rem; color: rgba(255,255,255,0.7); margin-top: 20px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .intro-panel { max-width: 1160px; margin: -24px auto 0; padding: 0 20px; position: relative; z-index: 2; }
+    .intro-card { background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,248,245,0.96)); border: 1px solid rgba(201,169,98,0.18); border-radius: 24px; box-shadow: 0 24px 50px rgba(45,45,45,0.08); padding: 24px; }
+    .intro-card p { color: var(--color-text); line-height: 1.8; margin-bottom: 18px; }
+    .intro-highlights { display: grid; gap: 12px; }
+    .intro-highlight { background: rgba(201,169,98,0.08); border: 1px solid rgba(201,169,98,0.12); border-radius: 18px; padding: 16px 18px; }
+    .intro-highlight strong { display: block; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-gold-dark); margin-bottom: 6px; }
+    .intro-highlight span { color: var(--color-text-light); font-size: 0.95rem; }
     .about-section { padding: 60px 20px; background: var(--color-cream); }
     .about-image { border-radius: 12px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
     .about-image img { width: 100%; height: auto; object-fit: cover; }
@@ -75,7 +82,11 @@
     .about-content h2 span { color: var(--color-gold); font-style: italic; }
     .about-content p { font-size: 1rem; color: var(--color-text); line-height: 1.8; margin-bottom: 20px; }
     .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 40px 0; }
-    .stat { background: var(--color-white); padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
+    .stat { background: var(--color-white); padding: 20px; border-radius: 18px; text-align: center; box-shadow: 0 12px 28px rgba(0,0,0,0.06); border: 1px solid rgba(201,169,98,0.08); }
+    .trust-strip { display: grid; gap: 14px; margin-top: 32px; }
+    .trust-card { background: var(--color-white); border-radius: 18px; padding: 18px 20px; border: 1px solid rgba(201,169,98,0.14); box-shadow: 0 12px 28px rgba(0,0,0,0.04); }
+    .trust-card strong { display: block; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-gold-dark); margin-bottom: 8px; }
+    .trust-card p { margin: 0; color: var(--color-text-light); font-size: 0.95rem; }
     .stat-number { font-family: var(--font-serif); font-size: 2rem; color: var(--color-gold); font-weight: 500; }
     .stat-label { font-size: 0.7rem; color: var(--color-text-light); letter-spacing: 1px; text-transform: uppercase; }
     .btn { display: block; width: 100%; max-width: 400px; margin: 30px auto 0; padding: 18px 25px; text-align: center; font-size: 0.8rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; border-radius: 8px; }
@@ -121,7 +132,12 @@
     html[data-theme="dark"] .about-section h2 { color: #E8E0D6; }
     html[data-theme="dark"] .about-content h2 { color: #E8E0D6; }
     html[data-theme="dark"] .about-content p { color: var(--color-text); }
+    html[data-theme="dark"] .intro-card { background: linear-gradient(180deg, rgba(42,42,42,0.98), rgba(26,26,26,0.98)); border-color: rgba(201,169,98,0.2); box-shadow: 0 24px 50px rgba(0,0,0,0.28); }
+    html[data-theme="dark"] .intro-highlight,
+    html[data-theme="dark"] .trust-card,
     html[data-theme="dark"] .stat { background: #2A2A2A; }
+    html[data-theme="dark"] .intro-highlight span,
+    html[data-theme="dark"] .trust-card p { color: #b9b1a8; }
     html[data-theme="dark"] .stat-number { color: var(--color-gold); }
     html[data-theme="dark"] .btn-outline { color: #E8E0D6; border-color: rgba(255,255,255,0.3); }
     html[data-theme="dark"] .btn-outline:hover { background: rgba(255,255,255,0.08); color: #E8E0D6; }
@@ -138,6 +154,8 @@
       .header { padding: 15px 60px; }
       .page-header { padding: 80px 60px 60px; }
       .page-header h1 { font-size: 3.5rem; }
+      .intro-panel { padding: 0 60px; margin-top: -34px; }
+      .intro-card { padding: 32px; display: grid; grid-template-columns: 1.25fr 0.95fr; gap: 24px; align-items: start; }
 
       /* About layout: image left, content right */
       .about-section {
@@ -201,6 +219,19 @@
     <h1>Meet Your <span>Aesthetic Nurse</span></h1>
     <p>Get to know the face behind Refined Medical Aesthetics</p>
   </div>
+  <section class="intro-panel" aria-label="Rachel introduction and clinic approach">
+    <div class="intro-card">
+      <div>
+        <p>Refined is built around calm, consultation-first care. Rachel combines nurse-led clinical standards with a soft, natural aesthetic so clients feel listened to, informed and never rushed into treatment.</p>
+        <p>Whether someone is booking for the first time or returning for maintenance, the goal stays the same: a safe plan, honest guidance and results that still feel like you.</p>
+      </div>
+      <div class="intro-highlights">
+        <div class="intro-highlight"><strong>Nurse-led care</strong><span>NMC-registered support from consultation through aftercare.</span></div>
+        <div class="intro-highlight"><strong>Natural-looking approach</strong><span>Treatment plans built around facial balance, skin quality and realistic outcomes.</span></div>
+        <div class="intro-highlight"><strong>Private clinic feel</strong><span>A welcoming, one-to-one experience in Seaton Delaval near Whitley Bay.</span></div>
+      </div>
+    </div>
+  </section>
   <section class="about-section">
     <div class="about-image"><img src="./images/rachel-sitting.webp" alt="Nurse Rachel"></div>
     <div class="about-content">
@@ -212,6 +243,10 @@
         <div class="stat"><div class="stat-number">500+</div><div class="stat-label">HAPPY CLIENTS</div></div>
         <div class="stat"><div class="stat-number">1000+</div><div class="stat-label">TREATMENTS</div></div>
         <div class="stat"><div class="stat-number">5★</div><div class="stat-label">RATED</div></div>
+      </div>
+          <div class="trust-strip">
+        <div class="trust-card"><strong>Consultation first</strong><p>Every appointment starts with suitability, goals and what feels proportionate for you.</p></div>
+        <div class="trust-card"><strong>Clear, honest advice</strong><p>If a treatment is not the right fit, Rachel will say so and guide you toward a better option.</p></div>
       </div>
     </div>
     <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-gold" target="_blank" rel="noopener noreferrer">BOOK A CONSULTATION</a>

@@ -48,8 +48,17 @@
     .page-header h1 { font-family: var(--font-serif); font-size: 2.5rem; font-weight: 400; color: var(--color-white); }
     .page-header h1 span { color: var(--color-gold); font-style: italic; }
     .page-header p { font-size: 1rem; color: rgba(255,255,255,0.7); margin-top: 20px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .reviews-panel { max-width: 1160px; margin: -24px auto 0; padding: 0 20px; position: relative; z-index: 2; }
+    .reviews-card { background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,248,245,0.96)); border: 1px solid rgba(201,169,98,0.18); border-radius: 24px; box-shadow: 0 24px 50px rgba(45,45,45,0.08); padding: 24px; }
+    .reviews-card h2 { font-family: var(--font-serif); font-size: 2rem; font-weight: 400; color: var(--color-charcoal); margin-bottom: 12px; }
+    .reviews-card h2 span { color: var(--color-gold); font-style: italic; }
+    .reviews-card p { color: var(--color-text); line-height: 1.8; }
+    .reviews-points { display: grid; gap: 12px; margin-top: 20px; }
+    .reviews-point { background: rgba(201,169,98,0.08); border: 1px solid rgba(201,169,98,0.12); border-radius: 18px; padding: 16px 18px; }
+    .reviews-point strong { display: block; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-gold-dark); margin-bottom: 6px; }
+    .reviews-point span { color: var(--color-text-light); font-size: 0.95rem; }
     .testimonials-section { padding: 60px 20px; background: var(--color-cream); }
-    .testimonial-card { background: var(--color-white); border-radius: 12px; padding: 30px; margin-bottom: 20px; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
+    .testimonial-card { background: var(--color-white); border-radius: 18px; padding: 30px; margin-bottom: 20px; box-shadow: 0 12px 28px rgba(0,0,0,0.06); border: 1px solid rgba(201,169,98,0.08); }
     .stars { display: flex; gap: 5px; margin-bottom: 15px; }
     .stars svg { width: 18px; height: 18px; color: var(--color-gold); }
     .testimonial-card p { font-size: 1rem; color: var(--color-text); line-height: 1.8; margin-bottom: 20px; }
@@ -96,7 +105,10 @@
     html[data-theme="dark"] .mobile-menu a { color: #E8E0D6; border-bottom-color: rgba(255,255,255,0.08); }
     html[data-theme="dark"] .mobile-menu a:hover { color: var(--color-gold); }
     html[data-theme="dark"] .mobile-menu-close { color: #E8E0D6; }
-    html[data-theme="dark"] .testimonial-card { background: #2A2A2A; box-shadow: 0 2px 15px rgba(0,0,0,0.4); }
+    html[data-theme="dark"] .reviews-card { background: linear-gradient(180deg, rgba(42,42,42,0.98), rgba(26,26,26,0.98)); border-color: rgba(201,169,98,0.2); box-shadow: 0 24px 50px rgba(0,0,0,0.28); }
+    html[data-theme="dark"] .reviews-card h2 { color: #E8E0D6; }
+    html[data-theme="dark"] .reviews-point, html[data-theme="dark"] .testimonial-card { background: #2A2A2A; box-shadow: 0 12px 28px rgba(0,0,0,0.24); }
+    html[data-theme="dark"] .reviews-point span { color: #b9b1a8; }
     html[data-theme="dark"] .testimonial-card p { color: #C0B8AE; }
     html[data-theme="dark"] .testimonial-author h4 { color: #E8E0D6; }
     html[data-theme="dark"] .testimonial-author { border-top-color: rgba(255,255,255,0.08); }
@@ -114,6 +126,8 @@
       .header { padding: 15px 60px; }
       .page-header { padding: 80px 60px 60px; }
       .page-header h1 { font-size: 3.5rem; }
+      .reviews-panel { padding: 0 60px; margin-top: -34px; }
+      .reviews-card { padding: 32px; display: grid; grid-template-columns: 1.15fr 0.95fr; gap: 24px; align-items: start; }
 
       /* 3-column testimonial grid */
       .testimonials-section {
@@ -173,6 +187,19 @@
     <h1>What Our <span>Clients Say</span></h1>
     <p>Real reviews from real clients who have experienced the Refined difference.</p>
   </div>
+  <section class="reviews-panel" aria-label="Review overview">
+    <div class="reviews-card">
+      <div>
+        <h2>Confidence built on <span>trust</span></h2>
+        <p>Clients consistently mention feeling comfortable, listened to and well looked after. That trust-led experience matters just as much as the treatment itself, especially for first appointments.</p>
+      </div>
+      <div class="reviews-points">
+        <div class="reviews-point"><strong>Natural-looking outcomes</strong><span>Feedback repeatedly highlights subtle, refreshed results that still feel like them.</span></div>
+        <div class="reviews-point"><strong>Calm first appointments</strong><span>Reviews reflect Rachel's reassuring, consultation-first approach for nervous or new clients.</span></div>
+        <div class="reviews-point"><strong>Return-client confidence</strong><span>Loyal clients come back because the advice, aftercare and overall experience feel consistent.</span></div>
+      </div>
+    </div>
+  </section>
   <div class="sk-ww-google-reviews" data-embed-id="25658869"></div>
   <script src="https://widgets.sociablekit.com/google-reviews/widget.js" defer></script>
   <section class="testimonials-section">
