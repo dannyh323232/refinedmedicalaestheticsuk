@@ -62,6 +62,17 @@
     .page-header h1 span { color: var(--color-gold); font-style: italic; }
     .page-header p { font-size: 1rem; color: rgba(255,255,255,0.7); margin-top: 20px; max-width: 500px; margin-left: auto; margin-right: auto; }
     .about-section { padding: 60px 20px; background: var(--color-cream); max-width: 1200px; margin: 0 auto; }
+    .decision-panel { margin: -18px auto 0; padding: 0 20px; max-width: 1200px; position: relative; z-index: 2; }
+    .decision-card { background: linear-gradient(180deg, rgba(255,255,255,0.97), rgba(250,248,245,0.97)); border-radius: 24px; padding: 26px 22px; box-shadow: 0 18px 50px rgba(45,45,45,0.08); border: 1px solid rgba(201,169,98,0.14); }
+    .decision-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-gold-dark); margin-bottom: 10px; }
+    .decision-card h2 { font-family: var(--font-serif); font-size: 2rem; font-weight: 400; color: var(--color-charcoal); margin-bottom: 10px; }
+    .decision-card h2 span { color: var(--color-gold); font-style: italic; }
+    .decision-card > p { color: var(--color-text-light); max-width: 760px; line-height: 1.75; }
+    .decision-grid { display: grid; gap: 14px; margin-top: 22px; }
+    .decision-option { background: var(--color-white); border-radius: 18px; padding: 20px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
+    .decision-option strong { display: block; font-size: 1rem; color: var(--color-charcoal); margin-bottom: 8px; }
+    .decision-option p { margin: 0; color: var(--color-text-light); line-height: 1.6; }
+    .decision-option .btn { margin: 18px 0 0; max-width: none; }
     .about-image { border-radius: 18px; overflow: hidden; margin-bottom: 24px; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
     .about-image img, .about-image video { width: 100%; height: auto; object-fit: cover; display: block; }
     .about-content h2 { font-family: var(--font-serif); font-size: 2rem; color: var(--color-charcoal); margin-bottom: 20px; }
@@ -126,6 +137,9 @@
     html[data-theme="dark"] .mobile-menu a { color: #E8E0D6; border-bottom-color: rgba(255,255,255,0.08); }
     html[data-theme="dark"] .mobile-menu a:hover { color: var(--color-gold); }
     html[data-theme="dark"] .mobile-menu-close { color: #E8E0D6; }
+    html[data-theme="dark"] .decision-card, html[data-theme="dark"] .decision-option { background: #242424; border-color: rgba(255,255,255,0.06); }
+    html[data-theme="dark"] .decision-card h2, html[data-theme="dark"] .decision-option strong { color: #E8E0D6; }
+    html[data-theme="dark"] .decision-card > p, html[data-theme="dark"] .decision-option p { color: var(--color-text); }
     html[data-theme="dark"] .about-section h2 { color: #E8E0D6; }
     html[data-theme="dark"] .about-content h2 { color: #E8E0D6; }
     html[data-theme="dark"] .about-content p { color: var(--color-text); }
@@ -147,6 +161,9 @@
       .page-header { padding: 80px 60px 60px; }
       .page-header h1 { font-size: 3.5rem; }
 
+      .decision-panel { margin-top: -28px; padding: 0 60px; }
+      .decision-card { padding: 34px; }
+      .decision-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .about-section { padding: 80px 60px; }
       .wbco-intro { grid-template-columns: 1.05fr 0.95fr; align-items: center; }
       .wbco-grid { gap: 32px; }
@@ -201,13 +218,33 @@
     <h1>WBco <span>Homecare Edit</span></h1>
     <p>Browse Rachel-picked skincare and brow staples, see what each product is for, then head straight to fast Shopify checkout.</p>
   </div>
+  <section class="decision-panel" aria-label="Choose shop or consultation">
+    <div class="decision-card">
+      <p class="decision-eyebrow">Choose your next step</p>
+      <h2>Already know your staples, or want <span>Rachel’s guidance</span> first?</h2>
+      <p>This page is designed to do both: make browsing easy for confident repeat shoppers, while keeping consultation-first support clear for clients who want advice before they buy.</p>
+      <div class="decision-grid">
+        <article class="decision-option">
+          <strong>Shop now</strong>
+          <p>Best if you already know the products you love and want to head straight through to the Refined Shopify checkout.</p>
+          <a href="https://refined-aesthetics-9619.myshopify.com/collections/medical-grade-essentials" class="btn btn-gold" target="_blank" rel="noopener">SHOP ON SHOPIFY</a>
+        </article>
+        <article class="decision-option">
+          <strong>Consult first</strong>
+          <p>Best if you want help matching homecare to your skin goals, treatment plan, budget or current routine.</p>
+          <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-outline" target="_blank" rel="noopener noreferrer">BOOK A CONSULTATION</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="about-section" id="wbco-retail-page">
     <div class="wbco-grid">
       <div class="wbco-intro">
         <div class="about-content">
           <p style="margin:0 0 12px;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-gold-dark);">WBco × Refined collaboration</p>
           <h2>Clinic-picked <span>WBco homecare</span></h2>
-          <p>Start here if you want Rachel’s go-to homecare picks without guessing. This page shows the range, then sends you straight to the Refined Shopify checkout when you’re ready to buy.</p>
+          <p>Start here if you want Rachel’s go-to homecare picks without guessing. Browse the edit below, then head to Shopify when you are ready to buy, or book first if you would like guidance on what actually fits your skin.</p>
           <div class="wbco-benefits">
             <div class="wbco-benefit"><strong>Rachel-guided</strong><span>Choose what actually suits your skin goals.</span></div>
             <div class="wbco-benefit"><strong>Simple routine</strong><span>Easy homecare between appointments.</span></div>
@@ -270,7 +307,7 @@
 
       <div class="wbco-cta-panel">
         <h3>Want Rachel to guide your routine?</h3>
-        <p>If you are not sure which products fit your skin goals, book first for tailored advice, or shop now if you already know your staples.</p>
+        <p>If you are not sure which products fit your skin goals, Rachel can help you keep things simple. Book first for tailored advice, or shop now if you already know your staples.</p>
         <div class="wbco-cta-actions">
           <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-outline" target="_blank" rel="noopener noreferrer">BOOK A CONSULTATION</a>
           <a href="https://refined-aesthetics-9619.myshopify.com/collections/medical-grade-essentials" class="btn btn-gold" target="_blank" rel="noopener">SHOP WBCO ON SHOPIFY</a>

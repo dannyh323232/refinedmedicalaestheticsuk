@@ -247,6 +247,95 @@
       background: var(--color-cream);
     }
 
+    .journey-panel {
+      max-width: 1180px;
+      margin: -24px auto 0;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .journey-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,248,245,0.96));
+      border-radius: 24px;
+      padding: 28px 22px;
+      box-shadow: 0 18px 50px rgba(45,45,45,0.08);
+      border: 1px solid rgba(201,169,98,0.14);
+    }
+
+    .journey-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-gold-dark);
+      margin-bottom: 10px;
+    }
+
+    .journey-card h2 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--color-charcoal);
+      margin-bottom: 10px;
+    }
+
+    .journey-card h2 span { color: var(--color-gold); font-style: italic; }
+
+    .journey-card > p {
+      color: var(--color-text-light);
+      max-width: 720px;
+      line-height: 1.75;
+    }
+
+    .journey-steps {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .journey-step {
+      background: var(--color-white);
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    .journey-step strong {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--color-charcoal);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .journey-step-number {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: rgba(201,169,98,0.14);
+      color: var(--color-gold-dark);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .journey-step p {
+      margin: 0;
+      color: var(--color-text-light);
+      line-height: 1.65;
+    }
+
+    .journey-actions {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
     .treatment-card {
       background: var(--color-white);
       border-radius: 12px;
@@ -577,6 +666,9 @@
     html[data-theme="dark"] .mobile-menu a { color: #E8E0D6; border-bottom-color: rgba(255,255,255,0.08); }
     html[data-theme="dark"] .mobile-menu a:hover { color: var(--color-gold); }
     html[data-theme="dark"] .mobile-menu-close { color: #E8E0D6; }
+    html[data-theme="dark"] .journey-card, html[data-theme="dark"] .journey-step { background: #242424; border-color: rgba(255,255,255,0.06); }
+    html[data-theme="dark"] .journey-card h2, html[data-theme="dark"] .journey-step strong { color: #E8E0D6; }
+    html[data-theme="dark"] .journey-card > p, html[data-theme="dark"] .journey-step p { color: var(--color-text); }
     html[data-theme="dark"] .treatment-card { background: #2A2A2A; box-shadow: 0 2px 15px rgba(0,0,0,0.4); }
     html[data-theme="dark"] .treatment-title h3 { color: #E8E0D6; }
     html[data-theme="dark"] .treatment-arrow { background: #383838; }
@@ -675,8 +767,34 @@
   <div class="page-header">
     <p class="label">OUR SERVICES</p>
     <h1>Treatment <span>Menu</span></h1>
-    <p>Explore our comprehensive range of aesthetic treatments, each performed with clinical precision and an artistic approach.</p>
+    <p>Explore consultation-led treatments designed around subtle, natural-looking outcomes and clear clinical guidance.</p>
   </div>
+
+  <section class="journey-panel" aria-label="Treatment booking journey">
+    <div class="journey-card">
+      <p class="journey-eyebrow">Consultation-first care</p>
+      <h2>Your treatment plan starts with a <span>conversation</span></h2>
+      <p>If you already know what you want, you can browse the menu below. If you are unsure, Rachel will guide you through suitability, options, pricing and aftercare before anything is booked.</p>
+      <div class="journey-steps">
+        <article class="journey-step">
+          <strong><span class="journey-step-number">01</span>Talk through your goals</strong>
+          <p>Share what you would like to improve, ask questions, and get honest advice about what is suitable for you.</p>
+        </article>
+        <article class="journey-step">
+          <strong><span class="journey-step-number">02</span>Build the right plan</strong>
+          <p>Rachel recommends a tailored treatment or skin plan based on your features, timeline and desired result.</p>
+        </article>
+        <article class="journey-step">
+          <strong><span class="journey-step-number">03</span>Treat with aftercare support</strong>
+          <p>Appointments are delivered with nurse-led standards, clear aftercare and review guidance where appropriate.</p>
+        </article>
+      </div>
+      <div class="journey-actions">
+        <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-gold" target="_blank" rel="noopener noreferrer">BOOK FREE CONSULTATION</a>
+        <a href="https://wa.me/447583321635" class="btn btn-outline">ASK A QUICK QUESTION</a>
+      </div>
+    </div>
+  </section>
 
   <section class="treatments-section">
 
@@ -845,7 +963,7 @@
       </div>
     </div>
 
-    <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-gold" target="_blank" rel="noopener noreferrer">BOOK TREATMENT</a>
+    <a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-gold" target="_blank" rel="noopener noreferrer">BOOK CONSULTATION</a>
   </section>
 
   <div class="modal-overlay" id="modalOverlay">
