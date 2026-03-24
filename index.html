@@ -554,10 +554,11 @@
     }
 
     .hero-media-frame {
-      border-radius: 24px;
+      border-radius: 32px;
       overflow: hidden;
       box-shadow: 0 25px 60px rgba(0,0,0,0.12);
       border: 8px solid var(--color-white);
+      background: #e9e2d8;
     }
 
     .hero-media img {
@@ -1265,25 +1266,55 @@
 
     @media (max-width: 600px) {
       .hero {
-        padding: 32px 20px 24px;
+        padding: 18px 16px 24px;
       }
       .hero-grid {
-        gap: 24px;
+        gap: 0;
+      }
+      .hero-media {
+        order: -1;
+        padding: 0;
+        margin: 0 -2px;
+      }
+      .hero-media-frame {
+        border-width: 6px;
+        border-radius: 28px;
+      }
+      .hero-media img {
+        aspect-ratio: 0.86;
+        object-position: center top;
       }
       .hero-copy {
         gap: 16px;
+        margin-top: -84px;
+        position: relative;
+        z-index: 3;
+        background: linear-gradient(180deg, rgba(250,248,245,0.72), rgba(250,248,245,0.97) 18%, rgba(250,248,245,1) 42%);
+        border-radius: 26px 26px 0 0;
+        padding: 18px 12px 0;
+        backdrop-filter: blur(8px);
       }
       .hero-eyebrow {
         letter-spacing: 2px;
       }
+      .hero h1 {
+        font-size: 2.35rem;
+      }
       .hero p {
         line-height: 1.7;
+      }
+      .hero-pill-group {
+        gap: 8px;
+      }
+      .hero-pill-group span {
+        background: rgba(255,255,255,0.92);
       }
       .hero-offer-card {
         flex-direction: row;
         align-items: center;
         padding: 16px;
         gap: 12px;
+        border-radius: 18px;
       }
       .hero-offer-card-icon {
         flex: 0 0 44px;
@@ -1309,11 +1340,19 @@
       }
       .hero-tag-card,
       .hero-nmc-card {
-        position: static;
-        margin-top: 15px;
+        position: absolute;
         min-width: 0;
+        margin-top: 0;
       }
-      .hero-media { padding: 0; }
+      .hero-tag-card {
+        top: auto;
+        right: 10px;
+        bottom: 20px;
+      }
+      .hero-nmc-card {
+        left: 10px;
+        bottom: 20px;
+      }
       body { padding-bottom: 96px; }
       .whatsapp-float {
         width: 48px;
