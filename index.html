@@ -1960,6 +1960,28 @@
   </a>
 
   <script>
+    function loadChatbaseWidget() {
+      if (window.__chatbaseLoaded) return;
+      window.__chatbaseLoaded = true;
+      if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+        window.chatbase = (...arguments) => {
+          if (!window.chatbase.q) { window.chatbase.q = []; }
+          window.chatbase.q.push(arguments);
+        };
+        window.chatbase = new Proxy(window.chatbase, {
+          get(target, prop) {
+            if (prop === "q") { return target.q; }
+            return (...args) => target(prop, ...args);
+          }
+        });
+      }
+      var script = document.createElement('script');
+      script.src = 'https://www.chatbase.co/embed.min.js';
+      script.id = 'jAMCto1UDdE-Kj9x4HPao';
+      script.domain = 'www.chatbase.co';
+      document.body.appendChild(script);
+    }
+
     // Popup functions
     function openPopup() {
       var popup = document.getElementById('welcomePopup');
@@ -1972,6 +1994,7 @@
       if (!popup) return;
       popup.classList.add('hidden');
       try { sessionStorage.setItem('popupClosedThisSession', 'true'); } catch(e) {}
+      loadChatbaseWidget();
     }
 
     function submitPopupLead() {
@@ -2012,6 +2035,8 @@
         setTimeout(function(){
           openPopup();
         }, 900);
+      } else {
+        loadChatbaseWidget();
       }
     } catch(e) {
       setTimeout(function(){
@@ -2069,9 +2094,6 @@
       if (event.key === 'Escape') closeMenu();
     });
   </script>
-<script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="jAMCto1UDdE-Kj9x4HPao";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
 <!-- build: sprint-nav-hero-wbco-pass -->
 </body>
 </html>
