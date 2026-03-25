@@ -200,6 +200,18 @@
       color: var(--color-charcoal);
     }
 
+    .popup-consent {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      line-height: 1.5;
+      color: var(--color-text-light);
+      text-align: center;
+    }
+
+    .popup-consent a {
+      text-decoration: underline;
+    }
+
     .popup-rating {
       margin-top: 20px;
       display: flex;
@@ -1601,6 +1613,7 @@
       <p class="popup-text">Join our VIP list for exclusive offers, skincare tips, and be the first to know about new treatments.</p>
       <input type="email" id="popupEmail" class="popup-input" placeholder="Enter your email address" autocomplete="email">
       <p class="instagram-required">Offer excludes anti-wrinkle treatments. Consultation required.</p>
+      <p class="popup-consent">By subscribing, you agree to receive clinic updates and offers. You can unsubscribe at any time.</p>
       <button class="popup-btn" onclick="submitPopupLead()">CLAIM MY 10% OFF</button>
       <p id="popupStatus" class="instagram-required" style="display:none;"></p>
       <div class="popup-rating">
