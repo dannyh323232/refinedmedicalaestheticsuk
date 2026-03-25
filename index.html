@@ -364,7 +364,7 @@
     .hero {
       padding: clamp(40px, 6vw, 110px) clamp(20px, 8vw, 120px) clamp(30px, 5vw, 90px);
       background:
-        linear-gradient(90deg, rgba(250,248,245,0.98) 0%, rgba(250,248,245,0.94) 34%, rgba(250,248,245,0.72) 52%, rgba(250,248,245,0.3) 72%, rgba(250,248,245,0.12) 100%),
+        linear-gradient(90deg, rgba(250,248,245,0.96) 0%, rgba(250,248,245,0.90) 34%, rgba(250,248,245,0.62) 52%, rgba(250,248,245,0.18) 72%, rgba(250,248,245,0.04) 100%),
         url('./images/rachel-hero-new.webp') right top / contain no-repeat,
         linear-gradient(135deg, var(--color-cream) 0%, #FFFFFF 65%);
       position: relative;
@@ -553,6 +553,47 @@
       gap: 12px;
     }
 
+    .hero-nmc-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      width: fit-content;
+      max-width: 100%;
+      margin-top: 14px;
+      padding: 14px 16px;
+      background: var(--color-white);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 16px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+    }
+
+    .hero-nmc-inline .nmc-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--color-charcoal);
+      flex-shrink: 0;
+    }
+
+    .hero-nmc-inline p {
+      margin: 0;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      color: var(--color-text);
+      max-width: 270px;
+    }
+
+    .hero-nmc-inline strong {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--color-charcoal);
+    }
+
     .hero-proof {
       padding: 14px;
       border-radius: 12px;
@@ -589,21 +630,18 @@
       width: 100%;
       display: block;
       object-fit: cover;
+      filter: brightness(1.08) saturate(1.02);
     }
 
-    .hero-tag-card,
-    .hero-nmc-card {
+    .hero-tag-card {
       position: absolute;
       background: var(--color-white);
       border-radius: 16px;
       padding: 16px;
       min-width: 180px;
       box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-    }
-
-    .hero-tag-card {
-      top: 10%;
-      right: -5%;
+      top: 18%;
+      right: -9%;
       text-align: left;
     }
 
@@ -619,39 +657,6 @@
     .hero-tag-card strong {
       font-family: var(--font-serif);
       font-size: 1.4rem;
-      color: var(--color-charcoal);
-    }
-
-    .hero-nmc-card {
-      bottom: 0;
-      left: -3%;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .hero-nmc-card .nmc-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      background: var(--color-gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      color: var(--color-charcoal);
-    }
-
-    .hero-nmc-card p {
-      font-size: 0.8rem;
-      line-height: 1.4;
-      color: var(--color-text);
-      margin: 0;
-    }
-
-    .hero-nmc-card strong {
-      display: block;
-      font-size: 0.75rem;
       color: var(--color-charcoal);
     }
 
@@ -1377,20 +1382,17 @@
       .section-header {
         margin-bottom: 32px;
       }
-      .hero-tag-card,
-      .hero-nmc-card {
+      .hero-tag-card {
         position: absolute;
         min-width: 0;
         margin-top: 0;
-      }
-      .hero-tag-card {
         top: auto;
         right: 10px;
         bottom: 20px;
       }
-      .hero-nmc-card {
-        left: 10px;
-        bottom: 20px;
+      .hero-nmc-inline {
+        width: 100%;
+        justify-content: flex-start;
       }
       body { padding-bottom: 96px; }
       .whatsapp-float {
@@ -1421,11 +1423,13 @@
         width: 100%;
         padding: 0;
       }
-      .hero-tag-card,
-      .hero-nmc-card {
+      .hero-tag-card {
         position: static;
         margin-top: 15px;
         min-width: 0;
+      }
+      .hero-nmc-inline {
+        width: 100%;
       }
       .hero-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
@@ -1478,7 +1482,7 @@
       /* Hero */
       .hero-buttons { flex-direction: row; flex-wrap: wrap; }
       .hero-proof-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      .hero-tag-card { right: -10%; }
+      .hero-tag-card { right: -9%; top: 18%; }
 
       /* Sections */
       .section { padding: 80px 60px; }
@@ -1717,6 +1721,10 @@
             <span>Flexible payments</span>
           </div>
         </div>
+        <div class="hero-nmc-inline">
+          <div class="nmc-icon">NMC</div>
+          <p><strong>Registered Nurse</strong> Clinical safety &amp; guidance at every step</p>
+        </div>
       </div>
 
       <div class="hero-media">
@@ -1726,10 +1734,6 @@
         <div class="hero-tag-card">
           <span>Google Reviews</span>
           <strong>5★ Rated</strong>
-        </div>
-        <div class="hero-nmc-card">
-          <div class="nmc-icon">NMC</div>
-          <p><strong>Registered Nurse</strong> Clinical safety &amp; guidance at every step</p>
         </div>
       </div>
     </div>
