@@ -364,7 +364,7 @@
     .hero {
       padding: clamp(40px, 6vw, 110px) clamp(20px, 8vw, 120px) clamp(30px, 5vw, 90px);
       background:
-        linear-gradient(90deg, rgba(250,248,245,0.96) 0%, rgba(250,248,245,0.90) 34%, rgba(250,248,245,0.62) 52%, rgba(250,248,245,0.18) 72%, rgba(250,248,245,0.04) 100%),
+        linear-gradient(90deg, rgba(250,248,245,0.94) 0%, rgba(250,248,245,0.84) 32%, rgba(250,248,245,0.44) 50%, rgba(250,248,245,0.10) 70%, rgba(250,248,245,0.00) 100%),
         url('./images/rachel-hero-new.webp') right top / contain no-repeat,
         linear-gradient(135deg, var(--color-cream) 0%, #FFFFFF 65%);
       position: relative;
@@ -633,32 +633,6 @@
       filter: brightness(1.08) saturate(1.02);
     }
 
-    .hero-tag-card {
-      position: absolute;
-      background: var(--color-white);
-      border-radius: 16px;
-      padding: 16px;
-      min-width: 180px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-      top: 18%;
-      right: -9%;
-      text-align: left;
-    }
-
-    .hero-tag-card span {
-      display: block;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 0.65rem;
-      color: var(--color-text-light);
-      margin-bottom: 6px;
-    }
-
-    .hero-tag-card strong {
-      font-family: var(--font-serif);
-      font-size: 1.4rem;
-      color: var(--color-charcoal);
-    }
 
     .trust-section {
       background: var(--color-cream-dark);
@@ -1382,14 +1356,6 @@
       .section-header {
         margin-bottom: 32px;
       }
-      .hero-tag-card {
-        position: absolute;
-        min-width: 0;
-        margin-top: 0;
-        top: auto;
-        right: 10px;
-        bottom: 20px;
-      }
       .hero-nmc-inline {
         width: 100%;
         justify-content: flex-start;
@@ -1422,11 +1388,6 @@
         order: 1;
         width: 100%;
         padding: 0;
-      }
-      .hero-tag-card {
-        position: static;
-        margin-top: 15px;
-        min-width: 0;
       }
       .hero-nmc-inline {
         width: 100%;
@@ -1482,7 +1443,6 @@
       /* Hero */
       .hero-buttons { flex-direction: row; flex-wrap: wrap; }
       .hero-proof-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      .hero-tag-card { right: -9%; top: 18%; }
 
       /* Sections */
       .section { padding: 80px 60px; }
@@ -1730,10 +1690,6 @@
       <div class="hero-media">
         <div class="hero-media-frame">
           <img src="./images/rachel-hero-new.webp" alt="Nurse Rachel at Refined Medical Aesthetics" loading="eager">
-        </div>
-        <div class="hero-tag-card">
-          <span>Google Reviews</span>
-          <strong>5★ Rated</strong>
         </div>
       </div>
     </div>
