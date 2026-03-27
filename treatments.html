@@ -883,7 +883,7 @@
           <img src="./images/icons/icon-dermal-filler.webp" alt="Dermal Fillers">
         </div>
         <div class="treatment-title">
-          <h3><a href="./lip-filler-whitley-bay-seaton-delaval.html">Dermal Fillers</a></h3>
+          <h3><a href="./dermal-fillers-whitley-bay-seaton-delaval.html">Dermal Fillers</a></h3>
           <p class="price">from £150</p>
         </div>
         <div class="treatment-arrow">
@@ -1234,30 +1234,76 @@
       var body = document.getElementById('modalBody');
       if (!treatment || !overlay || !body) return;
 
-      var optionsHtml = treatment.options.map(function(option) {
-        return '<div class="option">'
-          + '<div>'
-          + '<div class="option-name">' + option.name + '</div>'
-          + '<div class="option-duration">' + option.duration + '</div>'
-          + '</div>'
-          + '<div class="option-price">' + option.price + '</div>'
-          + '</div>';
-      }).join('');
+      body.innerHTML = '';
 
-      body.innerHTML = ''
-        + '<div class="modal-header">'
-        + '  <div class="modal-icon"><img src="' + treatment.icon + '" alt="' + treatment.title + '"></div>'
-        + '  <div class="modal-title">'
-        + '    <h2 id="modalTitle">' + treatment.title + '</h2>'
-        + '    <div class="price">' + treatment.price + '</div>'
-        + '  </div>'
-        + '</div>'
-        + '<p class="modal-description">' + treatment.description + '</p>'
-        + '<div class="modal-options">'
-        + '  <h3>Price Guide</h3>'
-        +      optionsHtml
-        + '</div>'
-        + '<a href="https://portal.aestheticnursesoftware.com/book-online/30956" class="btn btn-gold" target="_blank" rel="noopener noreferrer">Book consultation</a>';
+      var header = document.createElement('div');
+      header.className = 'modal-header';
+
+      var iconWrap = document.createElement('div');
+      iconWrap.className = 'modal-icon';
+      var iconImg = document.createElement('img');
+      iconImg.src = treatment.icon;
+      iconImg.alt = treatment.title;
+      iconWrap.appendChild(iconImg);
+
+      var titleWrap = document.createElement('div');
+      titleWrap.className = 'modal-title';
+      var title = document.createElement('h2');
+      title.id = 'modalTitle';
+      title.textContent = treatment.title;
+      var price = document.createElement('div');
+      price.className = 'price';
+      price.textContent = treatment.price;
+      titleWrap.appendChild(title);
+      titleWrap.appendChild(price);
+
+      header.appendChild(iconWrap);
+      header.appendChild(titleWrap);
+
+      var description = document.createElement('p');
+      description.className = 'modal-description';
+      description.textContent = treatment.description;
+
+      var optionsWrap = document.createElement('div');
+      optionsWrap.className = 'modal-options';
+      var optionsHeading = document.createElement('h3');
+      optionsHeading.textContent = 'Price Guide';
+      optionsWrap.appendChild(optionsHeading);
+
+      treatment.options.forEach(function(option) {
+        var optionEl = document.createElement('div');
+        optionEl.className = 'option';
+
+        var optionCopy = document.createElement('div');
+        var optionName = document.createElement('div');
+        optionName.className = 'option-name';
+        optionName.textContent = option.name;
+        var optionDuration = document.createElement('div');
+        optionDuration.className = 'option-duration';
+        optionDuration.textContent = option.duration;
+        optionCopy.appendChild(optionName);
+        optionCopy.appendChild(optionDuration);
+
+        var optionPrice = document.createElement('div');
+        optionPrice.className = 'option-price';
+        optionPrice.textContent = option.price;
+
+        optionEl.appendChild(optionCopy);
+        optionEl.appendChild(optionPrice);
+        optionsWrap.appendChild(optionEl);
+      });
+
+      var cta = document.createElement('a');
+      cta.href = 'https://portal.aestheticnursesoftware.com/book-online/30956';
+      cta.className = 'btn btn-gold';
+      cta.target = '_blank';
+      cta.rel = 'noopener noreferrer';
+      cta.textContent = 'Book consultation';
+
+      body.appendChild(header);
+      body.appendChild(description);
+      body.appendChild(optionsWrap);
+      body.appendChild(cta);
 
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -1274,15 +1320,23 @@
     }
 
     document.querySelectorAll('.treatment-card[data-treatment]').forEach(function(card) {
-      card.addEventListener('click', function() {
+      card.addEventListener('click', function(event) {
+        if (event.target.closest('a')) return;
         openModal(card.getAttribute('data-treatment'));
       });
 
       card.addEventListener('keydown', function(event) {
+        if (event.target.closest('a')) return;
         if (event.key === 'Enter' || event.key === ' ') {
           event.preventDefault();
           openModal(card.getAttribute('data-treatment'));
         }
+      });
+    });
+
+    document.querySelectorAll('.treatment-card a').forEach(function(link) {
+      link.addEventListener('click', function(event) {
+        event.stopPropagation();
       });
     });
 
