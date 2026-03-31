@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /_images_backup/
+Disallow: /scripts/
 
-# Sitemap location
 Sitemap: https://refinedmedicalaesthetics.uk/sitemap.xml
