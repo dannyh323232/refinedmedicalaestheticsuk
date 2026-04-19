@@ -15,9 +15,10 @@
 
   var STAR_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
 
-  // Outlined 24px stroke icons for the 5-slot header (menu / search / account / cart)
+  // Outlined 24px stroke icons for the header (menu / account / cart). Search icon
+  // intentionally removed — it duplicated the menu and visually competed with the
+  // dark/light theme toggle on the right.
   var MENU_SVG    = '<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="7"  x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>';
-  var SEARCH_SVG  = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.5" y2="16.5"/></svg>';
   var ACCOUNT_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>';
   var CART_SVG    = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1.2 11.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>';
 
@@ -38,7 +39,12 @@
       'body > footer.footer',
       'body > .footer',
       '.whatsapp-float',
-      '.promo-strip'
+      '.promo-strip',
+      // Belt-and-braces: nuke any legacy search icon that might still be in
+      // a hardcoded inline header somewhere.
+      '#refinedSearchBtn',
+      '[aria-label="Search"]',
+      '[aria-label="Open search"]'
     ];
     selectors.forEach(function (sel) {
       document.querySelectorAll(sel).forEach(function (el) { el.remove(); });
@@ -335,6 +341,14 @@
   }
 
   function buildWhatsAppFloat() {
+    // Safety net: remove any pre-existing .whatsapp-float (e.g. from a page that
+    // still has a hardcoded copy in its HTML) so we never end up with duplicates.
+    var existing = document.querySelectorAll('.whatsapp-float');
+    for (var i = 0; i < existing.length; i++) {
+      if (existing[i] && existing[i].parentNode) {
+        existing[i].parentNode.removeChild(existing[i]);
+      }
+    }
     var a = document.createElement('a');
     a.href = WA_URL;
     a.className = 'whatsapp-float';
@@ -429,7 +443,6 @@
 
     // Menu toggles
     var btn = document.getElementById('refinedMenuBtn');
-    var searchBtn = document.getElementById('refinedSearchBtn');
     var overlay = document.getElementById('refinedMenuOverlay');
     var drawer = document.getElementById('refinedMobileMenu');
     var close = document.getElementById('refinedMenuClose');
@@ -437,8 +450,6 @@
     function open()  { drawer.classList.add('open');    overlay.classList.add('open'); }
     function shut()  { drawer.classList.remove('open'); overlay.classList.remove('open'); }
     if (btn) btn.addEventListener('click', open);
-    // Search icon: no backend search — it opens the nav drawer so the icon isn't inert.
-    if (searchBtn) searchBtn.addEventListener('click', open);
     if (overlay) overlay.addEventListener('click', shut);
     if (close) close.addEventListener('click', shut);
     if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
