@@ -220,21 +220,27 @@
       .wbco-prod__name{ font-size:17px; }
     }
 
-    /* Video block — thumbnail-sized, not dominant */
+    /* Video feature — prominent, editorial showcase */
     .wbco-video-wrap{
-      padding: 16px 20px 8px;
-      display:flex; justify-content:center;
+      padding: 16px 20px 24px;
+    }
+    .wbco-video-feature{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items:center;
+      max-width: 1280px;
+      margin: 0 auto;
     }
     .wbco-video{
-      aspect-ratio: 4/5;
-      max-height: 260px;
-      max-width: 208px;
+      aspect-ratio: 9/16;
       width:100%;
+      max-height: 70vh;
       background: var(--tone);
       overflow:hidden;
       position:relative;
       border: 1px solid var(--rule);
-      border-radius: 4px;
+      border-radius: 6px;
     }
     .wbco-video video{
       width:100%; height:100%;
@@ -243,15 +249,49 @@
       display:block;
     }
     .wbco-video__caption{
-      position:absolute;left:12px;bottom:10px;
+      position:absolute;left:14px;bottom:12px;
       color:#fff;
       font-family:var(--font-body);
-      font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+      font-size:11px; letter-spacing:.16em; text-transform:uppercase;
       text-shadow:0 1px 6px rgba(0,0,0,0.55);
     }
+    .wbco-video__copy .eyebrow{ display:block; margin-bottom:8px; }
+    .wbco-video__copy h2{
+      font-family:var(--font-display);
+      font-weight:300;
+      font-size:34px; line-height:1.05; letter-spacing:-.01em;
+      margin: 0 0 14px;
+      color:var(--ink);
+    }
+    .wbco-video__copy h2 em{ font-style:italic; color:var(--accent-ink); font-weight:400; }
+    .wbco-video__copy p{
+      font-family:var(--font-body);
+      font-size:14px; line-height:1.65; color:var(--ink-soft);
+      margin:0 0 18px; max-width: 52ch;
+    }
+    .wbco-video__copy .btn-pill{
+      display:inline-block;
+      font-family:var(--font-body); font-size:11px;
+      letter-spacing:.16em; text-transform:uppercase;
+      color:#fff; background:var(--ink); text-decoration:none;
+      padding: 12px 26px;
+      border-radius: 999px;
+    }
     @media (min-width:720px){
-      .wbco-video-wrap{ padding: 20px 40px 12px; }
-      .wbco-video{ max-height: 280px; max-width: 224px; }
+      .wbco-video-wrap{ padding: 20px 40px 32px; }
+      .wbco-video-feature{ gap: 36px; }
+      .wbco-video__copy h2{ font-size:44px; }
+    }
+    @media (min-width:1000px){
+      .wbco-video-feature{
+        grid-template-columns: 0.85fr 1fr;
+        gap: 56px;
+      }
+      .wbco-video{ aspect-ratio: 9/14; max-height: 620px; }
+      .wbco-video__copy h2{ font-size:52px; }
+    }
+    @media (min-width:1100px){
+      .wbco-video-wrap{ padding: 32px 60px 48px; }
     }
 
     /* Rachel editorial */
@@ -393,8 +433,26 @@
       </div>
     </section>
 
+    <!-- Video showcase — Rachel walking through the range -->
+    <section class="wbco-video-wrap" aria-label="Rachel on the WBco shelf">
+      <div class="wbco-video-feature">
+        <div class="wbco-video">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="./images/custom/wbco-shelf-video.mp4" type="video/mp4">
+          </video>
+          <div class="wbco-video__caption">In clinic · with Rachel</div>
+        </div>
+        <div class="wbco-video__copy">
+          <span class="eyebrow">The shelf, on video</span>
+          <h2>Nurse Rachel walks you <em>through the range.</em></h2>
+          <p>A two-minute shelf tour of every WBco product we stock in clinic — what each one does, who it&rsquo;s for, and how to layer it. Scroll on for the full range and prices.</p>
+          <a href="#wbco-range" class="btn-pill">Shop the range</a>
+        </div>
+      </div>
+    </section>
+
     <!-- The full WBco range — real Shopify products -->
-    <section class="wbco-shop" aria-label="The full WBco range">
+    <section class="wbco-shop" id="wbco-range" aria-label="The full WBco range">
       <div class="wbco-shop__head">
         <div>
           <div class="eyebrow">The full range</div>
@@ -468,7 +526,7 @@
         <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/3-pack-prep-hydrate-facial-mist" target="_blank" rel="noopener noreferrer">
           <div class="wbco-prod__img">
             <img class="main" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/PrepMist_Watermelon_Set_1.jpg?v=1774099339&width=600" alt="WBco 3 Pack Prep Hydrate Facial Mist — watermelon set" loading="lazy">
-            <img class="alt" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Nath-prepmist_for_men_hydrating_mens_face_spray_dry_old_mens_skin.png?v=1774099339&width=600" alt="Nath using the WBco Prep Mist" loading="lazy">
+            <img class="alt" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Tash-prepmist_facial_spray._hydrating_skin_care.png?v=1774099328&width=600" alt="Tash using the WBco Prep Mist" loading="lazy">
           </div>
           <div class="wbco-prod__body">
             <span class="wbco-prod__tag">Prep &middot; Set of 3</span>
@@ -565,16 +623,6 @@
       <div class="stat"><div class="n">Klarna</div><div class="l">Pay in 3</div></div>
       <div class="stat"><div class="n">Vogue</div><div class="l">As seen in</div></div>
     </section>
-
-    <!-- Tiny video thumbnail (not dominant) -->
-    <div class="wbco-video-wrap">
-      <div class="wbco-video">
-        <video autoplay muted loop playsinline preload="metadata">
-          <source src="./images/custom/wbco-shelf-video.mp4" type="video/mp4">
-        </video>
-        <div class="wbco-video__caption">In clinic</div>
-      </div>
-    </div>
 
     <!-- Rachel editorial (rachel-sitting.jpg) -->
     <section class="wbco-rachel" aria-label="Meet the shelf with Rachel">

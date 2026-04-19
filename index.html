@@ -11,6 +11,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 
+  <!-- Apply saved theme BEFORE paint to avoid flash -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('refinedTheme');
+        if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {}
+    })();
+  </script>
+
   <style>
     /* ==========================================================
        Refined Medical Aesthetics — Botanical theme
@@ -142,6 +152,105 @@
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
     }
+
+    /* ---------- Klarna mini-banner (Pay in 3) ---------- */
+    .klarna-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 6px 16px;
+      background: #fff4f9;
+      color: #2a1f2c;
+      font-family: var(--font-body);
+      font-size: 11.5px;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid var(--rule);
+      text-align: center;
+      line-height: 1.3;
+    }
+    .klarna-strip b {
+      display: inline-block;
+      background: #ffa8cd;
+      color: #0c0a08;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .klarna-strip a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    @media (max-width: 520px) {
+      .klarna-strip { font-size: 10.5px; padding: 5px 10px; }
+    }
+
+    /* ---------- Theme toggle button (header) ---------- */
+    .header-theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      justify-content: center;
+      background: transparent;
+      cursor: pointer;
+      height: 34px;
+      padding: 0 12px;
+      color: var(--ink);
+      border: 1px solid rgba(31, 24, 18, 0.28);
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      line-height: 1;
+      transition: background .18s ease, color .18s ease, border-color .18s ease;
+    }
+    .header-theme-toggle:hover {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+    .header-theme-toggle svg {
+      width: 14px; height: 14px;
+      fill: none; stroke: currentColor;
+      stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+      display: block;
+    }
+    html:not([data-theme="dark"]) .header-theme-toggle .sun { display: none; }
+    html:not([data-theme="dark"]) .header-theme-toggle .moon { display: inline-flex; }
+    html:not([data-theme="dark"]) .header-theme-toggle .label::after { content: "Dark"; }
+    html[data-theme="dark"] .header-theme-toggle .sun { display: inline-flex; }
+    html[data-theme="dark"] .header-theme-toggle .moon { display: none; }
+    html[data-theme="dark"] .header-theme-toggle .label::after { content: "Light"; }
+    @media (max-width: 720px) {
+      .header-theme-toggle .label { display: none; }
+      .header-theme-toggle { width: 34px; padding: 0; }
+    }
+
+    /* ---------- Dark mode variable overrides ---------- */
+    html[data-theme="dark"] {
+      --paper: #141210;
+      --tone: #1d1a17;
+      --ink: #f3ece0;
+      --ink-soft: #c9bfb0;
+      --accent-ink: #d4b894;
+      --accent-soft: #3a2f21;
+      --rule: rgba(243, 236, 224, 0.14);
+      color-scheme: dark;
+    }
+    html[data-theme="dark"] body { background: #141210; color: var(--ink); }
+    html[data-theme="dark"] .header { background: rgba(20,18,16,0.96); border-bottom-color: var(--rule); }
+    html[data-theme="dark"] .promo-strip { background: #0f0d0b; color: #eadfcb; }
+    html[data-theme="dark"] .klarna-strip { background: #1b1713; color: #f3ece0; border-bottom-color: var(--rule); }
+    html[data-theme="dark"] .klarna-strip b { background: #ffa8cd; color: #0c0a08; }
+    html[data-theme="dark"] .mobile-menu { background: #141210; }
+    html[data-theme="dark"] .header-theme-toggle { border-color: rgba(243,236,224,0.3); }
+    html[data-theme="dark"] .header-theme-toggle:hover { background: var(--ink); color: #141210; border-color: var(--ink); }
+    html[data-theme="dark"] .footer { background: #0f0d0b; color: #eadfcb; }
+    html[data-theme="dark"] .footer a { color: #eadfcb; }
+    html[data-theme="dark"] .wbco-split__media { background: #1d1a17; }
 
     /* ---------- Header — 5-slot grid (icons | logo | icons) ---------- */
     .header {
@@ -990,6 +1099,14 @@
     </div>
   </div>
 
+  <!-- ═══════════ KLARNA BANNER — Pay in 3 ═══════════ -->
+  <div class="klarna-strip" aria-label="Klarna available on treatments and skincare">
+    <b>Klarna</b>
+    <span>Pay in 3 interest-free instalments &mdash; on every treatment &amp; WBco order &middot;
+      <a href="https://portal.aestheticnursesoftware.com/book-online/30956" target="_blank" rel="noopener noreferrer">Book a treatment</a>
+    </span>
+  </div>
+
   <!-- ═══════════ HEADER — 5-slot grid (icons | logo | icons) ═══════════ -->
   <header class="header">
     <div class="header__left">
@@ -1008,6 +1125,11 @@
       </div>
     </a>
     <div class="header__right">
+      <button class="header-theme-toggle" type="button" aria-label="Toggle dark mode" id="refinedThemeBtn" onclick="toggleTheme()">
+        <span class="moon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></span>
+        <span class="sun"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.5" y1="4.5" x2="6.7" y2="6.7"/><line x1="17.3" y1="17.3" x2="19.5" y2="19.5"/><line x1="4.5" y1="19.5" x2="6.7" y2="17.3"/><line x1="17.3" y1="6.7" x2="19.5" y2="4.5"/></svg></span>
+        <span class="label" aria-hidden="true"></span>
+      </button>
       <a href="./contact.html" class="header-icon" aria-label="Account">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
       </a>
@@ -1355,6 +1477,15 @@
     function closeMenu() {
       document.getElementById('mobileMenu').classList.remove('open');
       document.getElementById('menuOverlay').classList.remove('open');
+    }
+
+    // Dark / light theme toggle
+    function toggleTheme() {
+      var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      if (next === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+      else document.documentElement.removeAttribute('data-theme');
+      try { localStorage.setItem('refinedTheme', next); } catch (e) {}
     }
 
     // Testimonials carousel
