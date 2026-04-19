@@ -190,6 +190,9 @@
         email: data.get('email'),
         message: data.get('message'),
         _subject: 'New contact form - Refined Medical Aesthetics',
+        _replyto: data.get('email'),
+        _template: 'table',
+        _captcha: 'false',
         source: 'contact page'
       };
       status.textContent = 'Sending...';
@@ -206,6 +209,5 @@
       return false;
     };
   </script>
-
 </body>
 </html>

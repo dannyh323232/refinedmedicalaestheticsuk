@@ -226,13 +226,27 @@
     html[data-theme="dark"] .header-theme-toggle .label::after { content: "Light"; }
     @media (max-width: 720px) {
       .header-theme-toggle .label { display: none; }
-      .header-theme-toggle { width: 34px; padding: 0; }
+      .header-theme-toggle { width: 32px; height: 32px; padding: 0; }
+      .header-theme-toggle svg { width: 13px; height: 13px; }
+      .header { padding: 10px 14px; gap: 6px; }
+      .header__left, .header__right { gap: 8px; }
+      .header-icon { width: 26px; height: 26px; }
+      .header-icon svg { width: 20px; height: 20px; }
+      .header .logo { gap: 8px; }
+      .header .logo img { width: 36px; height: 36px; }
+      .logo-text .refined { font-size: 18px; letter-spacing: 0.14em; }
+      .logo-text .medical { display: none; }
+    }
+    @media (max-width: 420px) {
+      .header__right .header-icon[aria-label="Account"] { display: none; }
+      .logo-text .refined { font-size: 16px; }
     }
 
     /* ---------- Dark mode variable overrides ---------- */
     html[data-theme="dark"] {
       --paper: #141210;
       --tone: #1d1a17;
+      --tone-2: #201c18;
       --ink: #f3ece0;
       --ink-soft: #c9bfb0;
       --accent-ink: #d4b894;
@@ -251,6 +265,25 @@
     html[data-theme="dark"] .footer { background: #0f0d0b; color: #eadfcb; }
     html[data-theme="dark"] .footer a { color: #eadfcb; }
     html[data-theme="dark"] .wbco-split__media { background: #1d1a17; }
+    /* The Approach / tone-2 block readability in dark mode */
+    html[data-theme="dark"] .block.tone-2 { background: var(--tone-2); }
+    html[data-theme="dark"] .quote-block__text { color: var(--ink); }
+    html[data-theme="dark"] .quote-block__mark { color: var(--accent-ink); }
+    html[data-theme="dark"] .quote-block__attr { color: var(--ink-soft); }
+    /* VIP popup dark mode legibility */
+    html[data-theme="dark"] .popup { background: #1a1613; border-color: var(--rule); color: var(--ink); }
+    html[data-theme="dark"] .popup h2 { color: var(--ink); }
+    html[data-theme="dark"] .popup h2 span { color: var(--accent-ink); }
+    html[data-theme="dark"] .popup-subtitle,
+    html[data-theme="dark"] .popup-text,
+    html[data-theme="dark"] .popup-consent,
+    html[data-theme="dark"] .instagram-required { color: var(--ink-soft); }
+    html[data-theme="dark"] .popup-input { color: var(--ink); border-bottom-color: var(--rule); }
+    html[data-theme="dark"] .popup-input::placeholder { color: rgba(243,236,224,0.4); }
+    html[data-theme="dark"] .popup-btn { background: var(--ink); color: #141210; }
+    html[data-theme="dark"] .popup-btn:hover { background: var(--accent-ink); }
+    html[data-theme="dark"] .popup-close { color: var(--ink-soft); }
+    html[data-theme="dark"] .popup-badge { color: var(--accent-ink); }
 
     /* ---------- Header — 5-slot grid (icons | logo | icons) ---------- */
     .header {
@@ -387,8 +420,8 @@
     /* ---------- Hero — full bleed editorial ---------- */
     .hero {
       position: relative;
-      min-height: 78vh;
-      max-height: 880px;
+      min-height: 92vh;
+      max-height: 920px;
       overflow: hidden;
       background: var(--tone);
     }
@@ -403,7 +436,7 @@
     }
     .hero__media img {
       width: 100%; height: 100%;
-      object-fit: cover; object-position: center top;
+      object-fit: cover; object-position: 50% 22%;
     }
     @media (min-width: 720px) {
       .hero__media img {
@@ -429,14 +462,15 @@
     }
     .hero__corner {
       position: absolute; top: 22px; left: 24px; right: 24px;
-      display: flex; justify-content: space-between;
+      display: flex; justify-content: center;
       font-family: var(--font-body);
       font-size: 9.5px; letter-spacing: 0.3em;
       text-transform: uppercase;
       color: #fff; opacity: 0.92;
+      text-align: center;
     }
     @media (min-width: 720px) {
-      .hero__corner { color: var(--ink); opacity: 0.8; }
+      .hero__corner { color: var(--ink); opacity: 0.8; justify-content: flex-start; text-align: left; }
     }
     .hero__copy {
       position: absolute; bottom: 44px; left: 24px; right: 24px;
@@ -1027,11 +1061,12 @@
     }
 
     /* ---------- WhatsApp float (preserved) ---------- */
+    /* Aligned bottom-left at same level as Chatbase chatbot bottom-right */
     .whatsapp-float {
       position: fixed;
-      bottom: 96px;
-      left: 24px;
-      width: 54px; height: 54px;
+      bottom: 20px;
+      left: 20px;
+      width: 56px; height: 56px;
       background: #25D366;
       color: #fff;
       border-radius: 999px;
@@ -1039,9 +1074,14 @@
       box-shadow: 0 8px 24px rgba(0,0,0,0.22);
       z-index: 900;
       transition: transform .2s;
+      text-decoration: none;
     }
     .whatsapp-float:hover { transform: scale(1.08); color: #fff; }
     .whatsapp-float svg { width: 26px; height: 26px; }
+    @media (max-width: 520px) {
+      .whatsapp-float { bottom: 16px; left: 16px; width: 50px; height: 50px; }
+      .whatsapp-float svg { width: 24px; height: 24px; }
+    }
 
     /* ---------- Small helpers ---------- */
     .center { text-align: center; }
@@ -1170,8 +1210,7 @@
     </div>
     <div class="hero__scrim"></div>
     <div class="hero__corner">
-      <span>No. 01 · The Clinic</span>
-      <span>Est. Whitley Bay</span>
+      <span>The clinic, established in Whitley Bay</span>
     </div>
     <div class="hero__copy">
       <p class="hero__eyebrow">Refined · Medical Aesthetics</p>
