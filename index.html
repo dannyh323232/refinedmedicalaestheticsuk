@@ -228,18 +228,21 @@
       .header-theme-toggle .label { display: none; }
       .header-theme-toggle { width: 32px; height: 32px; padding: 0; }
       .header-theme-toggle svg { width: 13px; height: 13px; }
-      .header { padding: 10px 14px; gap: 6px; }
-      .header__left, .header__right { gap: 8px; }
+      .header { padding: 10px 14px; gap: 10px; }
+      .header__left, .header__right { gap: 10px; }
       .header-icon { width: 26px; height: 26px; }
       .header-icon svg { width: 20px; height: 20px; }
-      .header .logo { gap: 8px; }
+      .header .logo { gap: 10px; }
       .header .logo img { width: 36px; height: 36px; }
-      .logo-text .refined { font-size: 18px; letter-spacing: 0.14em; }
-      .logo-text .medical { display: none; }
+      .logo-text .refined { font-size: 16px; letter-spacing: 0.14em; }
+      .logo-text .medical { font-size: 8px; letter-spacing: 0.26em; margin-top: 4px; }
     }
     @media (max-width: 420px) {
       .header__right .header-icon[aria-label="Account"] { display: none; }
-      .logo-text .refined { font-size: 16px; }
+      .logo-text .refined { font-size: 15px; letter-spacing: 0.12em; }
+      .logo-text .medical { font-size: 7.5px; letter-spacing: 0.22em; }
+      .header .logo img { width: 32px; height: 32px; }
+      .header { gap: 8px; padding: 10px 12px; }
     }
 
     /* ---------- Dark mode variable overrides ---------- */
@@ -270,37 +273,40 @@
     html[data-theme="dark"] .quote-block__text { color: var(--ink); }
     html[data-theme="dark"] .quote-block__mark { color: var(--accent-ink); }
     html[data-theme="dark"] .quote-block__attr { color: var(--ink-soft); }
-    /* VIP popup dark mode legibility */
-    html[data-theme="dark"] .popup { background: #1a1613; border-color: var(--rule); color: var(--ink); }
-    html[data-theme="dark"] .popup h2 { color: var(--ink); }
-    html[data-theme="dark"] .popup h2 span { color: var(--accent-ink); }
-    html[data-theme="dark"] .popup-subtitle,
-    html[data-theme="dark"] .popup-text,
+    /* VIP popup dark mode legibility — !important to defeat any cascade conflict */
+    html[data-theme="dark"] .popup { background: #1a1613 !important; border: 0.5px solid rgba(243,236,224,0.18) !important; color: #f3ece0 !important; }
+    html[data-theme="dark"] .popup h2 { color: #f3ece0 !important; }
+    html[data-theme="dark"] .popup h2 span { color: #d4b894 !important; }
+    html[data-theme="dark"] .popup-subtitle { color: #d9cfbe !important; opacity: 1 !important; }
+    html[data-theme="dark"] .popup-text { color: #e4dccc !important; opacity: 1 !important; }
     html[data-theme="dark"] .popup-consent,
-    html[data-theme="dark"] .instagram-required { color: var(--ink-soft); }
-    html[data-theme="dark"] .popup-input { color: var(--ink); border-bottom-color: var(--rule); }
-    html[data-theme="dark"] .popup-input::placeholder { color: rgba(243,236,224,0.4); }
-    html[data-theme="dark"] .popup-btn { background: var(--ink); color: #141210; }
-    html[data-theme="dark"] .popup-btn:hover { background: var(--accent-ink); }
-    html[data-theme="dark"] .popup-close { color: var(--ink-soft); }
-    html[data-theme="dark"] .popup-badge { color: var(--accent-ink); }
+    html[data-theme="dark"] .instagram-required { color: #c9bfb0 !important; opacity: 0.9 !important; }
+    html[data-theme="dark"] .popup-input { color: #f3ece0 !important; border-bottom-color: rgba(243,236,224,0.35) !important; }
+    html[data-theme="dark"] .popup-input::placeholder { color: rgba(243,236,224,0.45) !important; }
+    html[data-theme="dark"] .popup-btn { background: #f3ece0 !important; color: #141210 !important; }
+    html[data-theme="dark"] .popup-btn:hover { background: #d4b894 !important; color: #141210 !important; }
+    html[data-theme="dark"] .popup-close { color: #d9cfbe !important; }
+    html[data-theme="dark"] .popup-badge { color: #d4b894 !important; }
+    html[data-theme="dark"] .popup-rating { color: #d4b894 !important; }
+    html[data-theme="dark"] .popup-rating span { color: #c9bfb0 !important; }
 
-    /* ---------- Header — 5-slot grid (icons | logo | icons) ---------- */
+    /* ---------- Header — left-aligned logo, right-aligned controls ---------- */
     .header {
       position: sticky; top: 0; z-index: 50;
       background: var(--paper);
       border-bottom: 0.5px solid var(--rule);
       display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      grid-template-columns: auto auto 1fr;
       align-items: center;
       padding: 12px 20px;
-      gap: 12px;
+      gap: 14px;
     }
     .header__left,
     .header__right {
       display: flex; align-items: center; gap: 14px;
     }
     .header__right { justify-content: flex-end; }
+    .header .logo { justify-self: start; }
     .header-icon {
       background: transparent; border: none;
       width: 28px; height: 28px;
@@ -314,7 +320,7 @@
     .header .logo {
       display: flex; align-items: center; gap: 12px;
       text-decoration: none;
-      justify-self: center;
+      justify-self: start;
     }
     .header .logo img {
       width: 46px; height: 46px; border-radius: 999px; object-fit: cover;
@@ -1152,9 +1158,6 @@
     <div class="header__left">
       <button class="header-icon" type="button" aria-label="Open menu" onclick="openMenu()">
         <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="7"  x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
-      </button>
-      <button class="header-icon" type="button" aria-label="Search" onclick="openMenu()">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.5" y2="16.5"/></svg>
       </button>
     </div>
     <a href="./index.html" class="logo" aria-label="Refined Medical Aesthetics">

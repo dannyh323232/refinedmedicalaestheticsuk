@@ -141,8 +141,48 @@
       'html:not([data-theme="dark"]) .header-theme-toggle .label::after{ content:"Dark"; }' +
       '@media (max-width: 720px){' +
         '.header-theme-toggle .label{ display:none; }' +
-        '.header-theme-toggle{ width:34px; padding:0; }' +
+        '.header-theme-toggle{ width:32px; height:32px; padding:0; }' +
+        '.header-theme-toggle svg{ width:13px; height:13px; }' +
       '}' +
+
+      /* Header layout override — left-align logo, push controls to the right */
+      '.header{ grid-template-columns: auto auto 1fr !important; }' +
+      '.header .logo{ justify-self:start !important; }' +
+      '.header__right{ justify-self:end; }' +
+      '@media (max-width: 720px){' +
+        '.header{ padding:10px 14px !important; gap:10px !important; }' +
+        '.header__left, .header__right{ gap:10px !important; }' +
+        '.header .logo{ gap:10px !important; }' +
+        '.header .logo img{ width:36px !important; height:36px !important; }' +
+        '.logo-text .refined{ font-size:16px !important; letter-spacing:0.14em !important; }' +
+        '.logo-text .medical{ font-size:8px !important; letter-spacing:0.26em !important; margin-top:4px !important; }' +
+        '.header-icon{ width:26px !important; height:26px !important; }' +
+        '.header-icon svg{ width:20px !important; height:20px !important; }' +
+      '}' +
+      '@media (max-width: 420px){' +
+        '.header__right .header-icon[aria-label="Account"]{ display:none !important; }' +
+        '.logo-text .refined{ font-size:15px !important; letter-spacing:0.12em !important; }' +
+        '.logo-text .medical{ font-size:7.5px !important; letter-spacing:0.22em !important; }' +
+        '.header .logo img{ width:32px !important; height:32px !important; }' +
+        '.header{ gap:8px !important; padding:10px 12px !important; }' +
+      '}' +
+
+      /* VIP popup — dark mode legibility, bulletproof via !important */
+      'html[data-theme="dark"] .popup{ background:#1a1613 !important; border:0.5px solid rgba(243,236,224,0.18) !important; color:#f3ece0 !important; }' +
+      'html[data-theme="dark"] .popup h2{ color:#f3ece0 !important; }' +
+      'html[data-theme="dark"] .popup h2 span{ color:#d4b894 !important; }' +
+      'html[data-theme="dark"] .popup-subtitle{ color:#d9cfbe !important; opacity:1 !important; }' +
+      'html[data-theme="dark"] .popup-text{ color:#e4dccc !important; opacity:1 !important; }' +
+      'html[data-theme="dark"] .popup-consent,' +
+      'html[data-theme="dark"] .instagram-required{ color:#c9bfb0 !important; opacity:0.9 !important; }' +
+      'html[data-theme="dark"] .popup-input{ color:#f3ece0 !important; border-bottom-color:rgba(243,236,224,0.35) !important; }' +
+      'html[data-theme="dark"] .popup-input::placeholder{ color:rgba(243,236,224,0.45) !important; }' +
+      'html[data-theme="dark"] .popup-btn{ background:#f3ece0 !important; color:#141210 !important; }' +
+      'html[data-theme="dark"] .popup-btn:hover{ background:#d4b894 !important; color:#141210 !important; }' +
+      'html[data-theme="dark"] .popup-close{ color:#d9cfbe !important; }' +
+      'html[data-theme="dark"] .popup-badge{ color:#d4b894 !important; }' +
+      'html[data-theme="dark"] .popup-rating{ color:#d4b894 !important; }' +
+      'html[data-theme="dark"] .popup-rating span{ color:#c9bfb0 !important; }' +
       '';
     var style = document.createElement('style');
     style.id = 'refined-chrome-styles';
@@ -184,10 +224,9 @@
     var header = document.createElement('header');
     header.className = 'header';
     header.innerHTML =
-      // Left slot: menu + search icons
+      // Left slot: menu icon (search removed — duplicate of menu)
       '<div class="header__left">' +
         '<button class="header-icon" type="button" aria-label="Open menu" id="refinedMenuBtn">' + MENU_SVG + '</button>' +
-        '<button class="header-icon" type="button" aria-label="Search" id="refinedSearchBtn">' + SEARCH_SVG + '</button>' +
       '</div>' +
 
       // Center slot: circular logo + "REFINED / Medical Aesthetics" wordmark
