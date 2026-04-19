@@ -392,18 +392,19 @@
   <script>
     const treatmentData = {
       'anti-wrinkle': {
+        icon: './images/icons/icon-anti-wrinkle.webp',
         title: 'Anti-Wrinkle Injections',
         price: 'from £150',
         icon: './images/icons/icon-anti-wrinkle.webp',
         description: 'Premium botulinum toxin to gently relax facial muscles — softening fine lines for a refreshed, natural look. Rachel treats conservatively; you should still look like you.',
         options: [
-          { name: 'Consultation', price: 'FREE', duration: '10 minutes' },
-          { name: 'One Area', price: '£190', duration: '30 minutes' },
-          { name: 'Two Areas', price: '£210', duration: '30 minutes' },
-          { name: 'Three Areas', price: '£250', duration: '45 minutes' }
+          { name: '1 area', duration: '30 mins', price: '£150' },
+          { name: '2 areas', duration: '30 mins', price: '£180' },
+          { name: '3 areas', duration: '30 mins', price: '£210' }
         ]
       },
       'advanced-anti-wrinkle': {
+        icon: './images/icons/icon-anti-wrinkle.webp',
         title: 'Advanced Anti-Wrinkle',
         price: 'from £150',
         icon: './images/icons/icon-anti-wrinkle.webp',
@@ -422,120 +423,112 @@
         ]
       },
       'dermal-fillers': {
+        icon: './images/icons/icon-dermal-filler.webp',
         title: 'Dermal Fillers',
         price: 'from £150',
         icon: './images/icons/icon-dermal-filler.webp',
         description: 'Restore volume and enhance your natural contours with premium hyaluronic acid fillers. Fully reversible, always led by a conservative consultation.',
         options: [
-          { name: 'Cheek Enhancement', price: '£250', duration: '45 minutes' },
-          { name: 'Chin Enhancement 1ml', price: '£250', duration: '45 minutes' },
-          { name: 'Chin Enhancement 2ml', price: '£320', duration: '60 minutes' },
-          { name: 'Jaw Enhancement 1ml', price: '£250', duration: '45 minutes' },
-          { name: 'Jaw Enhancement 2ml', price: '£320', duration: '60 minutes' },
-          { name: 'Lip Filler', price: 'from £150', duration: '30 minutes' },
-          { name: 'Marionettes', price: '£190', duration: '30 minutes' },
-          { name: 'Nasolabial Fold Treatment', price: '£190', duration: '30 minutes' },
-          { name: 'Non-surgical Rhinoplasty', price: '£310', duration: '60 minutes' },
-          { name: 'Perform Fossa Treatment', price: '£170', duration: '40 minutes' },
-          { name: 'Perioral Lines', price: '£190', duration: '30 minutes' },
-          { name: 'Pre-jowel Treatment', price: '£200', duration: '45 minutes' },
-          { name: 'Premium Lip Filler', price: 'from £170', duration: '30 minutes' },
-          { name: 'Tear Trough (Under Eye)', price: '£300', duration: '45 minutes' },
-          { name: 'Temple Filler', price: '£250', duration: '45 minutes' }
+          { name: '0.5ml lip filler', duration: '45 mins', price: '£150' },
+          { name: '1ml lip filler', duration: '45 mins', price: '£190' },
+          { name: 'Nasolabial folds', duration: '45 mins', price: 'from £190' },
+          { name: 'Marionette lines', duration: '45 mins', price: 'from £190' },
+          { name: 'Cheeks', duration: '45 mins', price: 'from £220' },
+          { name: 'Chin', duration: '45 mins', price: 'from £220' },
+          { name: 'Jawline', duration: '45 mins', price: 'from £220' }
         ]
       },
       'skin-boosters': {
+        icon: './images/icons/icon-skin-boosters.webp',
         title: 'Skin Boosters',
         price: 'from £110',
         icon: './images/icons/icon-skin-boosters.webp',
         description: 'Hydrate and revitalise skin from within — Profhilo, Redensity, Seventy Hyal and more. Ideal for that lit-from-within glow.',
         options: [
-          { name: 'Redensity 1 Treatment', price: '£159', duration: '30 minutes' },
-          { name: 'Redensity 3 Treatments', price: '£390', duration: '45 minutes' },
-          { name: 'Skin Boosters 1 Treatment', price: '£130', duration: '30 minutes' },
-          { name: 'Skin Boosters 3 Treatments', price: '£300', duration: '45 minutes' },
-          { name: 'Under Eye Skin Boosters', price: '£110', duration: '30 minutes' }
+          { name: 'Seventy Hyal 2000', duration: '45 mins', price: '£110' },
+          { name: 'Lumi Pro', duration: '45 mins', price: '£120' },
+          { name: 'Jalupro Classic', duration: '45 mins', price: '£150' },
+          { name: 'Profhilo', duration: '45 mins', price: '£220' }
         ]
       },
       'polynucleotides': {
+        icon: './images/icons/icon-profilo.webp',
         title: 'Polynucleotides',
         price: 'from £185',
         icon: './images/icons/icon-profilo.webp',
         description: 'Advanced skin regeneration using polynucleotides to stimulate collagen and elastin from deep within the skin.',
         options: [
-          { name: '1 Treatment', price: '£185', duration: '30 minutes' },
-          { name: '3 Treatment Package', price: '£500', duration: '60 minutes' }
+          { name: 'Eyes', duration: '45 mins', price: '£185' },
+          { name: 'Face', duration: '45 mins', price: '£210' },
+          { name: 'Face + neck', duration: '60 mins', price: '£250' }
         ]
       },
       'skin-treatments': {
+        icon: './images/icons/icon-microneedling.webp',
         title: 'Skin Treatments',
         price: 'from £80',
         icon: './images/icons/icon-microneedling.webp',
         description: 'Targeted skin treatments for pigmentation, eye bags, texture and quality — personalised to your skin.',
         options: [
-          { name: 'Bio Re Peel', price: '£80', duration: '30 minutes' },
-          { name: 'Bio Re Peel 4 Treatments', price: '£200', duration: '30 minutes' },
-          { name: 'Derma 2.0', price: '£80', duration: '30 minutes' },
-          { name: 'Derma Bio', price: '£100', duration: '30 minutes' },
-          { name: 'Derma Restorer', price: '£100', duration: '30 minutes' },
-          { name: 'Eye Bags Treatment', price: '£100', duration: '30 minutes' },
-          { name: 'Hand Skin Booster', price: '£180', duration: '30 minutes' },
-          { name: 'Hyperpigmentation Dark Spots', price: '£80', duration: '30 minutes' },
-          { name: 'Meso Full Face Derma Exomes', price: '£150', duration: '30 minutes' }
+          { name: 'Dermaplane', duration: '45 mins', price: '£30' },
+          { name: 'Luxury dermaplane', duration: '60 mins', price: '£45' },
+          { name: 'Chemical peel', duration: '45 mins', price: '£65' },
+          { name: 'BioRePeel', duration: '45 mins', price: '£80' }
         ]
       },
       'microneedling': {
+        icon: './images/icons/icon-microneedling.webp',
         title: 'Microneedling',
         price: 'from £80',
         icon: './images/icons/icon-microneedling.webp',
         description: 'Stimulate collagen production and improve skin texture with advanced microneedling — from standalone sessions to combined exome treatments.',
         options: [
-          { name: 'Microneedling', price: '£80', duration: '30 minutes' },
-          { name: 'Microneedling 3 Treatments', price: '£200', duration: '50 minutes' },
-          { name: 'Microneedling Skin Booster', price: '£100', duration: '30 minutes' },
-          { name: 'Microneedling with Exomes', price: '£150', duration: '30 minutes' }
+          { name: 'Microneedling facial', duration: '60 mins', price: '£80' },
+          { name: 'Microneedling with mesotherapy', duration: '60 mins', price: '£110' }
         ]
       },
-      'facials': {
+      facials: {
+        icon: './images/icons/icon-led-facial.webp',
         title: 'Facials',
         price: 'from £30',
         icon: './images/icons/icon-led-facial.webp',
         description: 'Relaxing, rejuvenating facials tailored to your skin — dermaplaning, collagen lift, microdermabrasion and our signature WBco facial.',
         options: [
-          { name: 'Carboxy Facial', price: '£60', duration: '30 minutes' },
-          { name: 'Collagen Lift', price: '£120', duration: '30 minutes' },
-          { name: 'Dermaplaning Premium', price: '£70', duration: '30 minutes' },
-          { name: 'Dermaplaning Standard', price: '£30', duration: '30 minutes' },
-          { name: 'Microdermabrasion', price: '£100', duration: '30 minutes' },
-          { name: 'Oncology Facial', price: '£50', duration: '30 minutes' },
-          { name: 'WB Co Facial', price: '£30', duration: '30 minutes' }
+          { name: 'LED facial', duration: '30 mins', price: '£30' },
+          { name: 'Luxury facial', duration: '60 mins', price: '£55' }
         ]
       },
       'fat-dissolving': {
+        icon: './images/icons/icon-fat-dissolve.webp',
         title: 'Fat Dissolving',
         price: 'from £80',
         icon: './images/icons/icon-fat-dissolve.webp',
         description: 'Non-surgical fat reduction and filler dissolving to contour and sculpt — carefully assessed for suitability first.',
         options: [
-          { name: 'Filler Dissolving', price: 'from £80', duration: '30 minutes' }
+          { name: 'Small area', duration: '45 mins', price: '£80' },
+          { name: 'Medium area', duration: '45 mins', price: '£120' },
+          { name: 'Large area', duration: '60 mins', price: '£180' }
         ]
       },
-      'vitamin': {
+      vitamin: {
+        icon: './images/icons/icon-growth-factors.webp',
         title: 'Vitamin Injections',
         price: 'from £30',
         icon: './images/icons/icon-growth-factors.webp',
         description: 'Vitamin B12 injections to support energy and wellbeing — administered by an NMC-registered nurse.',
         options: [
-          { name: 'B12 Injection', price: '£30', duration: '30 minutes' }
+          { name: 'Vitamin B12 injection', duration: '15 mins', price: '£30' },
+          { name: 'Course of 4 B12 injections', duration: '15 mins each', price: '£100' }
         ]
       },
-      'consultation': {
+      consultation: {
+        icon: './images/icons/icon-consultation.webp',
         title: 'Consultation',
         price: 'FREE',
         icon: './images/icons/icon-consultation.webp',
         description: 'Book a complimentary consultation with Nurse Rachel to discuss your goals, suitability and a realistic treatment plan.',
         options: [
-          { name: 'Initial Consultation', price: 'FREE', duration: '10 minutes' }
+          { name: 'Treatment consultation', duration: '30 mins', price: 'FREE' }
         ]
       }
     };
@@ -570,6 +563,9 @@
 
       document.getElementById('rxModalOverlay').classList.add('active');
       document.body.style.overflow = 'hidden';
+
+      var closeBtn = overlay.querySelector('.modal-close');
+      if (closeBtn) closeBtn.focus();
     }
 
     function closeTreatmentModal(event, force) {
@@ -589,5 +585,6 @@
       }
     });
   </script>
+
 </body>
 </html>
