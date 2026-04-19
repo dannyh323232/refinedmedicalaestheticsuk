@@ -5,6 +5,8 @@ User-agent: *
 Allow: /
 Disallow: /_images_backup/
 Disallow: /scripts/
+Disallow: /prototype.html
+Disallow: /prototype
 
 # --- AI crawlers: explicitly allowed so we can be cited in AI answers ---
 
