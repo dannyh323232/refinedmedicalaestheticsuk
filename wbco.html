@@ -142,6 +142,7 @@
       background: #faf6ef;
       display:flex; align-items:center; justify-content:center;
       overflow:hidden;
+      position:relative;
     }
     .wbco-prod__img img{
       width:100%; height:100%;
@@ -149,6 +150,32 @@
       padding: 8%;
       box-sizing: border-box;
       display:block;
+      position:absolute; inset:0;
+      transition: opacity .4s ease;
+    }
+    .wbco-prod__img img.alt{
+      opacity: 0;
+      object-fit: cover;
+      padding: 0;
+    }
+    .wbco-prod:hover .wbco-prod__img img.main{ opacity: 0; }
+    .wbco-prod:hover .wbco-prod__img img.alt{ opacity: 1; }
+    @media (hover:none){
+      /* Mobile/touch: auto-fade through a gentle cross-swap on the card */
+      .wbco-prod__img img.alt{
+        animation: wbcoSwap 8s ease-in-out infinite;
+      }
+      .wbco-prod__img img.main{
+        animation: wbcoSwapMain 8s ease-in-out infinite;
+      }
+    }
+    @keyframes wbcoSwap{
+      0%, 60%, 100% { opacity: 0; }
+      70%, 90% { opacity: 1; }
+    }
+    @keyframes wbcoSwapMain{
+      0%, 60%, 100% { opacity: 1; }
+      70%, 90% { opacity: 0; }
     }
     .wbco-prod__body{
       padding: 14px 14px 16px;
@@ -191,58 +218,6 @@
       .wbco-shop__head h2{ font-size:44px; }
       .wbco-shop__grid{ grid-template-columns: repeat(5, 1fr); gap: 20px; }
       .wbco-prod__name{ font-size:17px; }
-    }
-
-    /* Real faces strip — Shopify testimonial-style customer shots */
-    .wbco-faces{
-      padding: 8px 20px 20px;
-    }
-    .wbco-faces__head{
-      padding: 10px 0 18px;
-      text-align:center;
-    }
-    .wbco-faces__head .eyebrow{ display:block; margin-bottom:6px; }
-    .wbco-faces__head h2{
-      font-family:var(--font-display);
-      font-weight:300; font-size:28px; line-height:1.08;
-      margin:0;
-    }
-    .wbco-faces__head h2 em{ font-style:italic; color:var(--accent-ink); font-weight:400; }
-
-    .wbco-faces__strip{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
-    .wbco-face{
-      aspect-ratio: 3/4;
-      background: var(--tone);
-      overflow:hidden;
-      position:relative;
-    }
-    .wbco-face img{
-      width:100%; height:100%;
-      object-fit: cover; object-position: center;
-      display:block;
-    }
-    .wbco-face__label{
-      position:absolute;
-      left:10px; bottom:10px;
-      color:#fff;
-      font-family:var(--font-body);
-      font-size:10px; letter-spacing:.14em; text-transform:uppercase;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.7);
-    }
-
-    @media (min-width:720px){
-      .wbco-faces{ padding: 16px 40px 28px; }
-      .wbco-faces__head h2{ font-size:36px; }
-      .wbco-faces__strip{ grid-template-columns: repeat(6, 1fr); gap: 10px; }
-    }
-    @media (min-width:1100px){
-      .wbco-faces{ padding: 24px 60px 40px; }
-      .wbco-faces__head h2{ font-size:44px; }
-      .wbco-faces__strip{ gap: 14px; }
     }
 
     /* Video block — thumbnail-sized, not dominant */
@@ -432,7 +407,8 @@
 
         <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/prebiotic-cleanser" target="_blank" rel="noopener noreferrer">
           <div class="wbco-prod__img">
-            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/WBCo-PrebioticCleansingBalm-1-Web.jpg?v=1774099356&width=600" alt="Prebiotic Cleansing Balm with bamboo cloth" loading="lazy">
+            <img class="main" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/WBCo-PrebioticCleansingBalm-1-Web.jpg?v=1774099356&width=600" alt="Prebiotic Cleansing Balm with bamboo cloth" loading="lazy">
+            <img class="alt" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/ORGANICCOTTON_BAMBOOCLOTH_x3CU_V2.jpg?v=1774099356&width=600" alt="WBco organic bamboo cloth (included)" loading="lazy">
           </div>
           <div class="wbco-prod__body">
             <span class="wbco-prod__tag">Cleanse &middot; Balm</span>
@@ -446,7 +422,8 @@
 
         <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/bog-myrtle-and-lime-balancing-cleanser" target="_blank" rel="noopener noreferrer">
           <div class="wbco-prod__img">
-            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Bog_Myrtle_lime_cleanser_as_seen_in_vogue.png?v=1774099346&width=600" alt="Bog Myrtle and Lime Balancing Cleanser (as seen in Vogue)" loading="lazy">
+            <img class="main" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Bog_Myrtle_lime_cleanser_as_seen_in_vogue.png?v=1774099346&width=600" alt="Bog Myrtle and Lime Balancing Cleanser (as seen in Vogue)" loading="lazy">
+            <img class="alt" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Mia-Cleanser_face_cleanser_skin_care.png?v=1774099346&width=600" alt="Mia using the WBco cleanser" loading="lazy">
           </div>
           <div class="wbco-prod__body">
             <span class="wbco-prod__tag">Cleanse &middot; Vogue</span>
@@ -460,7 +437,8 @@
 
         <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/bog-myrtle-and-lime-balancing-cleanser-refill" target="_blank" rel="noopener noreferrer">
           <div class="wbco-prod__img">
-            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Eco_Refill_wbco_Bog_Myrtle_and_Lime_Balancing_Cleanser.png?v=1774099352&width=600" alt="Bog Myrtle and Lime Cleanser eco refill" loading="lazy">
+            <img class="main" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Eco_Refill_wbco_Bog_Myrtle_and_Lime_Balancing_Cleanser.png?v=1774099352&width=600" alt="Bog Myrtle and Lime Cleanser eco refill" loading="lazy">
+            <img class="alt" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Alex-face_Cleanser_for_men.png?v=1774099352&width=600" alt="Alex using the WBco cleanser" loading="lazy">
           </div>
           <div class="wbco-prod__body">
             <span class="wbco-prod__tag">Cleanse &middot; Refill</span>
@@ -474,7 +452,8 @@
 
         <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/prep-mist" target="_blank" rel="noopener noreferrer">
           <div class="wbco-prod__img">
-            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/coconut_face_spray._hydrating_face_mist_setting_spray._soap_brows_activator.png?v=1774099328&width=600" alt="WBco Prep Mist — hydrating facial spray" loading="lazy">
+            <img class="main" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/coconut_face_spray._hydrating_face_mist_setting_spray._soap_brows_activator.png?v=1774099328&width=600" alt="WBco Prep Mist — hydrating facial spray" loading="lazy">
+            <img class="alt" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Tash-prepmist_facial_spray._hydrating_skin_care.png?v=1774099328&width=600" alt="Tash using the WBco Prep Mist" loading="lazy">
           </div>
           <div class="wbco-prod__body">
             <span class="wbco-prod__tag">Prep &middot; Mist</span>
@@ -488,7 +467,8 @@
 
         <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/3-pack-prep-hydrate-facial-mist" target="_blank" rel="noopener noreferrer">
           <div class="wbco-prod__img">
-            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/PrepMist_Watermelon_Set_1.jpg?v=1774099339&width=600" alt="WBco 3 Pack Prep Hydrate Facial Mist — watermelon set" loading="lazy">
+            <img class="main" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/PrepMist_Watermelon_Set_1.jpg?v=1774099339&width=600" alt="WBco 3 Pack Prep Hydrate Facial Mist — watermelon set" loading="lazy">
+            <img class="alt" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Nath-prepmist_for_men_hydrating_mens_face_spray_dry_old_mens_skin.png?v=1774099339&width=600" alt="Nath using the WBco Prep Mist" loading="lazy">
           </div>
           <div class="wbco-prod__body">
             <span class="wbco-prod__tag">Prep &middot; Set of 3</span>
@@ -502,7 +482,8 @@
 
         <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/prep-mist-refill" target="_blank" rel="noopener noreferrer">
           <div class="wbco-prod__img">
-            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/aluminium_refill_bottle_for_Prep_Mists.png?v=1774099334&width=600" alt="WBco Prep Mist aluminium refill bottle" loading="lazy">
+            <img class="main" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/aluminium_refill_bottle_for_Prep_Mists.png?v=1774099334&width=600" alt="WBco Prep Mist aluminium refill bottle" loading="lazy">
+            <img class="alt" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Becky-prepmist_face_mist_hydrating_spray.png?v=1774099334&width=600" alt="Becky using the WBco Prep Mist" loading="lazy">
           </div>
           <div class="wbco-prod__body">
             <span class="wbco-prod__tag">Prep &middot; Refill</span>
@@ -516,7 +497,8 @@
 
         <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/hydro-patch" target="_blank" rel="noopener noreferrer">
           <div class="wbco-prod__img">
-            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Hydro_patch_with_salicylic_acid.png?v=1774099308&width=600" alt="WBco Hydro-Patch with salicylic acid" loading="lazy">
+            <img class="main" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Hydro_patch_with_salicylic_acid.png?v=1774099308&width=600" alt="WBco Hydro-Patch with salicylic acid" loading="lazy">
+            <img class="alt" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Women_wearing_hydra_patch.png?v=1774099308&width=600" alt="Woman wearing WBco Hydro-Patch" loading="lazy">
           </div>
           <div class="wbco-prod__body">
             <span class="wbco-prod__tag">Treat &middot; Patches</span>
@@ -530,7 +512,8 @@
 
         <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/hydro-dots" target="_blank" rel="noopener noreferrer">
           <div class="wbco-prod__img">
-            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Hydro-Dots_grey_V2_WebSize-2.jpg?v=1774099321&width=600" alt="WBco Hydro-Dots — spot stickers" loading="lazy">
+            <img class="main" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Hydro-Dots_grey_V2_WebSize-2.jpg?v=1774099321&width=600" alt="WBco Hydro-Dots — spot stickers" loading="lazy">
+            <img class="alt" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/HYDRO-DOT_zoom_in_on_single_dot_spot_sticker.png?v=1774099321&width=600" alt="WBco Hydro-Dot close-up on skin" loading="lazy">
           </div>
           <div class="wbco-prod__body">
             <span class="wbco-prod__tag">Treat &middot; Dots</span>
@@ -544,7 +527,8 @@
 
         <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/hydro-duo" target="_blank" rel="noopener noreferrer">
           <div class="wbco-prod__img">
-            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Hydro-Patches_and_Hydro-Dots.png?v=1774099298&width=600" alt="WBco Hydro-Duo — patches and dots bundle" loading="lazy">
+            <img class="main" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Hydro-Patches_and_Hydro-Dots.png?v=1774099298&width=600" alt="WBco Hydro-Duo — patches and dots bundle" loading="lazy">
+            <img class="alt" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Women_wearing_hydra_patch.png?v=1774099308&width=600" alt="Woman wearing WBco Hydro-Patch" loading="lazy">
           </div>
           <div class="wbco-prod__body">
             <span class="wbco-prod__tag">Treat &middot; Duo</span>
@@ -558,7 +542,8 @@
 
         <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/soapbrows-and-prep-mist" target="_blank" rel="noopener noreferrer">
           <div class="wbco-prod__img">
-            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/SoapBrows_open_V1.jpg?v=1774099315&width=600" alt="WBco Soap Brows Original" loading="lazy">
+            <img class="main" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/SoapBrows_open_V1.jpg?v=1774099315&width=600" alt="WBco Soap Brows Original" loading="lazy">
+            <img class="alt" src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Mia-soapbrowsoriginal.png?v=1774099315&width=600" alt="Mia using WBco Soap Brows" loading="lazy">
           </div>
           <div class="wbco-prod__body">
             <span class="wbco-prod__tag">Brows &middot; Cult buy</span>
@@ -570,40 +555,6 @@
           </div>
         </a>
 
-      </div>
-    </section>
-
-    <!-- Real faces — Shopify customer lifestyle shots -->
-    <section class="wbco-faces" aria-label="WBco in real life">
-      <div class="wbco-faces__head">
-        <div class="eyebrow">On real skin</div>
-        <h2>WBco, <em>worn in.</em></h2>
-      </div>
-      <div class="wbco-faces__strip">
-        <figure class="wbco-face">
-          <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Mia-Cleanser_face_cleanser_skin_care.png?v=1774099346&width=600" alt="Mia using the WBco Bog Myrtle cleanser" loading="lazy">
-          <figcaption class="wbco-face__label">Mia &middot; Cleanser</figcaption>
-        </figure>
-        <figure class="wbco-face">
-          <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Becky-Cleanser_for_skin.png?v=1774099346&width=600" alt="Becky using the WBco cleanser" loading="lazy">
-          <figcaption class="wbco-face__label">Becky &middot; Cleanser</figcaption>
-        </figure>
-        <figure class="wbco-face">
-          <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Fabz-Bog_Myrtle_lime_cleanser_mens_face_soap_cleaner_sleanser.png?v=1774099346&width=600" alt="Fabz using the WBco cleanser" loading="lazy">
-          <figcaption class="wbco-face__label">Fabz &middot; Cleanser</figcaption>
-        </figure>
-        <figure class="wbco-face">
-          <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Tash-prepmist_facial_spray._hydrating_skin_care.png?v=1774099328&width=600" alt="Tash using WBco Prep Mist" loading="lazy">
-          <figcaption class="wbco-face__label">Tash &middot; Prep Mist</figcaption>
-        </figure>
-        <figure class="wbco-face">
-          <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Nath-prepmist_for_men_hydrating_mens_face_spray_dry_old_mens_skin.png?v=1774099339&width=600" alt="Nath using WBco Prep Mist" loading="lazy">
-          <figcaption class="wbco-face__label">Nath &middot; Prep Mist</figcaption>
-        </figure>
-        <figure class="wbco-face">
-          <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Women_wearing_hydra_patch.png?v=1774099308&width=600" alt="Hydro-Patch worn on the face" loading="lazy">
-          <figcaption class="wbco-face__label">Hydro-Patch</figcaption>
-        </figure>
       </div>
     </section>
 
