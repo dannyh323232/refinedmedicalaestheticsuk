@@ -1,6 +1,58 @@
+# Refined Medical Aesthetics — robots.txt
+# Nurse-led medical aesthetics clinic, Seaton Delaval / Whitley Bay, UK
+
 User-agent: *
 Allow: /
 Disallow: /_images_backup/
 Disallow: /scripts/
+
+# --- AI crawlers: explicitly allowed so we can be cited in AI answers ---
+
+# OpenAI (ChatGPT search + training)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google Gemini / AI Overviews
+User-agent: Google-Extended
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+
+# ByteDance / Doubao
+User-agent: Bytespider
+Allow: /
+
+# Block Common Crawl (training-only, no citation benefit)
+User-agent: CCBot
+Disallow: /
 
 Sitemap: https://refinedmedicalaesthetics.uk/sitemap.xml
