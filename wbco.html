@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WBco × Refined | Medical-grade Homecare by Nurse Rachel</title>
+  <meta name="description" content="Shop the full WBco medical-grade skincare range — Bog Myrtle Cleanser (as seen in Vogue), Prebiotic Cleansing Balm, Prep Mists, Hydro-Patches and more. Curated by Nurse Rachel at Refined Medical Aesthetics, Seaton Delaval.">
+  <link rel="canonical" href="https://refinedmedicalaesthetics.uk/wbco.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://shop.refinedmedicalaesthetics.uk" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="refined.css">
+  <script defer src="refined-chrome.js"></script>
+
+  <style>
+    /* Featured product hero — Bog Myrtle (Vogue) */
+    .wbco-feature{
+      padding: 8px 20px 24px;
+    }
+    .wbco-feature__frame{
+      background: #fff;
+      border: 1px solid var(--rule);
+      aspect-ratio: 1/1;
+      max-height: 480px;
+      margin: 0 auto;
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+      position:relative;
+    }
+    .wbco-feature__frame img{
+      width:78%; height:86%;
+      object-fit: contain;
+      display:block;
+    }
+    .wbco-feature__badge{
+      position:absolute; top:16px; right:16px;
+      background: var(--ink); color:#fff;
+      border-radius: 999px;
+      width: 72px; height: 72px;
+      display:flex; align-items:center; justify-content:center;
+      text-align:center;
+      font-family:var(--font-body);
+      font-size:9px; letter-spacing:.16em; text-transform:uppercase;
+      line-height:1.3;
+    }
+    .wbco-feature__caption{
+      text-align:center;
+      margin-top: 18px;
+    }
+    .wbco-feature__eyebrow{
+      font-family:var(--font-body);
+      font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+      color:var(--accent-ink);
+    }
+    .wbco-feature__name{
+      font-family:var(--font-display);
+      font-weight:300;
+      font-size:30px;line-height:1.1;
+      letter-spacing:-0.01em;
+      margin: 8px 0 6px;
+      color:var(--ink);
+    }
+    .wbco-feature__name em{ font-style:italic; color:var(--accent-ink); font-weight:400; }
+    .wbco-feature__meta{
+      font-family:var(--font-body);
+      font-size:13px; color:var(--ink-soft);
+    }
+    .wbco-feature__cta{
+      display:inline-block; margin-top:16px;
+      font-family:var(--font-body); font-size:11px;
+      letter-spacing:.16em; text-transform:uppercase;
+      color:var(--ink); text-decoration:none;
+      padding: 10px 20px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+    }
+    .wbco-feature__cta:hover{ background: var(--ink); color:#fff; }
+
+    @media (min-width:720px){
+      .wbco-feature{ padding: 8px 40px 32px; }
+      .wbco-feature__frame{ aspect-ratio: 4/3; max-height: 520px; }
+      .wbco-feature__frame img{ width:52%; height:90%; }
+      .wbco-feature__name{ font-size:40px; }
+    }
+    @media (min-width:1100px){
+      .wbco-feature{
+        padding: 12px 60px 40px;
+        display:grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 56px;
+        align-items:center;
+      }
+      .wbco-feature__frame{ max-height: 560px; aspect-ratio: 4/5; }
+      .wbco-feature__frame img{ width:48%; height:82%; }
+      .wbco-feature__caption{ text-align:left; margin-top:0; }
+      .wbco-feature__name{ font-size:50px; }
+    }
+
+    /* Product grid — real Shopify products with photos */
+    .wbco-shop{
+      padding: 4px 16px 24px;
+    }
+    .wbco-shop__head{
+      padding: 16px 4px 20px;
+      display:flex; align-items:flex-end; justify-content:space-between; gap:16px;
+      flex-wrap:wrap;
+      border-bottom:1px solid var(--rule);
+      margin-bottom: 16px;
+    }
+    .wbco-shop__head h2{
+      font-family:var(--font-display);
+      font-weight:300; font-size:28px; line-height:1.08;
+      margin:6px 0 0;
+    }
+    .wbco-shop__head h2 em{ font-style:italic; color:var(--accent-ink); font-weight:400; }
+    .wbco-shop__head a{
+      font-family:var(--font-body); font-size:11px;
+      letter-spacing:.16em; text-transform:uppercase;
+      color:var(--ink); text-decoration:none;
+      border-bottom: 1px solid var(--accent-ink);
+      padding-bottom: 2px;
+    }
+
+    .wbco-shop__grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .wbco-prod{
+      text-decoration:none; color:inherit;
+      display:flex; flex-direction:column;
+      background:#fff;
+      border:1px solid var(--rule);
+      overflow:hidden;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .wbco-prod:hover{ transform: translateY(-2px); box-shadow: 0 8px 24px rgba(31,24,18,0.08); }
+    .wbco-prod__img{
+      aspect-ratio: 1/1;
+      background: #faf6ef;
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+    }
+    .wbco-prod__img img{
+      width:100%; height:100%;
+      object-fit: contain;
+      padding: 8%;
+      box-sizing: border-box;
+      display:block;
+    }
+    .wbco-prod__body{
+      padding: 14px 14px 16px;
+      display:flex; flex-direction:column; gap:6px;
+      flex:1;
+    }
+    .wbco-prod__tag{
+      font-family:var(--font-body);
+      font-size:9.5px; letter-spacing:.18em; text-transform:uppercase;
+      color:var(--accent-ink);
+    }
+    .wbco-prod__name{
+      font-family:var(--font-display);
+      font-weight:400; font-size:16px; line-height:1.25;
+      color:var(--ink);
+      margin:0;
+    }
+    .wbco-prod__row{
+      display:flex; align-items:center; justify-content:space-between;
+      margin-top: auto; padding-top: 8px;
+    }
+    .wbco-prod__price{
+      font-family:var(--font-body);
+      font-size:14px; font-weight:500; color:var(--ink);
+    }
+    .wbco-prod__shop{
+      font-family:var(--font-body); font-size:10px;
+      letter-spacing:.14em; text-transform:uppercase;
+      color:var(--accent-ink);
+    }
+
+    @media (min-width:720px){
+      .wbco-shop{ padding: 4px 40px 32px; }
+      .wbco-shop__head h2{ font-size:36px; }
+      .wbco-shop__grid{ grid-template-columns: repeat(3, 1fr); gap: 18px; }
+      .wbco-prod__name{ font-size:18px; }
+    }
+    @media (min-width:1100px){
+      .wbco-shop{ padding: 8px 60px 40px; }
+      .wbco-shop__head h2{ font-size:44px; }
+      .wbco-shop__grid{ grid-template-columns: repeat(5, 1fr); gap: 20px; }
+      .wbco-prod__name{ font-size:17px; }
+    }
+
+    /* Real faces strip — Shopify testimonial-style customer shots */
+    .wbco-faces{
+      padding: 8px 20px 20px;
+    }
+    .wbco-faces__head{
+      padding: 10px 0 18px;
+      text-align:center;
+    }
+    .wbco-faces__head .eyebrow{ display:block; margin-bottom:6px; }
+    .wbco-faces__head h2{
+      font-family:var(--font-display);
+      font-weight:300; font-size:28px; line-height:1.08;
+      margin:0;
+    }
+    .wbco-faces__head h2 em{ font-style:italic; color:var(--accent-ink); font-weight:400; }
+
+    .wbco-faces__strip{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .wbco-face{
+      aspect-ratio: 3/4;
+      background: var(--tone);
+      overflow:hidden;
+      position:relative;
+    }
+    .wbco-face img{
+      width:100%; height:100%;
+      object-fit: cover; object-position: center;
+      display:block;
+    }
+    .wbco-face__label{
+      position:absolute;
+      left:10px; bottom:10px;
+      color:#fff;
+      font-family:var(--font-body);
+      font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+    }
+
+    @media (min-width:720px){
+      .wbco-faces{ padding: 16px 40px 28px; }
+      .wbco-faces__head h2{ font-size:36px; }
+      .wbco-faces__strip{ grid-template-columns: repeat(6, 1fr); gap: 10px; }
+    }
+    @media (min-width:1100px){
+      .wbco-faces{ padding: 24px 60px 40px; }
+      .wbco-faces__head h2{ font-size:44px; }
+      .wbco-faces__strip{ gap: 14px; }
+    }
+
+    /* Video block — thumbnail-sized, not dominant */
+    .wbco-video-wrap{
+      padding: 16px 20px 8px;
+      display:flex; justify-content:center;
+    }
+    .wbco-video{
+      aspect-ratio: 4/5;
+      max-height: 260px;
+      max-width: 208px;
+      width:100%;
+      background: var(--tone);
+      overflow:hidden;
+      position:relative;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+    }
+    .wbco-video video{
+      width:100%; height:100%;
+      object-fit: cover;
+      object-position: center;
+      display:block;
+    }
+    .wbco-video__caption{
+      position:absolute;left:12px;bottom:10px;
+      color:#fff;
+      font-family:var(--font-body);
+      font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+      text-shadow:0 1px 6px rgba(0,0,0,0.55);
+    }
+    @media (min-width:720px){
+      .wbco-video-wrap{ padding: 20px 40px 12px; }
+      .wbco-video{ max-height: 280px; max-width: 224px; }
+    }
+
+    /* Rachel editorial */
+    .wbco-rachel{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 24px 20px 30px;
+      align-items:center;
+    }
+    .wbco-rachel__img{
+      aspect-ratio: 3/4;
+      max-height: 70vh;
+      background:var(--tone);
+      overflow:hidden;
+    }
+    .wbco-rachel__img img{
+      width:100%; height:100%;
+      object-fit: contain;
+      object-position: center;
+      display:block;
+    }
+    .wbco-rachel__copy h2{
+      font-family:var(--font-display);
+      font-weight:300;
+      font-size:32px; line-height:1.05; letter-spacing:-.01em;
+      margin: 8px 0 14px;
+      color:var(--ink);
+    }
+    .wbco-rachel__copy h2 em{ font-style:italic; color:var(--accent-ink); font-weight:400; }
+    .wbco-rachel__copy p{
+      font-family:var(--font-body);
+      font-size:15px;line-height:1.65;color:var(--ink);
+      margin:0 0 14px;
+      text-wrap:pretty;
+    }
+    @media (min-width:720px){
+      .wbco-rachel{
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        padding: 32px 40px 40px;
+      }
+      .wbco-rachel__img{ aspect-ratio: 4/5; max-height: none; }
+      .wbco-rachel__copy h2{ font-size:44px; }
+    }
+    @media (min-width:1100px){
+      .wbco-rachel{
+        grid-template-columns: 1fr 1.1fr;
+        gap: 64px;
+        padding: 48px 60px 56px;
+      }
+      .wbco-rachel__copy h2{ font-size:56px; }
+    }
+
+    /* Why medical-grade */
+    .wbco-why{ padding: 20px 20px 28px; }
+    .wbco-why h2{
+      font-family:var(--font-display);
+      font-weight:300;
+      font-size:32px; line-height:1.08;
+      margin:8px 0 16px;
+    }
+    .wbco-why h2 em{ color:var(--accent-ink); font-weight:400; }
+    .wbco-why p{
+      font-family:var(--font-body);
+      font-size:15px; line-height:1.7; color:var(--ink);
+      margin:0 0 14px;
+      text-wrap:pretty;
+    }
+    .wbco-why .lede{ color:var(--ink-soft); font-size:16px; }
+    @media (min-width:720px){
+      .wbco-why{ padding: 28px 40px 40px; }
+      .wbco-why h2{ font-size:44px; }
+    }
+    @media (min-width:1100px){
+      .wbco-why{ padding: 40px 60px 56px; }
+      .wbco-why h2{ font-size:54px; }
+      .wbco-why p{ font-size:16px; max-width:68ch; }
+    }
+
+    /* FAQ */
+    .wbco-faq{ padding: 8px 20px 32px; }
+    .wbco-faq details{
+      border-top:1px solid var(--rule);
+      padding: 16px 0;
+    }
+    .wbco-faq details:last-of-type{ border-bottom:1px solid var(--rule); }
+    .wbco-faq summary{
+      font-family:var(--font-body);
+      font-weight:500; font-size:15px;
+      color:var(--ink);
+      cursor:pointer; list-style:none;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px;
+    }
+    .wbco-faq summary::-webkit-details-marker{ display:none; }
+    .wbco-faq summary::after{
+      content:'+';
+      font-size:22px;font-weight:300;color:var(--accent-ink);
+      transition: transform .2s ease;
+    }
+    .wbco-faq details[open] summary::after{ transform: rotate(45deg); }
+    .wbco-faq .a{
+      font-family:var(--font-body);
+      font-size:14.5px;line-height:1.7;color:var(--ink-soft);
+      margin:10px 0 0; max-width:62ch;
+    }
+    @media (min-width:720px){
+      .wbco-faq{ padding: 12px 40px 44px; }
+      .wbco-faq summary{ font-size:16px; }
+      .wbco-faq .a{ font-size:15px; }
+    }
+    @media (min-width:1100px){
+      .wbco-faq{ padding: 16px 60px 64px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <!-- Editorial intro -->
+    <section class="page-intro">
+      <div class="eyebrow">WBco &times; Refined</div>
+      <h1 class="display">Home <em>care,</em><br>clinic-grade.</h1>
+      <p class="lede">Medical-grade homecare, hand-picked by Nurse Rachel. These are the same cleansers, mists and skin patches we use inside the treatment room &mdash; the routine that protects your results between appointments and keeps skin looking the way it does when you leave the clinic.</p>
+      <p class="lede">Every product on the shelf has been chosen because it earns its place: real actives, honest textures and formulas Rachel will stand behind when you ask for plain advice.</p>
+    </section>
+
+    <!-- Featured hero: Bog Myrtle cleanser (as seen in Vogue) -->
+    <section class="wbco-feature" aria-label="Featured — Bog Myrtle cleanser">
+      <div class="wbco-feature__frame">
+        <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Bog_Myrtle_lime_cleanser_as_seen_in_vogue.png?v=1774099346&width=1200" alt="WBco Bog Myrtle and Lime Balancing Cleanser" loading="eager">
+        <span class="wbco-feature__badge">As seen<br>in Vogue</span>
+      </div>
+      <div class="wbco-feature__caption">
+        <div class="wbco-feature__eyebrow">The bestseller</div>
+        <h2 class="wbco-feature__name">Bog Myrtle &amp; Lime<br><em>Balancing Cleanser.</em></h2>
+        <p class="wbco-feature__meta">Creamy, gentle and oil-balancing. Loosens dead skin, supports hormonal breakouts &mdash; and smells incredible. £25 · Free WBco cloth with every cleanser.</p>
+        <a href="https://shop.refinedmedicalaesthetics.uk/products/bog-myrtle-and-lime-balancing-cleanser" class="wbco-feature__cta" target="_blank" rel="noopener noreferrer">Shop the cleanser</a>
+      </div>
+    </section>
+
+    <!-- The full WBco range — real Shopify products -->
+    <section class="wbco-shop" aria-label="The full WBco range">
+      <div class="wbco-shop__head">
+        <div>
+          <div class="eyebrow">The full range</div>
+          <h2>The WBco <em>shelf.</em></h2>
+        </div>
+        <a href="https://shop.refinedmedicalaesthetics.uk/collections/medical-grade-essentials" target="_blank" rel="noopener noreferrer">Shop all &rsaquo;</a>
+      </div>
+
+      <div class="wbco-shop__grid">
+
+        <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/prebiotic-cleanser" target="_blank" rel="noopener noreferrer">
+          <div class="wbco-prod__img">
+            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/WBCo-PrebioticCleansingBalm-1-Web.jpg?v=1774099356&width=600" alt="Prebiotic Cleansing Balm with bamboo cloth" loading="lazy">
+          </div>
+          <div class="wbco-prod__body">
+            <span class="wbco-prod__tag">Cleanse &middot; Balm</span>
+            <h3 class="wbco-prod__name">Prebiotic Cleansing Balm</h3>
+            <div class="wbco-prod__row">
+              <span class="wbco-prod__price">£34</span>
+              <span class="wbco-prod__shop">Shop &rsaquo;</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/bog-myrtle-and-lime-balancing-cleanser" target="_blank" rel="noopener noreferrer">
+          <div class="wbco-prod__img">
+            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Bog_Myrtle_lime_cleanser_as_seen_in_vogue.png?v=1774099346&width=600" alt="Bog Myrtle and Lime Balancing Cleanser (as seen in Vogue)" loading="lazy">
+          </div>
+          <div class="wbco-prod__body">
+            <span class="wbco-prod__tag">Cleanse &middot; Vogue</span>
+            <h3 class="wbco-prod__name">Bog Myrtle &amp; Lime Cleanser</h3>
+            <div class="wbco-prod__row">
+              <span class="wbco-prod__price">£25</span>
+              <span class="wbco-prod__shop">Shop &rsaquo;</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/bog-myrtle-and-lime-balancing-cleanser-refill" target="_blank" rel="noopener noreferrer">
+          <div class="wbco-prod__img">
+            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Eco_Refill_wbco_Bog_Myrtle_and_Lime_Balancing_Cleanser.png?v=1774099352&width=600" alt="Bog Myrtle and Lime Cleanser eco refill" loading="lazy">
+          </div>
+          <div class="wbco-prod__body">
+            <span class="wbco-prod__tag">Cleanse &middot; Refill</span>
+            <h3 class="wbco-prod__name">Bog Myrtle Cleanser Refill</h3>
+            <div class="wbco-prod__row">
+              <span class="wbco-prod__price">£20</span>
+              <span class="wbco-prod__shop">Shop &rsaquo;</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/prep-mist" target="_blank" rel="noopener noreferrer">
+          <div class="wbco-prod__img">
+            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/coconut_face_spray._hydrating_face_mist_setting_spray._soap_brows_activator.png?v=1774099328&width=600" alt="WBco Prep Mist — hydrating facial spray" loading="lazy">
+          </div>
+          <div class="wbco-prod__body">
+            <span class="wbco-prod__tag">Prep &middot; Mist</span>
+            <h3 class="wbco-prod__name">Prep Mist</h3>
+            <div class="wbco-prod__row">
+              <span class="wbco-prod__price">£15</span>
+              <span class="wbco-prod__shop">Shop &rsaquo;</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/3-pack-prep-hydrate-facial-mist" target="_blank" rel="noopener noreferrer">
+          <div class="wbco-prod__img">
+            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/PrepMist_Watermelon_Set_1.jpg?v=1774099339&width=600" alt="WBco 3 Pack Prep Hydrate Facial Mist — watermelon set" loading="lazy">
+          </div>
+          <div class="wbco-prod__body">
+            <span class="wbco-prod__tag">Prep &middot; Set of 3</span>
+            <h3 class="wbco-prod__name">3 Pack Prep Mist</h3>
+            <div class="wbco-prod__row">
+              <span class="wbco-prod__price">£36</span>
+              <span class="wbco-prod__shop">Shop &rsaquo;</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/prep-mist-refill" target="_blank" rel="noopener noreferrer">
+          <div class="wbco-prod__img">
+            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/aluminium_refill_bottle_for_Prep_Mists.png?v=1774099334&width=600" alt="WBco Prep Mist aluminium refill bottle" loading="lazy">
+          </div>
+          <div class="wbco-prod__body">
+            <span class="wbco-prod__tag">Prep &middot; Refill</span>
+            <h3 class="wbco-prod__name">Prep Mist Refill</h3>
+            <div class="wbco-prod__row">
+              <span class="wbco-prod__price">£18</span>
+              <span class="wbco-prod__shop">Shop &rsaquo;</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/hydro-patch" target="_blank" rel="noopener noreferrer">
+          <div class="wbco-prod__img">
+            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Hydro_patch_with_salicylic_acid.png?v=1774099308&width=600" alt="WBco Hydro-Patch with salicylic acid" loading="lazy">
+          </div>
+          <div class="wbco-prod__body">
+            <span class="wbco-prod__tag">Treat &middot; Patches</span>
+            <h3 class="wbco-prod__name">Hydro-Patch</h3>
+            <div class="wbco-prod__row">
+              <span class="wbco-prod__price">£12</span>
+              <span class="wbco-prod__shop">Shop &rsaquo;</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/hydro-dots" target="_blank" rel="noopener noreferrer">
+          <div class="wbco-prod__img">
+            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Hydro-Dots_grey_V2_WebSize-2.jpg?v=1774099321&width=600" alt="WBco Hydro-Dots — spot stickers" loading="lazy">
+          </div>
+          <div class="wbco-prod__body">
+            <span class="wbco-prod__tag">Treat &middot; Dots</span>
+            <h3 class="wbco-prod__name">Hydro-Dots</h3>
+            <div class="wbco-prod__row">
+              <span class="wbco-prod__price">£10</span>
+              <span class="wbco-prod__shop">Shop &rsaquo;</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/hydro-duo" target="_blank" rel="noopener noreferrer">
+          <div class="wbco-prod__img">
+            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Hydro-Patches_and_Hydro-Dots.png?v=1774099298&width=600" alt="WBco Hydro-Duo — patches and dots bundle" loading="lazy">
+          </div>
+          <div class="wbco-prod__body">
+            <span class="wbco-prod__tag">Treat &middot; Duo</span>
+            <h3 class="wbco-prod__name">Hydro-Duo</h3>
+            <div class="wbco-prod__row">
+              <span class="wbco-prod__price">£18</span>
+              <span class="wbco-prod__shop">Shop &rsaquo;</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="wbco-prod" href="https://shop.refinedmedicalaesthetics.uk/products/soapbrows-and-prep-mist" target="_blank" rel="noopener noreferrer">
+          <div class="wbco-prod__img">
+            <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/SoapBrows_open_V1.jpg?v=1774099315&width=600" alt="WBco Soap Brows Original" loading="lazy">
+          </div>
+          <div class="wbco-prod__body">
+            <span class="wbco-prod__tag">Brows &middot; Cult buy</span>
+            <h3 class="wbco-prod__name">Soap Brows Original</h3>
+            <div class="wbco-prod__row">
+              <span class="wbco-prod__price">£15</span>
+              <span class="wbco-prod__shop">Shop &rsaquo;</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Real faces — Shopify customer lifestyle shots -->
+    <section class="wbco-faces" aria-label="WBco in real life">
+      <div class="wbco-faces__head">
+        <div class="eyebrow">On real skin</div>
+        <h2>WBco, <em>worn in.</em></h2>
+      </div>
+      <div class="wbco-faces__strip">
+        <figure class="wbco-face">
+          <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Mia-Cleanser_face_cleanser_skin_care.png?v=1774099346&width=600" alt="Mia using the WBco Bog Myrtle cleanser" loading="lazy">
+          <figcaption class="wbco-face__label">Mia &middot; Cleanser</figcaption>
+        </figure>
+        <figure class="wbco-face">
+          <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Becky-Cleanser_for_skin.png?v=1774099346&width=600" alt="Becky using the WBco cleanser" loading="lazy">
+          <figcaption class="wbco-face__label">Becky &middot; Cleanser</figcaption>
+        </figure>
+        <figure class="wbco-face">
+          <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Fabz-Bog_Myrtle_lime_cleanser_mens_face_soap_cleaner_sleanser.png?v=1774099346&width=600" alt="Fabz using the WBco cleanser" loading="lazy">
+          <figcaption class="wbco-face__label">Fabz &middot; Cleanser</figcaption>
+        </figure>
+        <figure class="wbco-face">
+          <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Tash-prepmist_facial_spray._hydrating_skin_care.png?v=1774099328&width=600" alt="Tash using WBco Prep Mist" loading="lazy">
+          <figcaption class="wbco-face__label">Tash &middot; Prep Mist</figcaption>
+        </figure>
+        <figure class="wbco-face">
+          <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Nath-prepmist_for_men_hydrating_mens_face_spray_dry_old_mens_skin.png?v=1774099339&width=600" alt="Nath using WBco Prep Mist" loading="lazy">
+          <figcaption class="wbco-face__label">Nath &middot; Prep Mist</figcaption>
+        </figure>
+        <figure class="wbco-face">
+          <img src="https://shop.refinedmedicalaesthetics.uk/cdn/shop/files/Women_wearing_hydra_patch.png?v=1774099308&width=600" alt="Hydro-Patch worn on the face" loading="lazy">
+          <figcaption class="wbco-face__label">Hydro-Patch</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Value props -->
+    <section class="stat-grid" aria-label="Why WBco">
+      <div class="stat"><div class="n">Curated</div><div class="l">By Nurse Rachel</div></div>
+      <div class="stat"><div class="n">Clinical</div><div class="l">Active ingredients</div></div>
+      <div class="stat"><div class="n">Klarna</div><div class="l">Pay in 3</div></div>
+      <div class="stat"><div class="n">Vogue</div><div class="l">As seen in</div></div>
+    </section>
+
+    <!-- Tiny video thumbnail (not dominant) -->
+    <div class="wbco-video-wrap">
+      <div class="wbco-video">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="./images/custom/wbco-shelf-video.mp4" type="video/mp4">
+        </video>
+        <div class="wbco-video__caption">In clinic</div>
+      </div>
+    </div>
+
+    <!-- Rachel editorial (rachel-sitting.jpg) -->
+    <section class="wbco-rachel" aria-label="Meet the shelf with Rachel">
+      <div class="wbco-rachel__img">
+        <img src="./images/rachel-sitting.jpg" alt="Nurse Rachel at Refined Medical Aesthetics">
+      </div>
+      <div class="wbco-rachel__copy">
+        <div class="eyebrow">Nurse-curated</div>
+        <h2>The shelf, <em>explained.</em></h2>
+        <p>I stock what works. Every WBco product on this shelf has been through my own routine, tested on real clients, and matched to the kinds of skin concerns I see every week at the clinic &mdash; hormonal breakouts, dehydration, early fine lines, sensitivity from over-treatment.</p>
+        <p>If you&rsquo;re not sure which cleanser suits you, or whether a Hydro-Patch or a Prep Mist is what you actually need, message me first. Homecare only works when it&rsquo;s the right routine for your skin &mdash; not the biggest basket.</p>
+      </div>
+    </section>
+
+    <!-- Routine panel -->
+    <section class="panel" aria-label="The routine">
+      <div class="section-head">
+        <div class="eyebrow">The routine</div>
+        <h2 class="display">Three <em>steps,</em><br>twice a day.</h2>
+      </div>
+      <div class="principle-list">
+        <div class="principle">
+          <div class="num">01</div>
+          <div class="body">
+            <div class="t">Cleanse</div>
+            <div class="d">Bog Myrtle &amp; Lime or the Prebiotic Balm, morning and night. Resets the skin without stripping the barrier.</div>
+          </div>
+        </div>
+        <div class="principle">
+          <div class="num">02</div>
+          <div class="body">
+            <div class="t">Prep</div>
+            <div class="d">Prep Mist straight after cleansing &mdash; hydrates, tones and primes skin for everything you layer on top.</div>
+          </div>
+        </div>
+        <div class="principle">
+          <div class="num">03</div>
+          <div class="body">
+            <div class="t">Target</div>
+            <div class="d">Hydro-Patches for hormonal breakouts and congestion. Hydro-Dots for overnight spots. Plus mineral SPF every morning &mdash; non-negotiable.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why medical-grade explainer -->
+    <section class="wbco-why" aria-label="Why medical-grade skincare">
+      <div class="eyebrow">Medical-grade, explained</div>
+      <h2>Why <em>professional</em> skincare is different.</h2>
+      <p class="lede">Medical-grade (or &ldquo;cosmeceutical&rdquo;) skincare sits between a high-street moisturiser and a prescription treatment. The difference isn&rsquo;t the packaging &mdash; it&rsquo;s the formulation.</p>
+      <p>Drug-store skincare is formulated for everybody and no one at the same time: active percentages are kept low so they can&rsquo;t cause a reaction on any skin type. That keeps them safe to sell, but it also means results are slower, softer, and often invisible.</p>
+      <p>WBco is built around clean but effective actives &mdash; prebiotics, salicylic acid, balanced oils, hydrating botanicals &mdash; in delivery systems that suit real skin. That&rsquo;s why you&rsquo;ll usually find these products through a trained skin professional: they work best when someone who knows your skin picks them for you.</p>
+      <p>Paired with in-clinic treatments &mdash; anti-wrinkle, fillers, skin boosters, polynucleotides, microneedling &mdash; good homecare is what keeps your skin looking like you&rsquo;ve just left the clinic, for longer.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="wbco-faq" aria-label="Homecare FAQ">
+      <div class="eyebrow">Homecare questions</div>
+      <h2 class="display" style="font-family:var(--font-display);font-weight:300;font-size:32px;line-height:1.1;margin:8px 0 18px;">Straight <em>answers.</em></h2>
+
+      <details>
+        <summary>Do I have to be a Refined client to shop WBco?</summary>
+        <p class="a">No. The WBco store is open to everyone. If you&rsquo;re not sure which products suit your skin, WhatsApp Rachel first and she&rsquo;ll point you in the right direction &mdash; no booking required.</p>
+      </details>
+      <details>
+        <summary>What&rsquo;s in the current WBco range?</summary>
+        <p class="a">The bestselling Bog Myrtle &amp; Lime Balancing Cleanser (as seen in Vogue) plus its eco refill, the Prebiotic Cleansing Balm with bamboo cloth, the Prep Mist in three sizes, the Hydro-Patch and Hydro-Dots for targeted breakouts, the Hydro-Duo bundle, and Soap Brows Original. Every product is linked above &mdash; tap any card to go straight to its Shopify page.</p>
+      </details>
+      <details>
+        <summary>How is WBco different from Boots or Sephora skincare?</summary>
+        <p class="a">WBco is curated by a nurse for real skin. Active percentages are clinical, textures are honest, and ingredient choices are made to work alongside in-clinic treatments &mdash; not against them.</p>
+      </details>
+      <details>
+        <summary>Can I start WBco before my first treatment?</summary>
+        <p class="a">Yes &mdash; and we recommend it. Starting a simple cleanse &middot; prep &middot; target routine two to four weeks before a treatment gets the skin in the best possible shape to respond.</p>
+      </details>
+      <details>
+        <summary>Is Klarna really available?</summary>
+        <p class="a">Yes. The WBco Shopify checkout offers Klarna Pay in 3 on all orders, plus free UK shipping over &pound;60. Click and collect from the Seaton Delaval clinic is an option if you&rsquo;re local.</p>
+      </details>
+      <details>
+        <summary>What if a product doesn&rsquo;t work for my skin?</summary>
+        <p class="a">Message Rachel. If something isn&rsquo;t right &mdash; wrong actives, wrong order, too strong for your barrier &mdash; she&rsquo;ll help you swap or adjust rather than leave you with a product sitting in a drawer.</p>
+      </details>
+    </section>
+
+    <!-- Shop CTA -->
+    <div class="ed-cta-wrap">
+      <div class="section-head" style="text-align:center;">
+        <div class="eyebrow">Ready to stock the shelf?</div>
+        <h2 class="display" style="font-size:34px;">Shop <em>WBco.</em></h2>
+        <p class="lede" style="margin:14px auto 0;max-width:520px;">Free UK shipping over &pound;60. Klarna available on all orders. Click and collect from the Seaton Delaval clinic if you&rsquo;re local.</p>
+      </div>
+      <div class="ed-cta-row" style="justify-content:center;">
+        <a href="https://shop.refinedmedicalaesthetics.uk" class="btn btn-dark" target="_blank" rel="noopener noreferrer">Visit the shop</a>
+        <a href="https://wa.me/447583321635" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Ask Rachel first</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FAQ schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Do I have to be a Refined client to shop WBco?","acceptedAnswer":{"@type":"Answer","text":"No. The WBco store is open to everyone. If you are not sure which products suit your skin, WhatsApp Nurse Rachel first and she will point you in the right direction — no booking required."}},
+      {"@type":"Question","name":"What is in the current WBco range?","acceptedAnswer":{"@type":"Answer","text":"The bestselling Bog Myrtle and Lime Balancing Cleanser (as seen in Vogue) plus its eco refill, the Prebiotic Cleansing Balm with bamboo cloth, the Prep Mist in three sizes, Hydro-Patch and Hydro-Dots for breakouts, the Hydro-Duo bundle, and Soap Brows Original."}},
+      {"@type":"Question","name":"How is WBco different from high-street skincare?","acceptedAnswer":{"@type":"Answer","text":"WBco is curated by a nurse. Active percentages are clinical, textures are honest, and ingredients are chosen to work alongside in-clinic treatments."}},
+      {"@type":"Question","name":"Can I start WBco before my first treatment?","acceptedAnswer":{"@type":"Answer","text":"Yes. Starting a simple cleanse, prep, target routine two to four weeks before a treatment gets the skin in the best shape to respond."}},
+      {"@type":"Question","name":"Is Klarna available on WBco orders?","acceptedAnswer":{"@type":"Answer","text":"Yes. The WBco Shopify checkout offers Klarna Pay in 3 on all orders, plus free UK shipping over £60."}},
+      {"@type":"Question","name":"What if a WBco product does not work for my skin?","acceptedAnswer":{"@type":"Answer","text":"Message Rachel. If a product is wrong for your skin she will help you swap or adjust the routine rather than leave you with something unused."}}
+    ]
+  }
+  </script>
+
+  <!-- Product schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"WBco Medical-grade Essentials",
+    "url":"https://refinedmedicalaesthetics.uk/wbco.html",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"url":"https://shop.refinedmedicalaesthetics.uk/products/prebiotic-cleanser","name":"Prebiotic Cleansing Balm (with cloth)"},
+      {"@type":"ListItem","position":2,"url":"https://shop.refinedmedicalaesthetics.uk/products/bog-myrtle-and-lime-balancing-cleanser","name":"Bog Myrtle and Lime Balancing Cleanser"},
+      {"@type":"ListItem","position":3,"url":"https://shop.refinedmedicalaesthetics.uk/products/bog-myrtle-and-lime-balancing-cleanser-refill","name":"Bog Myrtle and Lime Balancing Cleanser Refill"},
+      {"@type":"ListItem","position":4,"url":"https://shop.refinedmedicalaesthetics.uk/products/prep-mist","name":"Prep Mist"},
+      {"@type":"ListItem","position":5,"url":"https://shop.refinedmedicalaesthetics.uk/products/3-pack-prep-hydrate-facial-mist","name":"3 Pack Prep Mist"},
+      {"@type":"ListItem","position":6,"url":"https://shop.refinedmedicalaesthetics.uk/products/prep-mist-refill","name":"Prep Mist Refill"},
+      {"@type":"ListItem","position":7,"url":"https://shop.refinedmedicalaesthetics.uk/products/hydro-patch","name":"Hydro-Patch"},
+      {"@type":"ListItem","position":8,"url":"https://shop.refinedmedicalaesthetics.uk/products/hydro-dots","name":"Hydro-Dots"},
+      {"@type":"ListItem","position":9,"url":"https://shop.refinedmedicalaesthetics.uk/products/hydro-duo","name":"Hydro-Duo"},
+      {"@type":"ListItem","position":10,"url":"https://shop.refinedmedicalaesthetics.uk/products/soapbrows-and-prep-mist","name":"Soap Brows Original"}
+    ]
+  }
+  </script>
+</body>
+</html>

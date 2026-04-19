@@ -1,0 +1,346 @@
+/* ==========================================================
+   Refined Medical Aesthetics — shared chrome injector
+   Injects: promo strip, header, mobile menu, footer,
+            VIP popup, WhatsApp float, Chatbase widget
+   Include this on EVERY page with <script defer src="refined-chrome.js"></script>
+   ========================================================== */
+(function () {
+  var BOOK_URL = 'https://portal.aestheticnursesoftware.com/book-online/30956';
+  var WA_URL   = 'https://wa.me/447583321635';
+
+  var WA_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>';
+
+  var STAR_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+
+  // Outlined 24px stroke icons for the 5-slot header (menu / search / account / cart)
+  var MENU_SVG    = '<svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="7"  x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>';
+  var SEARCH_SVG  = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.5" y2="16.5"/></svg>';
+  var ACCOUNT_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>';
+  var CART_SVG    = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1.2 11.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>';
+
+  // ---------- Remove legacy chrome that pages may have baked in ----------
+  function killLegacy() {
+    // Legacy popup, header, footer, whatsapp float, promo, menu overlay, klarna
+    var selectors = [
+      '#welcomePopup',
+      '.popup-overlay',
+      '.klarna-banner',
+      'body > header.header',
+      'body > .header',
+      '.menu-overlay',
+      '#menuOverlay',
+      '.mobile-menu',
+      '#mobileMenu',
+      'body > footer.footer',
+      'body > .footer',
+      '.whatsapp-float',
+      '.promo-strip'
+    ];
+    selectors.forEach(function (sel) {
+      document.querySelectorAll(sel).forEach(function (el) { el.remove(); });
+    });
+  }
+
+  // ---------- Build chrome nodes ----------
+  function buildPromo() {
+    var items = [
+      'Consultation-led · Nurse Rachel, NMC-registered',
+      'Seaton Delaval · A short drive from Whitley Bay',
+      '10% off your first visit — join the VIP list',
+      'Free 2-week review on every treatment'
+    ];
+    var doubled = items.concat(items).map(function (t) {
+      return '<span class="promo-strip__item">' + t + '</span>';
+    }).join('');
+    var el = document.createElement('div');
+    el.className = 'promo-strip';
+    el.setAttribute('aria-label', 'Clinic promotions');
+    el.innerHTML = '<div class="promo-strip__track">' + doubled + '</div>';
+    return el;
+  }
+
+  function buildHeader() {
+    var header = document.createElement('header');
+    header.className = 'header';
+    header.innerHTML =
+      // Left slot: menu + search icons
+      '<div class="header__left">' +
+        '<button class="header-icon" type="button" aria-label="Open menu" id="refinedMenuBtn">' + MENU_SVG + '</button>' +
+        '<button class="header-icon" type="button" aria-label="Search" id="refinedSearchBtn">' + SEARCH_SVG + '</button>' +
+      '</div>' +
+
+      // Center slot: circular logo + "REFINED / Medical Aesthetics" wordmark
+      '<a href="./index.html" class="logo" aria-label="Refined Medical Aesthetics">' +
+        '<img src="./images/logo-main.webp" alt="Refined Medical Aesthetics" onerror="this.src=\'https://refinedmedicalaesthetics.uk/images/logo-main.webp\'">' +
+        '<div class="logo-text">' +
+          '<span class="refined">Refined</span>' +
+          '<span class="medical">Medical Aesthetics</span>' +
+        '</div>' +
+      '</a>' +
+
+      // Right slot: account + cart icons + desktop Book pill
+      '<div class="header__right">' +
+        '<a href="./contact.html" class="header-icon" aria-label="Account">' + ACCOUNT_SVG + '</a>' +
+        '<a href="https://shop.refinedmedicalaesthetics.uk" class="header-icon" aria-label="Shop WBco" target="_blank" rel="noopener noreferrer">' + CART_SVG + '</a>' +
+        '<a href="' + BOOK_URL + '" class="header-book-pill" target="_blank" rel="noopener noreferrer">Book Now</a>' +
+      '</div>' +
+
+      // Desktop nav row — positioned absolutely under the header grid at 960px+
+      '<nav class="nav-desktop" aria-label="Primary">' +
+        '<a href="./index.html">Home</a>' +
+        '<a href="./about.html">About</a>' +
+        '<a href="./treatments.html">Treatments</a>' +
+        '<a href="./gallery.html">Gallery</a>' +
+        '<a href="./testimonials.html">Reviews</a>' +
+        '<a href="./wbco.html">Shop</a>' +
+        '<a href="./faq.html">FAQ</a>' +
+        '<a href="./contact.html">Contact</a>' +
+      '</nav>';
+    return header;
+  }
+
+  function buildMenuDrawer() {
+    var overlay = document.createElement('div');
+    overlay.className = 'menu-overlay';
+    overlay.id = 'refinedMenuOverlay';
+
+    var menu = document.createElement('nav');
+    menu.className = 'mobile-menu';
+    menu.id = 'refinedMobileMenu';
+    menu.innerHTML =
+      '<button class="mobile-menu-close" id="refinedMenuClose" aria-label="Close menu">&times;</button>' +
+      '<a href="./index.html">Home</a>' +
+      '<a href="./about.html">About</a>' +
+      '<a href="./treatments.html">Treatments</a>' +
+      '<a href="./gallery.html">Gallery</a>' +
+      '<a href="./testimonials.html">Reviews</a>' +
+      '<a href="./wbco.html">WBco Shop</a>' +
+      '<a href="./contact.html">Contact</a>' +
+      '<a href="./faq.html">FAQ</a>' +
+      '<a href="' + BOOK_URL + '" class="book-now-btn" target="_blank" rel="noopener noreferrer">Book Now</a>';
+
+    return [overlay, menu];
+  }
+
+  function buildFooter() {
+    var footer = document.createElement('footer');
+    footer.className = 'footer';
+    footer.innerHTML =
+      '<div class="footer-inner">' +
+        '<div class="footer-brand">' +
+          '<img src="./images/logo-main.webp" alt="" onerror="this.src=\'https://refinedmedicalaesthetics.uk/images/logo-main.webp\'">' +
+          '<div>' +
+            '<div class="refined">Refined</div>' +
+            '<span class="medical">Medical Aesthetics</span>' +
+          '</div>' +
+        '</div>' +
+        '<p class="footer-about">Nurse-led medical aesthetics studio in Seaton Delaval, serving Whitley Bay and coastal Northumberland.</p>' +
+        '<div class="footer-cols">' +
+          '<div class="footer-col">' +
+            '<h4>Clinic</h4>' +
+            '<a href="./index.html">Home</a>' +
+            '<a href="./about.html">About Rachel</a>' +
+            '<a href="./treatments.html">Treatments</a>' +
+            '<a href="./gallery.html">Gallery</a>' +
+            '<a href="./testimonials.html">Reviews</a>' +
+            '<a href="./wbco.html">WBco Shop</a>' +
+          '</div>' +
+          '<div class="footer-col">' +
+            '<h4>Visit</h4>' +
+            '<a href="./contact.html">Contact</a>' +
+            '<a href="./faq.html">FAQ</a>' +
+            '<a href="' + BOOK_URL + '" target="_blank" rel="noopener noreferrer">Book online</a>' +
+            '<a href="' + WA_URL + '" target="_blank" rel="noopener noreferrer">WhatsApp Rachel</a>' +
+          '</div>' +
+          '<div class="footer-col footer-contact">' +
+            '<h4>Contact</h4>' +
+            '<ul>' +
+              '<li><strong>Visit</strong><span>Double Row, Seaton Delaval, NE25 0PP</span></li>' +
+              '<li><strong>Call</strong><a href="tel:+447583321635">+44 7583 321 635</a></li>' +
+              '<li><strong>Email</strong><a href="mailto:Refinedmedicalaesthetics3@gmail.com">Refinedmedicalaesthetics3@gmail.com</a></li>' +
+            '</ul>' +
+          '</div>' +
+        '</div>' +
+        '<div class="footer-bottom">' +
+          '<p>© 2026 Refined Medical Aesthetics · NMC-registered</p>' +
+          '<p>Website by Daniel &amp; Rachel · Refined Medical Aesthetics</p>' +
+        '</div>' +
+      '</div>';
+    return footer;
+  }
+
+  function buildWhatsAppFloat() {
+    var a = document.createElement('a');
+    a.href = WA_URL;
+    a.className = 'whatsapp-float';
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.setAttribute('aria-label', 'WhatsApp Rachel');
+    a.innerHTML = WA_SVG;
+    return a;
+  }
+
+  function buildPopup() {
+    var wrap = document.createElement('div');
+    wrap.className = 'popup-overlay hidden';
+    wrap.id = 'welcomePopup';
+    wrap.innerHTML =
+      '<div class="popup">' +
+        '<button class="popup-close" onclick="closePopup()" aria-label="Close">&times;</button>' +
+        '<div class="popup-badge">Exclusive VIP Offer</div>' +
+        '<h2>Unlock <span>10% Off</span></h2>' +
+        '<p class="popup-subtitle">Your first treatment</p>' +
+        '<p class="popup-text">Join our VIP list for exclusive offers, skincare tips, and be the first to know about new treatments.</p>' +
+        '<input type="email" id="popupEmail" class="popup-input" placeholder="your@email.com" autocomplete="email">' +
+        '<p class="instagram-required">Offer excludes anti-wrinkle treatments. Consultation required.</p>' +
+        '<p class="popup-consent">By subscribing, you agree to receive clinic updates and offers. You can unsubscribe at any time.</p>' +
+        '<button class="popup-btn" onclick="submitPopupLead()">Claim my 10% off</button>' +
+        '<p id="popupStatus" class="instagram-required" style="display:none;"></p>' +
+        '<div class="popup-rating">' +
+          STAR_SVG + STAR_SVG + STAR_SVG + STAR_SVG + STAR_SVG +
+          '<span>Trusted by 500+ clients</span>' +
+        '</div>' +
+      '</div>';
+    return wrap;
+  }
+
+  // ---------- Mount ----------
+  function mount() {
+    killLegacy();
+
+    var body = document.body;
+    var first = body.firstChild;
+
+    // Insert at top, in order: popup, promo, header, menu drawer
+    var popup = buildPopup();
+    var promo = buildPromo();
+    var header = buildHeader();
+    var menuParts = buildMenuDrawer();
+
+    body.insertBefore(popup, first);
+    body.insertBefore(promo, first);
+    body.insertBefore(header, first);
+    body.appendChild(menuParts[0]); // overlay
+    body.appendChild(menuParts[1]); // drawer
+
+    // Append WhatsApp float + footer
+    body.appendChild(buildFooter());
+    body.appendChild(buildWhatsAppFloat());
+
+    // Menu toggles
+    var btn = document.getElementById('refinedMenuBtn');
+    var searchBtn = document.getElementById('refinedSearchBtn');
+    var overlay = document.getElementById('refinedMenuOverlay');
+    var drawer = document.getElementById('refinedMobileMenu');
+    var close = document.getElementById('refinedMenuClose');
+    function open()  { drawer.classList.add('open');    overlay.classList.add('open'); }
+    function shut()  { drawer.classList.remove('open'); overlay.classList.remove('open'); }
+    if (btn) btn.addEventListener('click', open);
+    // Search icon: no backend search — it opens the nav drawer so the icon isn't inert.
+    if (searchBtn) searchBtn.addEventListener('click', open);
+    if (overlay) overlay.addEventListener('click', shut);
+    if (close) close.addEventListener('click', shut);
+    // Close when a drawer link is clicked
+    drawer && drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', shut); });
+  }
+
+  // ---------- Widget scripts (preserved verbatim behaviour) ----------
+  function loadChatbaseWidget() {
+    if (window.__chatbaseLoaded) return;
+    window.__chatbaseLoaded = true;
+    if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+      window.chatbase = function () {
+        if (!window.chatbase.q) { window.chatbase.q = []; }
+        window.chatbase.q.push(arguments);
+      };
+      window.chatbase = new Proxy(window.chatbase, {
+        get: function (target, prop) {
+          if (prop === "q") return target.q;
+          return function () { return target.apply(null, [prop].concat(Array.prototype.slice.call(arguments))); };
+        }
+      });
+    }
+    var script = document.createElement('script');
+    script.src = 'https://www.chatbase.co/embed.min.js';
+    script.id = 'jAMCto1UDdE-Kj9x4HPao';
+    script.domain = 'www.chatbase.co';
+    document.body.appendChild(script);
+  }
+
+  function openPopup() {
+    var popup = document.getElementById('welcomePopup');
+    if (popup) popup.classList.remove('hidden');
+  }
+  function closePopup() {
+    var popup = document.getElementById('welcomePopup');
+    if (!popup) return;
+    popup.classList.add('hidden');
+    try { sessionStorage.setItem('popupClosedThisSession', 'true'); } catch (e) {}
+    loadChatbaseWidget();
+  }
+  function submitPopupLead() {
+    var emailInput = document.getElementById('popupEmail');
+    var status = document.getElementById('popupStatus');
+    if (!emailInput || !status) return;
+    var email = (emailInput.value || '').trim();
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+      status.style.display = 'block';
+      status.textContent = 'Please enter a valid email address.';
+      return;
+    }
+    status.style.display = 'block';
+    status.textContent = 'Submitting…';
+    fetch('https://formsubmit.co/ajax/refinedmedicalaesthetics3@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        _subject: 'VIP Offer Signup - Refined Medical Aesthetics',
+        source: 'Homepage popup',
+        disclaimer: 'Offer excludes anti-wrinkle treatments.'
+      })
+    }).then(function () {
+      status.textContent = 'Thanks — your VIP request has been received.';
+      emailInput.value = '';
+      setTimeout(closePopup, 1200);
+    }).catch(function () {
+      status.textContent = 'Thanks — please also DM us on Instagram to confirm your offer.';
+    });
+  }
+
+  // Expose to window so inline onclick handlers work
+  window.openPopup = openPopup;
+  window.closePopup = closePopup;
+  window.submitPopupLead = submitPopupLead;
+  window.openMenu = function () {
+    var d = document.getElementById('refinedMobileMenu');
+    var o = document.getElementById('refinedMenuOverlay');
+    if (d) d.classList.add('open'); if (o) o.classList.add('open');
+  };
+  window.closeMenu = function () {
+    var d = document.getElementById('refinedMobileMenu');
+    var o = document.getElementById('refinedMenuOverlay');
+    if (d) d.classList.remove('open'); if (o) o.classList.remove('open');
+  };
+  window.toggleTheme = function () {}; // legacy no-op
+
+  // ---------- Auto-run ----------
+  function boot() {
+    mount();
+    try {
+      if (sessionStorage.getItem('popupClosedThisSession') !== 'true') {
+        setTimeout(openPopup, 900);
+      } else {
+        loadChatbaseWidget();
+      }
+    } catch (e) {
+      setTimeout(openPopup, 900);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+})();

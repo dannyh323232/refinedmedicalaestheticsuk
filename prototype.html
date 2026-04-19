@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Refined Medical Aesthetics · Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=DM+Sans:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Libre+Caslon+Text:ital,wght@0,400;1,400&family=Archivo:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* palette — cream / sand default */
+    --paper:     #F7F2EA;
+    --tone:      #EFE6D6;
+    --tone-2:    #E6DAC4;
+    --ink:       #1F1812;
+    --ink-soft:  #6B5E51;
+    --accent-ink:#8F6A3C;
+    --accent-soft:#E5CFA8;
+    --rule:      rgba(31,24,18,0.18);
+
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body:    'DM Sans', system-ui, sans-serif;
+  }
+
+  html, body { margin: 0; background: #2a2622; color: var(--ink); overflow: hidden; height: 100%; }
+  body {
+    font-family: var(--font-body);
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh;
+  }
+  * { box-sizing: border-box; }
+  button { font-family: inherit; }
+  em { font-style: italic; font-weight: 400; }
+
+  @keyframes marq { from { transform: translateX(0); } to { transform: translateX(-33.33%); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideUp { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+  .phone-scroll::-webkit-scrollbar { display: none; }
+  .phone-scroll { scrollbar-width: none; }
+
+  /* Tweaks panel */
+  .tweaks {
+    position: fixed; right: 16px; bottom: 16px; z-index: 1000;
+    width: 260px; background: #fff; color: #111;
+    border-radius: 14px; padding: 14px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    display: none;
+  }
+  .tweaks.on { display: block; animation: slideUp .25s; }
+  .tweaks h3 { margin: 0 0 10px; font-family: 'Fraunces', serif; font-weight: 400; font-size: 18px; letter-spacing: -0.01em; }
+  .tw-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-top: 1px solid #eee; font-size: 12px; }
+  .tw-row:first-of-type { border-top: none; }
+  .tw-row label { color: #555; letter-spacing: 0.02em; }
+  .tw-chips { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; }
+  .tw-chip { border: 1px solid #ddd; background: #fafafa; color: #333; padding: 4px 8px; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 999px; cursor: pointer; }
+  .tw-chip.on { background: #1F1812; color: #F7F2EA; border-color: #1F1812; }
+
+  /* Device stage — scales the phone frame to fit */
+  #stage { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
+</style>
+</head>
+<body>
+
+<div id="stage"><div id="root"></div></div>
+
+<div class="tweaks" id="tweaks">
+  <h3>Tweaks</h3>
+  <div class="tw-row">
+    <label>Palette</label>
+    <div class="tw-chips" data-k="palette">
+      <button class="tw-chip" data-v="cream">Cream</button>
+      <button class="tw-chip" data-v="sand">Sand</button>
+      <button class="tw-chip" data-v="botanical">Botanical</button>
+      <button class="tw-chip" data-v="coastal">Coastal</button>
+      <button class="tw-chip" data-v="quiet">Quiet</button>
+    </div>
+  </div>
+  <div class="tw-row">
+    <label>Type</label>
+    <div class="tw-chips" data-k="type">
+      <button class="tw-chip" data-v="fraunces">Fraunces</button>
+      <button class="tw-chip" data-v="cormorant">Cormorant</button>
+      <button class="tw-chip" data-v="caslon">Caslon</button>
+      <button class="tw-chip" data-v="sans">All-sans</button>
+    </div>
+  </div>
+  <div class="tw-row">
+    <label>Hero</label>
+    <div class="tw-chips" data-k="hero">
+      <button class="tw-chip" data-v="fullbleed">Full bleed</button>
+      <button class="tw-chip" data-v="split">Split</button>
+      <button class="tw-chip" data-v="editorial">Editorial</button>
+      <button class="tw-chip" data-v="minimal">Minimal</button>
+    </div>
+  </div>
+  <div class="tw-row">
+    <label>Promo strip</label>
+    <div class="tw-chips" data-k="promo">
+      <button class="tw-chip" data-v="on">On</button>
+      <button class="tw-chip" data-v="off">Off</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Tweak defaults (persisted)
+  window.TWEAKS = /*EDITMODE-BEGIN*/{
+    "palette": "cream",
+    "type": "fraunces",
+    "hero": "fullbleed",
+    "promo": "on"
+  }/*EDITMODE-END*/;
+
+  const PALETTES = {
+    cream: { paper:'#F7F2EA', tone:'#EFE6D6', tone2:'#E6DAC4', ink:'#1F1812', inkSoft:'#6B5E51', accentInk:'#8F6A3C', accentSoft:'#E5CFA8', rule:'rgba(31,24,18,0.18)' },
+    sand:  { paper:'#EEE3D1', tone:'#E3D5BE', tone2:'#D4C3A6', ink:'#2A2116', inkSoft:'#6F5E48', accentInk:'#7A5930', accentSoft:'#D9C29C', rule:'rgba(42,33,22,0.2)' },
+    botanical: { paper:'#EBE8DC', tone:'#DEDBCA', tone2:'#C9C8B4', ink:'#1E2418', inkSoft:'#5B604F', accentInk:'#4F6138', accentSoft:'#C5CEA9', rule:'rgba(30,36,24,0.2)' },
+    coastal: { paper:'#E8ECEC', tone:'#D9E0DF', tone2:'#C4CFCD', ink:'#1A2325', inkSoft:'#556264', accentInk:'#3E5D63', accentSoft:'#BCD0D2', rule:'rgba(26,35,37,0.18)' },
+    quiet: { paper:'#F0ECE5', tone:'#E4DFD4', tone2:'#D4CEBF', ink:'#22201C', inkSoft:'#706B60', accentInk:'#6B6458', accentSoft:'#D7CFBE', rule:'rgba(34,32,28,0.18)' },
+  };
+  const TYPES = {
+    fraunces: { d: "'Fraunces', Georgia, serif", b: "'DM Sans', system-ui, sans-serif" },
+    cormorant: { d: "'Cormorant Garamond', Georgia, serif", b: "'DM Sans', system-ui, sans-serif" },
+    caslon: { d: "'Libre Caslon Text', Georgia, serif", b: "'Archivo', system-ui, sans-serif" },
+    sans:   { d: "'Archivo', system-ui, sans-serif", b: "'DM Sans', system-ui, sans-serif" },
+  };
+
+  function applyTweaks() {
+    const t = window.TWEAKS;
+    const p = PALETTES[t.palette] || PALETTES.cream;
+    const r = document.documentElement.style;
+    r.setProperty('--paper', p.paper);
+    r.setProperty('--tone', p.tone);
+    r.setProperty('--tone-2', p.tone2);
+    r.setProperty('--ink', p.ink);
+    r.setProperty('--ink-soft', p.inkSoft);
+    r.setProperty('--accent-ink', p.accentInk);
+    r.setProperty('--accent-soft', p.accentSoft);
+    r.setProperty('--rule', p.rule);
+    const ty = TYPES[t.type] || TYPES.fraunces;
+    r.setProperty('--font-display', ty.d);
+    r.setProperty('--font-body', ty.b);
+    document.querySelectorAll('.tw-chip').forEach(c => {
+      const k = c.parentElement.dataset.k;
+      c.classList.toggle('on', c.dataset.v === t[k]);
+    });
+  }
+
+  // ── Tweaks protocol ──
+  window.addEventListener('message', (e) => {
+    const d = e.data || {};
+    if (d.type === '__activate_edit_mode') document.getElementById('tweaks').classList.add('on');
+    if (d.type === '__deactivate_edit_mode') document.getElementById('tweaks').classList.remove('on');
+  });
+  window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+
+  document.querySelectorAll('.tw-chips').forEach(wrap => {
+    wrap.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tw-chip');
+      if (!btn) return;
+      const k = wrap.dataset.k, v = btn.dataset.v;
+      window.TWEAKS[k] = v;
+      applyTweaks();
+      try { window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [k]: v } }, '*'); } catch(_){}
+      window.dispatchEvent(new Event('tweaks-changed'));
+    });
+  });
+
+  applyTweaks();
+
+  // Stage scaling
+  function fit() {
+    const stage = document.getElementById('stage');
+    if (!stage) return;
+    const root = document.getElementById('root');
+    if (!root) return;
+    const phone = root.firstElementChild;
+    if (!phone) return;
+    const pad = 40;
+    const sx = (window.innerWidth - pad) / 402;
+    const sy = (window.innerHeight - pad) / 874;
+    const s = Math.min(sx, sy, 1.2);
+    root.style.transform = `scale(${s})`;
+    root.style.transformOrigin = 'center center';
+  }
+  window.addEventListener('resize', fit);
+  setTimeout(fit, 50);
+</script>
+
+<!-- React -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script src="data.js"></script>
+<script type="text/babel" src="components.jsx"></script>
+<script type="text/babel" src="ios-frame.jsx"></script>
+<script type="text/babel" src="pages.jsx"></script>
+<script type="text/babel" src="flows.jsx"></script>
+<script type="text/babel" src="overlays.jsx"></script>
+
+<script type="text/babel">
+  const { useState: uS, useEffect: uE, useRef: uR } = React;
+
+  // App shell — iPhone frame hosting the Refined site
+  function App() {
+    const [route, setRoute] = uS(() => {
+      try { return JSON.parse(localStorage.getItem('rma-route')) || { name: 'home' }; }
+      catch { return { name: 'home' }; }
+    });
+    const [menu, setMenu] = uS(false);
+    const [search, setSearch] = uS(false);
+    const [promoOn, setPromoOn] = uS(window.TWEAKS.promo === 'on');
+    const [heroVariant, setHeroVariant] = uS(window.TWEAKS.hero);
+    const scrollRef = uR(null);
+
+    uE(() => {
+      const h = () => {
+        setPromoOn(window.TWEAKS.promo === 'on');
+        setHeroVariant(window.TWEAKS.hero);
+      };
+      window.addEventListener('tweaks-changed', h);
+      return () => window.removeEventListener('tweaks-changed', h);
+    }, []);
+
+    uE(() => {
+      localStorage.setItem('rma-route', JSON.stringify(route));
+      if (scrollRef.current) scrollRef.current.scrollTop = 0;
+    }, [route]);
+
+    const go = (name, param) => setRoute({ name, param });
+
+    // Title bar label per route
+    const routeLabel = {
+      home: null, about: 'About', treatments: 'Treatments',
+      treatment: 'Treatment', gallery: 'Gallery', testimonials: 'Reviews',
+      contact: 'Contact', faq: 'FAQ', wbco: 'WBco', book: 'Book',
+      'book-confirm': 'Confirmed',
+    }[route.name];
+
+    const renderPage = () => {
+      switch (route.name) {
+        case 'home':         return <HomePage onNav={go} heroVariant={heroVariant} />;
+        case 'about':        return <AboutPage onNav={go} />;
+        case 'treatments':   return <TreatmentsPage onNav={go} />;
+        case 'treatment':    return <TreatmentDetailPage treatmentId={route.param} onBack={() => go('treatments')} onNav={go} />;
+        case 'gallery':      return <GalleryPage onNav={go} />;
+        case 'testimonials': return <TestimonialsPage onNav={go} />;
+        case 'contact':      return <ContactPage onNav={go} />;
+        case 'faq':          return <FAQPage onNav={go} />;
+        case 'wbco':
+        case 'shop':         return <WBcoBridgePage onNav={go} />;
+        case 'book':         return <BookPage initialTreatment={route.param} onNav={go} />;
+        case 'book-confirm': return <BookConfirmPage onNav={go} />;
+        default:             return <HomePage onNav={go} heroVariant={heroVariant} />;
+      }
+    };
+
+    // pages that are "full-screen flows" — skip site chrome
+    const isFlow = route.name === 'book' || route.name === 'book-confirm' || route.name === 'treatment';
+
+    return (
+      <IOSDevice width={402} height={874}>
+        <div ref={scrollRef} className="phone-scroll" style={{
+          height: '100%', overflowY: 'auto',
+          paddingTop: 50, /* clear status bar */
+          background: 'var(--paper)',
+          position: 'relative',
+        }}>
+          {!isFlow && (
+            <>
+              <PromoStrip show={promoOn} />
+              <TopNav
+                onNav={go} route={route.name}
+                cartCount={0}
+                onOpenCart={() => go('wbco')}
+                onOpenSearch={() => setSearch(true)}
+                onOpenMenu={() => setMenu(true)}
+              />
+            </>
+          )}
+          {renderPage()}
+
+          {/* WhatsApp floating action */}
+          {!isFlow && (
+            <button onClick={() => window.open(window.CLINIC.whatsapp, '_blank')} style={{
+              position: 'fixed', right: 18, bottom: 108,
+              width: 48, height: 48, borderRadius: 999,
+              background: '#25D366', color: '#fff', border: 'none',
+              boxShadow: '0 10px 28px rgba(0,0,0,0.25)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              cursor: 'pointer', zIndex: 30,
+            }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm5.6 13.4c-.2.6-1.3 1.2-1.8 1.3-.5.1-1.1.2-3.5-.8-3-1.2-4.9-4.2-5-4.4-.2-.2-1.3-1.7-1.3-3.2s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .5-.1.7.5.2.6.8 2 .9 2.2.1.2.1.4 0 .6l-.3.4-.5.6c-.2.2-.3.4-.2.7.1.3.7 1.2 1.5 1.9 1 1 1.9 1.3 2.2 1.4.3.1.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1.3.1 2 .9 2.3 1.1.3.1.5.2.6.3 0 .3 0 .9-.2 1.5z"/>
+              </svg>
+            </button>
+          )}
+        </div>
+
+        {/* Overlays scoped to phone frame */}
+        <MenuDrawer open={menu} onClose={() => setMenu(false)} onNav={go} />
+        <SearchOverlay open={search} onClose={() => setSearch(false)} onNav={go} />
+        <EmailPopup />
+        <ChatBot />
+      </IOSDevice>
+    );
+  }
+
+  // Wait for all scripts to load
+  const tryMount = () => {
+    if (!window.HomePage || !window.IOSDevice || !window.TreatmentDetailPage || !window.MenuDrawer || !window.EmailPopup || !window.ChatBot) {
+      return setTimeout(tryMount, 40);
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    setTimeout(() => window.dispatchEvent(new Event('resize')), 80);
+  };
+  tryMount();
+</script>
+
+</body>
+</html>
