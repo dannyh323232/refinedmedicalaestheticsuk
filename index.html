@@ -1098,6 +1098,111 @@
     "inLanguage": "en-GB"
   }
   </script>
+
+  <!-- Canonical clinic MedicalBusiness + Nurse Rachel Person schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["MedicalBusiness", "LocalBusiness"],
+        "@id": "https://refinedmedicalaesthetics.uk/#clinic",
+        "name": "Refined Medical Aesthetics",
+        "url": "https://refinedmedicalaesthetics.uk/",
+        "logo": "https://refinedmedicalaesthetics.uk/images/logo-main.jpg",
+        "image": "https://refinedmedicalaesthetics.uk/images/rachel-about-new.jpg",
+        "description": "Nurse-led medical aesthetics clinic in Seaton Delaval, near Whitley Bay. Consultation-led, natural-looking results delivered by NMC-registered independent prescriber Nurse Rachel.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Double Row",
+          "addressLocality": "Seaton Delaval",
+          "addressRegion": "Northumberland",
+          "postalCode": "NE25 0PP",
+          "addressCountry": "GB"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 55.0743,
+          "longitude": -1.5253
+        },
+        "telephone": "+447583321635",
+        "email": "Refinedmedicalaesthetics3@gmail.com",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "19:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "09:00",
+            "closes": "17:00"
+          }
+        ],
+        "areaServed": [
+          {"@type": "City", "name": "Whitley Bay"},
+          {"@type": "City", "name": "Seaton Delaval"},
+          {"@type": "City", "name": "Tynemouth"},
+          {"@type": "City", "name": "North Shields"},
+          {"@type": "City", "name": "Cramlington"},
+          {"@type": "City", "name": "Blyth"},
+          {"@type": "City", "name": "Newcastle upon Tyne"},
+          {"@type": "City", "name": "Morpeth"}
+        ],
+        "priceRange": "£25 – £250+",
+        "medicalSpecialty": "CosmeticMedicine",
+        "founder": {"@id": "https://refinedmedicalaesthetics.uk/about#nurse-rachel"},
+        "sameAs": [
+          "https://www.instagram.com/refined_rachel/",
+          "https://www.facebook.com/RefinedAesthetics"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://refinedmedicalaesthetics.uk/about#nurse-rachel",
+        "name": "Nurse Rachel",
+        "jobTitle": "NMC-registered Aesthetic Nurse, Independent Prescriber",
+        "worksFor": {"@id": "https://refinedmedicalaesthetics.uk/#clinic"},
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "license",
+            "name": "NMC Registered Nurse",
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "Nursing and Midwifery Council",
+              "url": "https://www.nmc.org.uk/"
+            }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "license",
+            "name": "Independent Prescriber (V300)"
+          }
+        ],
+        "knowsAbout": [
+          "Anti-wrinkle injections",
+          "Advanced anti-wrinkle protocols",
+          "Dermal fillers",
+          "Lip filler",
+          "Cheek filler",
+          "Skin boosters",
+          "Microneedling",
+          "Polynucleotides",
+          "Fat-dissolving injections",
+          "Vitamin injections",
+          "Medical-grade facials"
+        ],
+        "sameAs": [
+          "https://www.instagram.com/refined_rachel/",
+          "https://www.facebook.com/RefinedAesthetics"
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -1658,5 +1763,6 @@
     }
   </script>
 
+  <p class="last-updated" style="text-align:center; font-size:0.85em; color:#888; margin:2em 0 1em;">Last updated: 19 April 2026</p>
 </body>
 </html>

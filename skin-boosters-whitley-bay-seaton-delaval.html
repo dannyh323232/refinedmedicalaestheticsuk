@@ -38,7 +38,7 @@
 
     <div style="padding:0 20px 20px;">
       <div style="aspect-ratio: 4/3; background: var(--tone); overflow: hidden;">
-        <img src="./images/gallery/client-04.webp" alt="Nurse Rachel administering Profhilo skin booster treatment at Refined Medical Aesthetics, Seaton Delaval" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <img src="./images/gallery/client-04.webp" alt="Nurse Rachel administering Profhilo skin booster treatment at Refined Medical Aesthetics, Seaton Delaval" style="width:100%;height:100%;object-fit:cover;display:block;" fetchpriority="high" loading="eager">
       </div>
     </div>
 
@@ -124,10 +124,14 @@
     </section>
   </main>
   <!-- ai-seo: landing-page schema (auto-injected) -->
-  <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "MedicalBusiness",
+      "@id": "https://refinedmedicalaesthetics.uk/#clinic"
+    },
     {
       "@type": [
         "MedicalProcedure",
@@ -211,10 +215,35 @@
           }
         }
       ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://refinedmedicalaesthetics.uk/skin-boosters-whitley-bay-seaton-delaval#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://refinedmedicalaesthetics.uk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Treatments",
+          "item": "https://refinedmedicalaesthetics.uk/treatments"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Skin boosters (Profhilo, Seventy Hyal)",
+          "item": "https://refinedmedicalaesthetics.uk/skin-boosters-whitley-bay-seaton-delaval"
+        }
+      ]
     }
   ]
 }
-  </script>
-  <!-- /ai-seo: landing-page schema -->
+</script>
+<!-- /ai-seo: landing-page schema -->
+  <p class="last-updated" style="text-align:center; font-size:0.85em; color:#888; margin:2em 0 1em;">Last updated: 19 April 2026</p>
 </body>
 </html>
