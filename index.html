@@ -1462,23 +1462,14 @@
     </div>
   </section>
 
-  <!-- ═══════════ TESTIMONIALS ═══════════ -->
+  <!-- ═══════════ TESTIMONIALS (live Google reviews) ═══════════ -->
   <section class="block tone">
     <div class="block-inner">
-      <p class="eyebrow">What clients say</p>
+      <p class="eyebrow">Straight from Google</p>
 
-      <div id="testimonials">
-        <div class="testimonials__lead" id="testimonialQuote">
-          "Rachel made me feel completely at ease for my first anti-wrinkle appointment. Subtle, soft and exactly what I asked for."
-        </div>
-        <div class="testimonials__meta">
-          <div>
-            <div class="testimonials__name" id="testimonialName">Emma</div>
-            <div class="testimonials__sub" id="testimonialSub">Anti-wrinkle · Whitley Bay</div>
-          </div>
-          <div class="testimonials__dots" id="testimonialDots"></div>
-        </div>
-      </div>
+      <!-- SociableKit Google reviews widget (embed 25658869) -->
+      <div class="sk-ww-google-reviews" data-embed-id="25658869"></div>
+      <script src="https://widgets.sociablekit.com/google-reviews/widget.js" defer></script>
 
       <div class="center mt-lg">
         <a href="./testimonials.html" class="btn btn-outline">Read every review</a>
@@ -1630,38 +1621,8 @@
       try { localStorage.setItem('refinedTheme', next); } catch (e) {}
     }
 
-    // Testimonials carousel
-    var TESTIMONIALS = [
-      { q: "Rachel made me feel completely at ease for my first anti-wrinkle appointment. Subtle, soft and exactly what I asked for.", name: "Emma", sub: "Anti-wrinkle · Whitley Bay" },
-      { q: "I travel from Tynemouth because I trust Rachel's medical background — she'll tell you when something isn't right for your face.", name: "Sarah", sub: "Dermal fillers · Tynemouth" },
-      { q: "Skin boosters with Rachel have transformed my glow. The follow-up care and WhatsApp check-ins are unmatched.", name: "Lauren", sub: "Skin boosters · Monkseaton" },
-      { q: "Honest, calm and genuinely skilled. I've sent three friends to Rachel and they've all said the same.", name: "Beth", sub: "Cheek filler · Seaton Delaval" }
-    ];
-    (function initTestimonials() {
-      var dots = document.getElementById('testimonialDots');
-      var quote = document.getElementById('testimonialQuote');
-      var name  = document.getElementById('testimonialName');
-      var sub   = document.getElementById('testimonialSub');
-      var i = 0;
-      function render() {
-        var t = TESTIMONIALS[i];
-        quote.textContent = '"' + t.q + '"';
-        name.textContent = t.name;
-        sub.textContent = t.sub;
-        Array.prototype.forEach.call(dots.children, function (d, n) {
-          d.setAttribute('aria-current', n === i ? 'true' : 'false');
-        });
-      }
-      TESTIMONIALS.forEach(function (_, n) {
-        var b = document.createElement('button');
-        b.className = 'testimonials__dot';
-        b.setAttribute('aria-label', 'Testimonial ' + (n + 1));
-        b.onclick = function () { i = n; render(); };
-        dots.appendChild(b);
-      });
-      render();
-      setInterval(function () { i = (i + 1) % TESTIMONIALS.length; render(); }, 7000);
-    })();
+    // Testimonials carousel removed — live Google reviews now rendered
+    // via SociableKit widget (embed 25658869) in the testimonials section.
 
     // ═══════════ Chatbase widget (preserved) ═══════════
     function loadChatbaseWidget() {
@@ -1769,6 +1730,6 @@
     }
   </script>
 
-  <p class="last-updated" style="text-align:center; font-size:0.85em; color:#888; margin:2em 0 1em;">Last updated: 20 April 2026</p>
+  <p class="last-updated" style="text-align:center; font-size:0.85em; color:#888; margin:2em 0 1em;">Last updated: 21 April 2026</p>
 </body>
 </html>
