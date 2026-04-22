@@ -1,0 +1,29 @@
+## Security headers — applied to every route first
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+## HTML pages — always revalidate (no content hash in URLs)
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+## CSS and JS — 24h cache (no content hash in filenames, so can't use immutable)
+/refined.css
+  Cache-Control: public, max-age=86400
+
+/refined-chrome.js
+  Cache-Control: public, max-age=86400
+
+## Images directory — 30 days
+/images/*
+  Cache-Control: public, max-age=2592000
+
+## WebP images — 1 year
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+## Web fonts — 1 year
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
