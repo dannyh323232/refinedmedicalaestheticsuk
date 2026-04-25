@@ -25,6 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="./images/logo-main.webp" fetchpriority="high">
 
   <!-- Apply saved theme BEFORE paint to avoid flash -->
   <script>
@@ -1269,7 +1270,7 @@
       </button>
     </div>
     <a href="./index.html" class="logo" aria-label="Refined Medical Aesthetics">
-      <img src="./images/logo-main.webp" alt="Refined Medical Aesthetics" onerror="this.src='https://refinedmedicalaesthetics.uk/images/logo-main.webp'" loading="lazy" decoding="async">
+      <img src="./images/logo-main.webp" alt="Refined Medical Aesthetics" onerror="this.src='https://refinedmedicalaesthetics.uk/images/logo-main.webp'" loading="eager" fetchpriority="high" decoding="async">
       <div class="logo-text">
         <span class="refined">Refined</span>
         <span class="medical">Medical Aesthetics</span>
