@@ -1,0 +1,150 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+ *  refined-consent.css
+ *  Brand styling override for Klaro consent banner.
+ *  Loads AFTER /klaro.css to override the default styling.
+ *
+ *  Goal: match the Refined cream + champagne + ink palette from refined.css.
+ *  Loaded by refined-consent.js — no change needed if Klaro is upgraded.
+ *
+ *  Last updated: 2026-04-27
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+#klaro {
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+#klaro .cookie-notice,
+#klaro .cookie-modal {
+  --klaro-color-primary: #1d1a17;            /* refined ink */
+  --klaro-color-text: #1d1a17;
+  --klaro-color-background: #f7f1e1;          /* cream */
+  --klaro-color-border: #e8e1c7;              /* champagne */
+}
+
+/* ───── Bottom banner ───── */
+#klaro .cookie-notice {
+  background: #f7f1e1 !important;
+  color: #1d1a17 !important;
+  border-top: 1px solid #e8e1c7;
+  border-radius: 0;
+  box-shadow: 0 -4px 16px rgba(29, 26, 23, 0.06);
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: none;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px 24px;
+}
+
+#klaro .cookie-notice .cn-body p {
+  margin: 0 0 12px;
+  color: #1d1a17;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+#klaro .cookie-notice .cn-body p a,
+#klaro .cookie-modal a {
+  color: #1d1a17;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ───── Buttons ───── */
+#klaro .cookie-notice .cn-buttons,
+#klaro .cookie-modal .cm-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+#klaro .cm-btn,
+#klaro .cn-buttons button {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 4px;
+  border: 1px solid #1d1a17;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+#klaro .cm-btn-success,
+#klaro .cn-buttons button.cm-btn-success {
+  background: #1d1a17;
+  color: #f7f1e1;
+  border-color: #1d1a17;
+}
+#klaro .cm-btn-success:hover { background: #2c2723; border-color: #2c2723; }
+
+#klaro .cm-btn-decline,
+#klaro .cn-buttons button.cm-btn-decline,
+#klaro .cm-btn-info,
+#klaro .cn-buttons button.cm-btn-info {
+  background: transparent;
+  color: #1d1a17;
+}
+#klaro .cm-btn-decline:hover,
+#klaro .cm-btn-info:hover { background: #1d1a17; color: #f7f1e1; }
+
+#klaro .cm-btn-accept-all { background: #1d1a17; color: #f7f1e1; border-color: #1d1a17; }
+#klaro .cm-btn-accept-all:hover { background: #2c2723; }
+
+/* ───── Modal (preferences) ───── */
+#klaro .cookie-modal {
+  background: rgba(29, 26, 23, 0.55);
+  z-index: 99999;
+}
+#klaro .cookie-modal .cm-modal {
+  background: #f7f1e1;
+  color: #1d1a17;
+  border-radius: 6px;
+  border: 1px solid #e8e1c7;
+  max-width: 720px;
+  margin: 32px auto;
+  box-shadow: 0 16px 48px rgba(29, 26, 23, 0.18);
+}
+#klaro .cookie-modal h1,
+#klaro .cookie-modal h2,
+#klaro .cookie-modal .cm-header h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  color: #1d1a17;
+}
+#klaro .cookie-modal .cm-header { border-bottom: 1px solid #e8e1c7; }
+#klaro .cookie-modal .cm-footer { border-top: 1px solid #e8e1c7; background: transparent; }
+#klaro .cookie-modal .cm-services .cm-service { border-bottom: 1px solid #e8e1c7; }
+#klaro .cookie-modal .cm-services .cm-service:last-child { border-bottom: none; }
+#klaro .cookie-modal .cm-services .cm-service .cm-list-title { font-weight: 500; color: #1d1a17; }
+#klaro .cookie-modal .cm-services .cm-service .cm-list-description { color: #6b6258; font-size: 13px; }
+
+/* ───── Toggle switches ───── */
+#klaro .cm-list-input:checked + .cm-list-label .slider { background: #1d1a17; }
+#klaro .cm-list-label .slider { background: #b8aa90; }
+
+/* Dark-mode brand support */
+html[data-theme="dark"] #klaro .cookie-notice,
+html[data-theme="dark"] #klaro .cookie-modal .cm-modal {
+  background: #1d1a17 !important;
+  color: #eadfcb !important;
+  border-color: #2c2723;
+}
+html[data-theme="dark"] #klaro .cookie-notice .cn-body p,
+html[data-theme="dark"] #klaro .cookie-modal { color: #eadfcb; }
+html[data-theme="dark"] #klaro .cm-btn-success { background: #eadfcb; color: #1d1a17; border-color: #eadfcb; }
+html[data-theme="dark"] #klaro .cm-btn-decline,
+html[data-theme="dark"] #klaro .cm-btn-info { color: #eadfcb; border-color: #eadfcb; }
+html[data-theme="dark"] #klaro .cm-btn-decline:hover,
+html[data-theme="dark"] #klaro .cm-btn-info:hover { background: #eadfcb; color: #1d1a17; }
+
+/* Mobile */
+@media (max-width: 600px) {
+  #klaro .cookie-notice { padding: 16px 18px 20px; }
+  #klaro .cookie-notice .cn-buttons { flex-direction: column; }
+  #klaro .cm-btn,
+  #klaro .cn-buttons button { width: 100%; padding: 12px 18px; }
+}
