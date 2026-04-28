@@ -34,13 +34,15 @@
  *  clear contrast / interaction.
  * ───────────────────────────────────────────────────────────────────────── */
 #klaro .cookie-notice {
-  background: transparent !important;                  /* fully see-through */
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
+  /* Slightly-frosted neutral glass — no colour tint. Lets the hero
+   * photo shimmer through while keeping text readable.            */
+  background: rgba(255, 255, 255, 0.55) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(140%);
   color: #1d1a17 !important;
-  border-top: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 0;
-  box-shadow: none;
+  box-shadow: 0 -4px 16px rgba(29, 26, 23, 0.04);
   font-size: 12.5px;
   line-height: 1.35;
   max-width: none;
@@ -52,21 +54,21 @@
   z-index: 100000 !important;
 }
 
-/* Description text needs a subtle pill behind it so it stays legible against
- * a busy hero photo.  The visual weight is on the buttons, not the strip. */
+/* Reset: the text pill from the previous "fully clear" version is no
+ * longer needed — the frosted strip itself handles legibility. */
 #klaro .cookie-notice .cn-body p {
-  background: rgba(247, 241, 225, 0.78);
-  -webkit-backdrop-filter: blur(10px) saturate(150%);
-  backdrop-filter: blur(10px) saturate(150%);
-  border-radius: 999px;
-  padding: 6px 14px;
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-radius: 0;
+  padding: 0;
 }
 
-/* Browsers without backdrop-filter support fall back to slightly more
- * opaque cream on the text pill so the text stays readable. */
+/* Browsers without backdrop-filter (older Edge, Firefox before 103) fall
+ * back to a more solid translucent white so the text stays readable. */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  #klaro .cookie-notice .cn-body p {
-    background: rgba(247, 241, 225, 0.94);
+  #klaro .cookie-notice {
+    background: rgba(255, 255, 255, 0.92) !important;
   }
 }
 
@@ -213,12 +215,13 @@
  *  Dark-mode brand support — also frosted, but dark
  * ───────────────────────────────────────────────────────────────────────── */
 html[data-theme="dark"] #klaro .cookie-notice {
-  background: transparent !important;
+  /* Slightly-frosted neutral dark glass — no champagne / cream tint. */
+  background: rgba(20, 20, 20, 0.55) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   color: #eadfcb !important;
-  border-top: none;
 }
 html[data-theme="dark"] #klaro .cookie-notice .cn-body p {
-  background: rgba(29, 26, 23, 0.72);
+  background: transparent;
   color: #eadfcb !important;
 }
 html[data-theme="dark"] #klaro .cookie-modal .cm-modal {
@@ -227,8 +230,8 @@ html[data-theme="dark"] #klaro .cookie-modal .cm-modal {
   border-color: #2c2723;
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  html[data-theme="dark"] #klaro .cookie-notice .cn-body p {
-    background: rgba(29, 26, 23, 0.94);
+  html[data-theme="dark"] #klaro .cookie-notice {
+    background: rgba(20, 20, 20, 0.92) !important;
   }
 }
 html[data-theme="dark"] #klaro .cookie-notice .cn-body p,
