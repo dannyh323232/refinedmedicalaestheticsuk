@@ -34,13 +34,13 @@
  *  clear contrast / interaction.
  * ───────────────────────────────────────────────────────────────────────── */
 #klaro .cookie-notice {
-  background: rgba(247, 241, 225, 0.72) !important;     /* cream @ 72% */
-  -webkit-backdrop-filter: blur(14px) saturate(150%);
-  backdrop-filter: blur(14px) saturate(150%);
+  background: transparent !important;                  /* fully see-through */
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   color: #1d1a17 !important;
-  border-top: 1px solid rgba(232, 225, 199, 0.65);
+  border-top: none;
   border-radius: 0;
-  box-shadow: 0 -4px 16px rgba(29, 26, 23, 0.04);
+  box-shadow: none;
   font-size: 12.5px;
   line-height: 1.35;
   max-width: none;
@@ -48,15 +48,25 @@
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 8px 16px;
+  padding: 10px 16px;
   z-index: 100000 !important;
 }
 
-/* Browsers without backdrop-filter support fall back to a slightly more
- * opaque cream so the text stays readable. */
+/* Description text needs a subtle pill behind it so it stays legible against
+ * a busy hero photo.  The visual weight is on the buttons, not the strip. */
+#klaro .cookie-notice .cn-body p {
+  background: rgba(247, 241, 225, 0.78);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  backdrop-filter: blur(10px) saturate(150%);
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+
+/* Browsers without backdrop-filter support fall back to slightly more
+ * opaque cream on the text pill so the text stays readable. */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  #klaro .cookie-notice {
-    background: rgba(247, 241, 225, 0.92) !important;
+  #klaro .cookie-notice .cn-body p {
+    background: rgba(247, 241, 225, 0.94);
   }
 }
 
@@ -203,9 +213,13 @@
  *  Dark-mode brand support — also frosted, but dark
  * ───────────────────────────────────────────────────────────────────────── */
 html[data-theme="dark"] #klaro .cookie-notice {
-  background: rgba(29, 26, 23, 0.72) !important;
+  background: transparent !important;
   color: #eadfcb !important;
-  border-top-color: rgba(44, 39, 35, 0.7);
+  border-top: none;
+}
+html[data-theme="dark"] #klaro .cookie-notice .cn-body p {
+  background: rgba(29, 26, 23, 0.72);
+  color: #eadfcb !important;
 }
 html[data-theme="dark"] #klaro .cookie-modal .cm-modal {
   background: #1d1a17 !important;
@@ -213,8 +227,8 @@ html[data-theme="dark"] #klaro .cookie-modal .cm-modal {
   border-color: #2c2723;
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  html[data-theme="dark"] #klaro .cookie-notice {
-    background: rgba(29, 26, 23, 0.92) !important;
+  html[data-theme="dark"] #klaro .cookie-notice .cn-body p {
+    background: rgba(29, 26, 23, 0.94);
   }
 }
 html[data-theme="dark"] #klaro .cookie-notice .cn-body p,
