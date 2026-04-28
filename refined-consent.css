@@ -22,28 +22,42 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
- *  Bottom banner — minimal strip, single line on desktop
+ *  Bottom banner — frosted-glass strip, single line on desktop.
  *
  *  z-index: VIP popup overlay is 1000.  We sit ABOVE it so the banner is
  *  reachable on mobile (where the popup fills the screen and would
  *  otherwise hide the cookie notice entirely).  The cookie notice MUST be
  *  interactable before the rest of the site to satisfy UK GDPR / PECR.
+ *
+ *  Background is intentionally semi-transparent with a backdrop-blur so
+ *  the hero photo behind reads through.  The buttons stay solid for
+ *  clear contrast / interaction.
  * ───────────────────────────────────────────────────────────────────────── */
 #klaro .cookie-notice {
-  background: #f7f1e1 !important;
+  background: rgba(247, 241, 225, 0.72) !important;     /* cream @ 72% */
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  backdrop-filter: blur(14px) saturate(150%);
   color: #1d1a17 !important;
-  border-top: 1px solid #e8e1c7;
+  border-top: 1px solid rgba(232, 225, 199, 0.65);
   border-radius: 0;
-  box-shadow: 0 -4px 16px rgba(29, 26, 23, 0.06);
-  font-size: 13px;
-  line-height: 1.4;
+  box-shadow: 0 -4px 16px rgba(29, 26, 23, 0.04);
+  font-size: 12.5px;
+  line-height: 1.35;
   max-width: none;
   width: 100%;
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 10px 18px;
+  padding: 8px 16px;
   z-index: 100000 !important;
+}
+
+/* Browsers without backdrop-filter support fall back to a slightly more
+ * opaque cream so the text stays readable. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  #klaro .cookie-notice {
+    background: rgba(247, 241, 225, 0.92) !important;
+  }
 }
 
 /* Override Klaro's desktop "floating card in the right corner" so on big
@@ -186,13 +200,22 @@
 #klaro .cm-list-label .slider { background: #b8aa90; }
 
 /* ─────────────────────────────────────────────────────────────────────────
- *  Dark-mode brand support
+ *  Dark-mode brand support — also frosted, but dark
  * ───────────────────────────────────────────────────────────────────────── */
-html[data-theme="dark"] #klaro .cookie-notice,
+html[data-theme="dark"] #klaro .cookie-notice {
+  background: rgba(29, 26, 23, 0.72) !important;
+  color: #eadfcb !important;
+  border-top-color: rgba(44, 39, 35, 0.7);
+}
 html[data-theme="dark"] #klaro .cookie-modal .cm-modal {
   background: #1d1a17 !important;
   color: #eadfcb !important;
   border-color: #2c2723;
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  html[data-theme="dark"] #klaro .cookie-notice {
+    background: rgba(29, 26, 23, 0.92) !important;
+  }
 }
 html[data-theme="dark"] #klaro .cookie-notice .cn-body p,
 html[data-theme="dark"] #klaro .cookie-modal { color: #eadfcb; }
