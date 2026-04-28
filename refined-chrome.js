@@ -543,14 +543,33 @@
   // ---------- Auto-run ----------
   function boot() {
     mount();
-    // Show popup once per fresh session.
+    // Show popup once per fresh session, AFTER the cookie consent banner
+    // has been answered (Klaro sets its 'klaro' cookie on accept OR decline).
+    // This stops the VIP popup hiding the cookie banner on mobile.
     // Chatbase load is gated by Klaro functional consent — see refined-consent.js.
+    function klaroAnswered() {
+      try { return document.cookie.indexOf('klaro=') !== -1; } catch (e) { return false; }
+    }
+    function maybeOpen() {
+      try {
+        if (sessionStorage.getItem('popupClosedThisSession') === 'true') return;
+      } catch (e) {}
+      openPopup();
+    }
     try {
-      if (sessionStorage.getItem('popupClosedThisSession') !== 'true') {
-        setTimeout(openPopup, 900);
+      if (klaroAnswered()) {
+        setTimeout(maybeOpen, 900);
+      } else {
+        var poll = setInterval(function () {
+          if (klaroAnswered()) {
+            clearInterval(poll);
+            setTimeout(maybeOpen, 600);
+          }
+        }, 500);
+        setTimeout(function () { clearInterval(poll); }, 300000);
       }
     } catch (e) {
-      setTimeout(openPopup, 900);
+      setTimeout(maybeOpen, 900);
     }
   }
 

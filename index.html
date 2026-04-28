@@ -1727,14 +1727,33 @@
       });
     }
 
-    // Show popup once per fresh session.
+    // Show popup once per fresh session, AFTER the cookie consent banner
+    // has been answered (Klaro sets its 'klaro' cookie on accept OR decline).
+    // This stops the VIP popup hiding the cookie banner on mobile.
     // Chatbase load is gated by Klaro functional consent — see refined-consent.js.
+    function __klaroAnswered() {
+      try { return document.cookie.indexOf('klaro=') !== -1; } catch (e) { return false; }
+    }
+    function __maybeOpenPopup() {
+      try {
+        if (sessionStorage.getItem('popupClosedThisSession') === 'true') return;
+      } catch (e) {}
+      openPopup();
+    }
     try {
-      if (sessionStorage.getItem('popupClosedThisSession') !== 'true') {
-        setTimeout(function () { openPopup(); }, 900);
+      if (__klaroAnswered()) {
+        setTimeout(__maybeOpenPopup, 900);
+      } else {
+        var __popupPoll = setInterval(function () {
+          if (__klaroAnswered()) {
+            clearInterval(__popupPoll);
+            setTimeout(__maybeOpenPopup, 600);
+          }
+        }, 500);
+        setTimeout(function () { clearInterval(__popupPoll); }, 300000);
       }
     } catch (e) {
-      setTimeout(function () { openPopup(); }, 900);
+      setTimeout(__maybeOpenPopup, 900);
     }
   </script>
 
