@@ -249,23 +249,49 @@ html[data-theme="dark"] #klaro .cm-btn-info:hover { background: #eadfcb; color: 
  * ───────────────────────────────────────────────────────────────────────── */
 @media (max-width: 640px) {
   #klaro .cookie-notice {
-    padding: 12px 14px 14px;
-    font-size: 12.5px;
+    padding: 8px 12px 10px !important;
+    font-size: 12px;
+  }
+  #klaro .cookie-notice .cn-body {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
   }
   #klaro .cookie-notice .cn-body p {
-    font-size: 12.5px;
-    line-height: 1.4;
+    font-size: 12px;
+    line-height: 1.35;
     min-width: 0;
-    flex: 1 1 100%;
+    flex: 0 0 auto;
+    margin: 0;
+    text-align: center;
   }
-  #klaro .cookie-notice .cn-buttons {
-    width: 100%;
-    flex-wrap: wrap;
+  /* Hide the "Manage preferences" link on small mobile — saves vertical
+   * space and keeps the strip to two clear actions (Decline / Accept).
+   * Visitors can still reach preferences from the privacy / cookie pages. */
+  #klaro .cookie-notice .cm-btn-learn-more,
+  #klaro .cookie-notice .cm-btn-info:not(.cm-btn-decline):not(.cm-btn-accept):not(.cm-btn-success),
+  #klaro .cookie-notice a[onclick*="show"] {
+    display: none !important;
   }
-  #klaro .cm-btn,
-  #klaro .cn-buttons button {
-    flex: 1 1 calc(50% - 4px);
-    padding: 10px 14px;
-    font-size: 12.5px;
+  /* Force buttons inline, two columns, 50/50 split */
+  #klaro .cookie-notice .cn-buttons,
+  #klaro .cookie-notice .cn-ok {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  #klaro .cookie-notice .cn-buttons .cm-btn,
+  #klaro .cookie-notice .cn-buttons button,
+  #klaro .cookie-notice .cn-ok button {
+    flex: 1 1 50% !important;
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 9px 8px !important;
+    font-size: 12.5px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
   }
 }
