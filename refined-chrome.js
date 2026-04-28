@@ -492,7 +492,7 @@
     if (!popup) return;
     popup.classList.add('hidden');
     try { sessionStorage.setItem('popupClosedThisSession', 'true'); } catch (e) {}
-    loadChatbaseWidget();
+    // Chatbase load now gated by Klaro functional consent — see refined-consent.js
   }
   function submitPopupLead() {
     var emailInput = document.getElementById('popupEmail');
@@ -543,11 +543,11 @@
   // ---------- Auto-run ----------
   function boot() {
     mount();
+    // Show popup once per fresh session.
+    // Chatbase load is gated by Klaro functional consent — see refined-consent.js.
     try {
       if (sessionStorage.getItem('popupClosedThisSession') !== 'true') {
         setTimeout(openPopup, 900);
-      } else {
-        loadChatbaseWidget();
       }
     } catch (e) {
       setTimeout(openPopup, 900);

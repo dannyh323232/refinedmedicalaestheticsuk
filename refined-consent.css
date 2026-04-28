@@ -3,10 +3,10 @@
  *  Brand styling override for Klaro consent banner.
  *  Loads AFTER /klaro.css to override the default styling.
  *
- *  Goal: match the Refined cream + champagne + ink palette from refined.css.
- *  Loaded by refined-consent.js — no change needed if Klaro is upgraded.
+ *  Goal: match the Refined cream + champagne + ink palette,
+ *  and keep the bottom notice as small / unobtrusive as possible.
  *
- *  Last updated: 2026-04-27
+ *  Last updated: 2026-04-28
  * ═══════════════════════════════════════════════════════════════════════════ */
 
 #klaro {
@@ -21,66 +21,107 @@
   --klaro-color-border: #e8e1c7;              /* champagne */
 }
 
-/* ───── Bottom banner ───── */
+/* ─────────────────────────────────────────────────────────────────────────
+ *  Bottom banner — minimal strip, single line on desktop
+ * ───────────────────────────────────────────────────────────────────────── */
 #klaro .cookie-notice {
   background: #f7f1e1 !important;
   color: #1d1a17 !important;
   border-top: 1px solid #e8e1c7;
   border-radius: 0;
   box-shadow: 0 -4px 16px rgba(29, 26, 23, 0.06);
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 13px;
+  line-height: 1.4;
   max-width: none;
   width: 100%;
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 20px 24px;
+  padding: 10px 18px;
+}
+
+/* Inline layout: text + buttons on a single row on wide screens. */
+#klaro .cookie-notice .cn-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
 }
 
 #klaro .cookie-notice .cn-body p {
-  margin: 0 0 12px;
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 240px;
   color: #1d1a17;
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+#klaro .cookie-notice .cn-body h2,
+#klaro .cookie-notice .cn-body p:empty {
+  display: none;
 }
 
 #klaro .cookie-notice .cn-body p a,
 #klaro .cookie-modal a {
   color: #1d1a17;
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 2px;
 }
 
-/* ───── Buttons ───── */
-#klaro .cookie-notice .cn-buttons,
-#klaro .cookie-modal .cm-btn-group {
+/* ─────────────────────────────────────────────────────────────────────────
+ *  Buttons — compact, inline.  HIDE the "Save choices" button on the
+ *  notice (we want a clean two-button UX: Decline All + Accept All).
+ *  The Save button stays visible inside the preferences modal.
+ * ───────────────────────────────────────────────────────────────────────── */
+#klaro .cookie-notice .cn-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 8px;
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+  flex: 0 0 auto;
 }
 
 #klaro .cm-btn,
 #klaro .cn-buttons button {
   font: inherit;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
-  padding: 10px 18px;
+  padding: 8px 16px;
   border-radius: 4px;
   border: 1px solid #1d1a17;
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
 }
 
+/* Save / "Save choices" / "OK" buttons inside the BOTTOM NOTICE only — hidden.
+ * (Keep them visible inside the full preferences modal.) */
+#klaro .cookie-notice .cm-btn-success-modify,
+#klaro .cookie-notice .cm-btn-success-no-toggle,
+#klaro .cookie-notice .cm-btn-success.cm-btn-modify,
+#klaro .cookie-notice button.cm-btn[class*="modify"]:not(.cm-btn-accept),
+#klaro .cookie-notice button.cm-btn[class*="no-toggle"]:not(.cm-btn-accept) {
+  display: none !important;
+}
+
+/* Accept all button (positive action — solid ink on cream) */
 #klaro .cm-btn-success,
+#klaro .cm-btn-accept-all,
+#klaro .cm-btn-accept,
 #klaro .cn-buttons button.cm-btn-success {
   background: #1d1a17;
   color: #f7f1e1;
   border-color: #1d1a17;
 }
-#klaro .cm-btn-success:hover { background: #2c2723; border-color: #2c2723; }
+#klaro .cm-btn-success:hover,
+#klaro .cm-btn-accept-all:hover,
+#klaro .cm-btn-accept:hover { background: #2c2723; border-color: #2c2723; }
 
+/* Decline all + Manage (info) — outline */
 #klaro .cm-btn-decline,
 #klaro .cn-buttons button.cm-btn-decline,
 #klaro .cm-btn-info,
@@ -91,10 +132,9 @@
 #klaro .cm-btn-decline:hover,
 #klaro .cm-btn-info:hover { background: #1d1a17; color: #f7f1e1; }
 
-#klaro .cm-btn-accept-all { background: #1d1a17; color: #f7f1e1; border-color: #1d1a17; }
-#klaro .cm-btn-accept-all:hover { background: #2c2723; }
-
-/* ───── Modal (preferences) ───── */
+/* ─────────────────────────────────────────────────────────────────────────
+ *  Modal — preferences view (full info, all toggles)
+ * ───────────────────────────────────────────────────────────────────────── */
 #klaro .cookie-modal {
   background: rgba(29, 26, 23, 0.55);
   z-index: 99999;
@@ -122,11 +162,13 @@
 #klaro .cookie-modal .cm-services .cm-service .cm-list-title { font-weight: 500; color: #1d1a17; }
 #klaro .cookie-modal .cm-services .cm-service .cm-list-description { color: #6b6258; font-size: 13px; }
 
-/* ───── Toggle switches ───── */
+/* Toggle switches inside the modal */
 #klaro .cm-list-input:checked + .cm-list-label .slider { background: #1d1a17; }
 #klaro .cm-list-label .slider { background: #b8aa90; }
 
-/* Dark-mode brand support */
+/* ─────────────────────────────────────────────────────────────────────────
+ *  Dark-mode brand support
+ * ───────────────────────────────────────────────────────────────────────── */
 html[data-theme="dark"] #klaro .cookie-notice,
 html[data-theme="dark"] #klaro .cookie-modal .cm-modal {
   background: #1d1a17 !important;
@@ -135,16 +177,36 @@ html[data-theme="dark"] #klaro .cookie-modal .cm-modal {
 }
 html[data-theme="dark"] #klaro .cookie-notice .cn-body p,
 html[data-theme="dark"] #klaro .cookie-modal { color: #eadfcb; }
-html[data-theme="dark"] #klaro .cm-btn-success { background: #eadfcb; color: #1d1a17; border-color: #eadfcb; }
+html[data-theme="dark"] #klaro .cm-btn-success,
+html[data-theme="dark"] #klaro .cm-btn-accept-all,
+html[data-theme="dark"] #klaro .cm-btn-accept { background: #eadfcb; color: #1d1a17; border-color: #eadfcb; }
 html[data-theme="dark"] #klaro .cm-btn-decline,
 html[data-theme="dark"] #klaro .cm-btn-info { color: #eadfcb; border-color: #eadfcb; }
 html[data-theme="dark"] #klaro .cm-btn-decline:hover,
 html[data-theme="dark"] #klaro .cm-btn-info:hover { background: #eadfcb; color: #1d1a17; }
 
-/* Mobile */
-@media (max-width: 600px) {
-  #klaro .cookie-notice { padding: 16px 18px 20px; }
-  #klaro .cookie-notice .cn-buttons { flex-direction: column; }
+/* ─────────────────────────────────────────────────────────────────────────
+ *  Mobile — stack vertically, full-width buttons, still compact
+ * ───────────────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  #klaro .cookie-notice {
+    padding: 12px 14px 14px;
+    font-size: 12.5px;
+  }
+  #klaro .cookie-notice .cn-body p {
+    font-size: 12.5px;
+    line-height: 1.4;
+    min-width: 0;
+    flex: 1 1 100%;
+  }
+  #klaro .cookie-notice .cn-buttons {
+    width: 100%;
+    flex-wrap: wrap;
+  }
   #klaro .cm-btn,
-  #klaro .cn-buttons button { width: 100%; padding: 12px 18px; }
+  #klaro .cn-buttons button {
+    flex: 1 1 calc(50% - 4px);
+    padding: 10px 14px;
+    font-size: 12.5px;
+  }
 }

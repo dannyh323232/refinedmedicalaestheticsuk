@@ -1667,7 +1667,7 @@
       if (!popup) return;
       popup.classList.add('hidden');
       try { sessionStorage.setItem('popupClosedThisSession', 'true'); } catch(e) {}
-      loadChatbaseWidget();
+      // Chatbase load now gated by Klaro functional consent — see refined-consent.js
     }
     function submitPopupLead() {
       var emailInput = document.getElementById('popupEmail');
@@ -1727,12 +1727,11 @@
       });
     }
 
-    // Show popup once per fresh session; otherwise prewarm chatbase
+    // Show popup once per fresh session.
+    // Chatbase load is gated by Klaro functional consent — see refined-consent.js.
     try {
       if (sessionStorage.getItem('popupClosedThisSession') !== 'true') {
         setTimeout(function () { openPopup(); }, 900);
-      } else {
-        loadChatbaseWidget();
       }
     } catch (e) {
       setTimeout(function () { openPopup(); }, 900);

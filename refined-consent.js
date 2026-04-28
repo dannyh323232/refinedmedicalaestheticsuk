@@ -67,10 +67,10 @@
     translations: {
       'en-GB': {
         consentNotice: {
-          title: 'We use cookies',
-          description: 'We use cookies and similar technologies to make this site work, to understand how it\'s used, and (with your consent) to show you relevant adverts on Facebook, Instagram and Google. Read our {privacyPolicy} or open {purposes} to choose what to allow.',
-          changeDescription: 'Things have changed since you were last here — please review your choices.',
-          learnMore: 'Manage preferences',
+          title: '',
+          description: 'We use cookies for analytics and ads. {privacyPolicy}.',
+          changeDescription: 'Choices changed — please review.',
+          learnMore: 'Manage',
           imprint: { name: 'Imprint' },
         },
         consentModal: {
