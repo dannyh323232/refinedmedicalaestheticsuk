@@ -88,8 +88,8 @@
         acceptAll: 'Accept all',
         acceptSelected: 'Save choices',
         decline: 'Decline all',
-        ok: 'Save choices',
-        save: 'Save choices',
+        ok: 'Accept all',
+        save: 'Accept all',
         close: 'Close',
         poweredBy: '',
         service: {
